@@ -19,9 +19,6 @@ public class Door : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-
-
-
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
