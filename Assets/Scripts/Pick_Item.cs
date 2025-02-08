@@ -19,8 +19,7 @@ public class Pick_Item : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Collider.enabled = false;
-            dialogueManager.StartDialog(); // Запускаем диалог при входе в триггер
-            Inventory.Instance.AddItem(itemID);
+            dialogueManager.StartDialog();
             Inventory.Instance.AddItem(itemID);
             Destroy(gameObject);
         }

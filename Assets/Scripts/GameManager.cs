@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
-    // Пример объекта, который мы будем сохранять
     public GameObject player;
 
     void Awake()
