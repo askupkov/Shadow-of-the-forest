@@ -79,9 +79,8 @@ public class Inventory : MonoBehaviour
                     case 1: // Еда
                         UseFood(items[i]);
                         break;
-                    case 3: // Меч
+                    case 3:
                         Healthbar.Instance.TakeDamage(20);
-                        //UseWeapon(items[i]);
                         break;
                     default:
                         Debug.Log("Неизвестный предмет");
