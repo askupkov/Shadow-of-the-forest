@@ -430,7 +430,7 @@ MonoBehaviour:
     img: {fileID: 21300000, guid: 798e56cea5af1b448829c62004782932, type: 3}
   - id: 3
     name: dool
-    img: {fileID: 21300000, guid: d507ed09243c06b4e83b8b6bb0755f24, type: 3}
+    img: {fileID: 21300000, guid: 044a81a19f29f8744a84860cad8128bb, type: 3}
   - id: 4
     name: Sword
     img: {fileID: 131449278, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

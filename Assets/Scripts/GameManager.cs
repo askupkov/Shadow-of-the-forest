@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance { get; private set; }
-
-    public GameObject player;
 
     void Awake()
     {
+        PlayerPrefs.DeleteAll();
         if (Instance == null)
         {
             Instance = this;

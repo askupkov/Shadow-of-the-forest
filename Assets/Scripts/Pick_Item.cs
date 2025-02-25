@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Pick_Item : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Pick_Item : MonoBehaviour
     public DialogueManager dialogueManager;
     private BoxCollider2D Collider;
     public int itemID;
+    public GameObject item;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class Pick_Item : MonoBehaviour
             Collider.enabled = false;
             dialogueManager.StartDialog();
             Inventory.Instance.AddItem(itemID);
-            Destroy(gameObject);
+            item.GetComponent<ItemStateManager>().PickUpItem();
         }
     }
 
