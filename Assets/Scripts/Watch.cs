@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Watch : MonoBehaviour
 {
+    public TextAsset dialogueJSON;
     private bool playerInRange = false;
     public DialogueManager dialogueManager;
     private BoxCollider2D Collider;
@@ -18,7 +19,7 @@ public class Watch : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            dialogueManager.StartDialog(); // Запускаем диалог при входе в триггер
+            dialogueManager.LoadDialogueFromJSON(dialogueJSON);
 
         }
         if (dialogueManager.dialogPanelOpen == true)
