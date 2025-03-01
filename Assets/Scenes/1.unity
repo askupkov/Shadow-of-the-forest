@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e185c2fce6714324ea0279153a857ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueJSON: {fileID: 4900000, guid: 221a4d207d8ac304c83026f0cd9edfed, type: 3}
-  dialogueManager: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
+  startingPoint: window
 --- !u!1001 &207100816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,11 +284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -531,7 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869e24a20f832a54a998b541e42c708f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueJSON: {fileID: 4900000, guid: 519d4438d67ab934998ce4d075c73550, type: 3}
+  inkJSON: {fileID: 0}
+  startingPoint: 
   itemID: 4
   item: {fileID: 662670149}
 --- !u!212 &662670152
@@ -1130,7 +1131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869e24a20f832a54a998b541e42c708f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueJSON: {fileID: 4900000, guid: 519d4438d67ab934998ce4d075c73550, type: 3}
+  inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
+  startingPoint: doll
   itemID: 3
   item: {fileID: 1148467356}
 --- !u!114 &1148467362

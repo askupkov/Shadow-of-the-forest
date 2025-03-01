@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Watch : MonoBehaviour
 {
-    public TextAsset dialogueJSON;
+    public TextAsset inkJSON;
+    public string startingPoint;
     private bool playerInRange = false;
-    public DialogueManager dialogueManager;
+    private DialogueManager dialogueManager;
     private BoxCollider2D Collider;
 
-    
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
@@ -19,7 +19,7 @@ public class Watch : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            dialogueManager.LoadDialogueFromJSON(dialogueJSON);
+            dialogueManager.StartDialog(inkJSON, startingPoint);
 
         }
         if (dialogueManager.dialogPanelOpen == true)

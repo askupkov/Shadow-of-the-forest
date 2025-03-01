@@ -5,7 +5,8 @@ using static UnityEditor.Progress;
 
 public class Pick_Item : MonoBehaviour
 {
-    public TextAsset dialogueJSON;
+    public TextAsset inkJSON;
+    public string startingPoint;
     private bool playerInRange = false;
     private DialogueManager dialogueManager;
     private BoxCollider2D Collider;
@@ -22,7 +23,7 @@ public class Pick_Item : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Collider.enabled = false;
-            dialogueManager.LoadDialogueFromJSON(dialogueJSON);
+            dialogueManager.StartDialog(inkJSON, startingPoint);
             Inventory.Instance.AddItem(itemID);
             item.GetComponent<ItemStateManager>().PickUpItem();
         }
