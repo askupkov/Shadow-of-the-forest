@@ -35,14 +35,6 @@ public class Inventory : MonoBehaviour
         {
             AddGraphics();
         }
-
-        //тест
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
-        AddItem(2);
-        AddItem(3);
-        AddItem(1);
     }
 
     private void Update()

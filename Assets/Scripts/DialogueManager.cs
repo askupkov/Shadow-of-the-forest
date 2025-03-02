@@ -10,15 +10,14 @@ using UnityEditor.Rendering;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject dialogPanel; // Панель диалога
-    public GameObject Panel1; // Панель диалога
-    public GameObject Panel2; // Панель диалога
+    public GameObject Panel1;
+    public GameObject Panel2;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText; // Текст диалога
     public Image characterImage; // Изображение персонажа
 
     private string[] lines = { };
     private string characterName;
-    private Sprite currentCharacterSprite; // Текущее изображение персонажа
     private Dictionary<string, Sprite> characterSprites = new Dictionary<string, Sprite>(); // Словарь изображений персонажей
 
 
@@ -62,44 +61,13 @@ public class DialogueManager : MonoBehaviour
         GameInput.Instance.OnDisable();
         dialogPanelOpen = true;
         dialogPanel.SetActive(true);
-        dialogText.text = "";
-        nameText.text = "";
         List<string> dialogLines = new List<string>();
         while (currentStory.canContinue)
         {
             string output = currentStory.Continue();
             if (!string.IsNullOrEmpty(output))
             {
-                if (output.StartsWith("speaker:"))
-                {
-                    // Извлекаем имя персонажа
-                    string[] parts = output.Split(new[] { ':' }, 2); // Разделяем строку по символу "\n"
-                    characterName = parts[1].Substring(1).Trim();
-                    // Устанавливаем изображение персонажа
-                    if (characterSprites.ContainsKey(characterName))
-                    {
-                        currentCharacterSprite = characterSprites[characterName];
-                    }
-                }
-                else
-                {
-                    dialogLines.Add(output);
-                }
-                if(characterName == "Святослав")
-                {
-                    Panel1.SetActive(true);
-                    Panel2.SetActive(false);
-                    dialogText = Panel1.GetComponentInChildren<TextMeshProUGUI>(true);
-                    nameText = Panel1.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-                }
-                else
-                {
-                    Panel1.SetActive(false);
-                    Panel2.SetActive(true);
-                    dialogText = Panel2.GetComponentInChildren<TextMeshProUGUI>(true);
-                    nameText = Panel2.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-                    characterImage.sprite = currentCharacterSprite;
-                }
+                dialogLines.Add(output);
             }
         }
         lines = dialogLines.ToArray();
@@ -109,6 +77,18 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeLine()
     {
         isTyping = true;
+        string speakerName = GetSpeakerNameFromLine(lines[index]);
+
+        if (string.IsNullOrEmpty(speakerName))
+        {
+            speakerName = characterName; // Если имя не указано, используем предыдущее имя
+        }
+        else
+        {
+            characterName = speakerName; // Обновляем имя персонажа
+        }
+
+        UpdateDialogPanel(characterName);
         dialogText.text = ""; // Очищаем текст перед началом печати
         nameText.text = characterName;
 
@@ -121,6 +101,52 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(randomDelay);
         }
         isTyping = false;
+    }
+
+    private string GetSpeakerNameFromLine(string line)
+    {
+        if (line.StartsWith("speaker:"))
+        {
+            index++;
+            string[] parts = line.Split(new[] { ':' }, 2); // Разделяем строку по символу ":"
+            if (parts.Length >= 2)
+            {
+                return parts[1].Substring(1).Trim(); // Извлекаем имя после "speaker:"
+            }   
+        }
+        return null; // Если имя не указано, возвращаем null
+    }
+
+    private void UpdateDialogPanel(string speakerName)
+    {
+        // Деактивируем все панели диалога
+        Panel1.SetActive(false);
+        Panel2.SetActive(false);
+
+        // Активируем нужную панель в зависимости от персонажа
+        if (speakerName == "Святослав")
+        {
+            Panel1.SetActive(true);
+            dialogText = Panel1.GetComponentInChildren<TextMeshProUGUI>(true); // Обновляем ссылку на dialogText
+            nameText = Panel1.transform.Find("Name").GetComponent<TextMeshProUGUI>(); // Обновляем ссылку на nameText
+        }
+        else
+        {
+            Panel2.SetActive(true);
+            dialogText = Panel2.GetComponentInChildren<TextMeshProUGUI>(true); // Обновляем ссылку на dialogText
+            nameText = Panel2.transform.Find("Name").GetComponent<TextMeshProUGUI>(); // Обновляем ссылку на nameText
+        }
+
+        // Устанавливаем изображение персонажа
+        if (characterSprites.ContainsKey(speakerName) && characterImage != null)
+        {
+            characterImage.sprite = characterSprites[speakerName];
+            characterImage.enabled = true; // Включаем отображение изображения
+        }
+        else if (characterImage != null)
+        {
+            characterImage.enabled = false; // Отключаем изображение, если оно не найдено
+        }
     }
 
     public void SkipTextClick()
@@ -136,7 +162,6 @@ public class DialogueManager : MonoBehaviour
             NextLines(); // Переходим к следующей строке
         }
     }
-
 
     private void NextLines()
     {
