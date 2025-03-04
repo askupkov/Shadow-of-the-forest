@@ -14,13 +14,13 @@ using System.ComponentModel;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
-
     public DataBaseInventory data; // Ссылка на базу данных инвентаря
     public List<ItemInventory> items = new List<ItemInventory>(); // Список предметов в инвентаре
     public GameObject gameObjShow; // Префаб для отображения предмета в инвентаре
     public GameObject InventoryMainObject; // Основной объект инвентаря в сцене
     public int maxCount; // Максимальное количество предметов в инвентаре
     public GameObject backGround; // Фон инвентаря
+    public bool InventoryOpen = false;
 
     private void Awake()
     {
@@ -39,16 +39,18 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && DialogueManager.Instance.dialogPanelOpen == false)
         {
             backGround.SetActive(!backGround.activeSelf);
             GameInput.Instance.OnEnabled();
             Item_script.Instance.CloseMenu();
+            InventoryOpen = false;
 
             if (backGround.activeSelf)
             {
                 UpdateInventory(); // Обновляем инвентарь, если он открыт
                 GameInput.Instance.OnDisable();
+                InventoryOpen = true;
             }
         }
 
@@ -57,6 +59,7 @@ public class Inventory : MonoBehaviour
             Item_script.Instance.CloseMenu();
             backGround.SetActive(false);
             GameInput.Instance.OnEnabled();
+            InventoryOpen = false;
         }
     }
 
@@ -88,6 +91,7 @@ public class Inventory : MonoBehaviour
     private void UseFood(ItemInventory item)
     {
         Debug.Log("Использована еда");
+
         // Логика использования еды (например, восстановление здоровья)
         item.count--;
         Healthbar.Instance.Heal(20);
@@ -115,12 +119,16 @@ public class Inventory : MonoBehaviour
         // Если предмета нет, ищем первую свободную ячейку
         for (int i = 0; i < items.Count; i++)
         {
+            Item itemData = data.items.Find(item => item.id == itemId);
+            items[i].name = itemData.name;
             if (items[i].id == 0) // Если ячейка пуста
             {
                 items[i].id = itemId; // Устанавливаем ID предмета
                 items[i].count = 1; // Устанавливаем количество 1
                 Item_script itemScript = items[i].itemGameObj.GetComponent<Item_script>();
                 itemScript.Initialize(itemId); // Передаем ID в скрипт
+                itemScript.InitializeName(itemData.name);
+
                 return; // Выходим из метода
             }
         }
@@ -163,6 +171,7 @@ public class Inventory : MonoBehaviour
 public class ItemInventory
 {
     public int id; // ID предмета
+    public string name;
     public GameObject itemGameObj;
     public int count; // Количество предметов
 

@@ -9,6 +9,7 @@ using UnityEditor.Rendering;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance { get; private set; }
     public GameObject dialogPanel; // Панель диалога
     public GameObject Panel1;
     public GameObject Panel2;
@@ -28,6 +29,10 @@ public class DialogueManager : MonoBehaviour
     public bool dialogPanelOpen = false;
     private bool isTyping = false; // Флаг, указывающий, печатается ли текст
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -55,23 +60,26 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialog(TextAsset inkJSON, string startingPoint)
     {
-        currentStory = new Story(inkJSON.text);
-        currentStory.ChoosePathString(startingPoint);
-        index = 0;
-        GameInput.Instance.OnDisable();
-        dialogPanelOpen = true;
-        dialogPanel.SetActive(true);
-        List<string> dialogLines = new List<string>();
-        while (currentStory.canContinue)
+        if (Inventory.Instance.InventoryOpen == false)
         {
-            string output = currentStory.Continue();
-            if (!string.IsNullOrEmpty(output))
+            currentStory = new Story(inkJSON.text);
+            currentStory.ChoosePathString(startingPoint);
+            index = 0;
+            GameInput.Instance.OnDisable();
+            dialogPanelOpen = true;
+            dialogPanel.SetActive(true);
+            List<string> dialogLines = new List<string>();
+            while (currentStory.canContinue)
             {
-                dialogLines.Add(output);
+                string output = currentStory.Continue();
+                if (!string.IsNullOrEmpty(output))
+                {
+                    dialogLines.Add(output);
+                }
             }
+            lines = dialogLines.ToArray();
+            StartCoroutine(TypeLine());
         }
-        lines = dialogLines.ToArray();
-        StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
@@ -175,6 +183,7 @@ public class DialogueManager : MonoBehaviour
             dialogPanel.SetActive(false); // Закрываем панель, если строки закончились
             dialogPanelOpen = false;
             GameInput.Instance.OnEnabled(); // Включаем управление
+            InspectItem.Instance.HideItem();
         }
     }
 }

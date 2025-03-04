@@ -9,7 +9,9 @@ using static UnityEditor.Progress;
 public class Item_script : MonoBehaviour
 {
     public static Item_script Instance { get; private set; }
+    public TextAsset inkJSON;
     public int itemID;
+    public string itemName;
     public Canvas interactionButtons;
     private static Item_script currentActiveItem;
     
@@ -36,11 +38,20 @@ public class Item_script : MonoBehaviour
     public void InspectItem()
     {
         Item_script.Instance.CloseMenu();
+        Item_script.Instance.CloseMenu();
+        Inventory.Instance.backGround.SetActive(false);
+        Inventory.Instance.InventoryOpen = false;
+        DialogueManager.Instance.StartDialog(inkJSON, itemName);
     }
 
     public void Initialize(int id)
     {
         itemID = id;
+    }
+
+    public void InitializeName(string name)
+    {
+        itemName = name;
     }
 
     private void ShowActionMenu(bool show)

@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f44906d97cabbb40ae7dc0230cf837e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
   itemID: 0
   interactionButtons: {fileID: 5915612416342046784}
 --- !u!1 &5242211816781363073

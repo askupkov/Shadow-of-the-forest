@@ -8,22 +8,23 @@ public class Pick_Item : MonoBehaviour
     public TextAsset inkJSON;
     public string startingPoint;
     private bool playerInRange = false;
-    private DialogueManager dialogueManager;
     private BoxCollider2D Collider;
     public int itemID;
     public GameObject item;
+    public Sprite itemImage;
 
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
     }
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
+
             Collider.enabled = false;
-            dialogueManager.StartDialog(inkJSON, startingPoint);
+            DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
+            InspectItem.Instance.ShowItem(itemImage);
             Inventory.Instance.AddItem(itemID);
             item.GetComponent<ItemStateManager>().PickUpItem();
         }

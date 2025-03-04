@@ -974,6 +974,7 @@ MonoBehaviour:
   startingPoint: doll
   itemID: 1
   item: {fileID: 1148467356}
+  itemImage: {fileID: 21300000, guid: c4fcffac93fe67e448a682c6362fe5a5, type: 3}
 --- !u!114 &1148467362
 MonoBehaviour:
   m_ObjectHideFlags: 0

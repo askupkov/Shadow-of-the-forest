@@ -7,22 +7,20 @@ public class Watch : MonoBehaviour
     public TextAsset inkJSON;
     public string startingPoint;
     private bool playerInRange = false;
-    private DialogueManager dialogueManager;
     private BoxCollider2D Collider;
 
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
     }
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            dialogueManager.StartDialog(inkJSON, startingPoint);
+            DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
 
         }
-        if (dialogueManager.dialogPanelOpen == true)
+        if (DialogueManager.Instance.dialogPanelOpen == true)
         {
             Collider.enabled = false;
         }
