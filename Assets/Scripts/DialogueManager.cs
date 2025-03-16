@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
 
     private int index; // Индекс текущей строки
-    private float speedText = 0.06f; // Скорость вывода текста
+    private float speedText = 0.04f; // Скорость вывода текста
 
     private Story currentStory;
     public bool dialogPanelOpen = false;
