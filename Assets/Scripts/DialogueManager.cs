@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         dialogPanel.SetActive(false); // Скрываем панель в начале
         characterSprites.Add("Святослав", Resources.Load<Sprite>("Characters/Svyatoslav"));
         characterSprites.Add("Стражник", Resources.Load<Sprite>("Characters/Guard"));
+        characterSprites.Add("Старушка", Resources.Load<Sprite>("Characters/Starushka"));
 
         // Проверяем, что все спрайты загружены
         foreach (var kvp in characterSprites)
