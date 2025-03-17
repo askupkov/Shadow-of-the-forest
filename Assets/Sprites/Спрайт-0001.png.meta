@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6157072d7b87eee47b8c86da6f0f7310
+guid: f9f0ecb5a6e28bb4facef934b8899d1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,169 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_front_0
+      name: photo_2025-01-08_22-03-02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 170
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52b1f221fc6c19a4cb62be3a18e73fae
-      internalID: 1736403939
+      spriteID: 07e661ee5a96518448fe567c7fbb5ac5
+      internalID: -1143877018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_1
+      name: photo_2025-01-08_22-03-02_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 170
         y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 170
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a259948e369854388a07e099ee4c5b
-      internalID: -401132140
+      spriteID: 374e6af2ac3053041bcc37735f2ae4a3
+      internalID: -662328099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_2
+      name: photo_2025-01-08_22-03-02_2
       rect:
         serializedVersion: 2
-        x: 30
+        x: 340
         y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 170
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a2dc1425caf604c8681f30d6998824
-      internalID: 1522897548
+      spriteID: c5f9060b21183644c964aa0a2fef01a7
+      internalID: -421812480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_3
+      name: photo_2025-01-08_22-03-02_3
       rect:
         serializedVersion: 2
-        x: 45
+        x: 510
         y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 170
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5f18852002dac5449ea99a8759da1f7
-      internalID: 70015109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_4
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ebcce45a416fc3458be47ee439725a6
-      internalID: 543301061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_5
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74f1b4ecab71836479f0e8500a4f2ebb
-      internalID: -1760762542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_6
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0562e2425e48c754ea4a13e0c7d5e57e
-      internalID: -154494673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_7
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d41c7bdff17dbb342bee1804a373634a
-      internalID: -548738074
+      spriteID: f163ce408b534be49b0c513e6263b43f
+      internalID: -834992456
       vertices: []
       indices: 
       edges: []
@@ -275,14 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run_front_0: 1736403939
-      run_front_1: -401132140
-      run_front_2: 1522897548
-      run_front_3: 70015109
-      run_front_4: 543301061
-      run_front_5: -1760762542
-      run_front_6: -154494673
-      run_front_7: -548738074
+      photo_2025-01-08_22-03-02_0: -1143877018
+      photo_2025-01-08_22-03-02_1: -662328099
+      photo_2025-01-08_22-03-02_2: -421812480
+      photo_2025-01-08_22-03-02_3: -834992456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

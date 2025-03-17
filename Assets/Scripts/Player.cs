@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float runSpeed = 20f;
     public CapsuleCollider2D originalCollider; // »сходный коллайдер
     public CapsuleCollider2D newCollider; // Ќовый коллайдер при нажатии Shift
+    public GameObject shadow;
+    public GameObject newshadow;
     public VectorValue pos;
 
     private float speed;
@@ -60,11 +62,15 @@ public class Player : MonoBehaviour
         if (speed == runSpeed && inputVector.x != 0 ){
             newCollider.enabled = true; // ≈сли клавиша Shift нажата, активируем новый коллайдер
             originalCollider.enabled = false;
+            shadow.SetActive(false);
+            newshadow.SetActive(true);
         }
         else
         {
             originalCollider.enabled = true;
             newCollider.enabled = false; // ≈сли клавиша Shift не нажата, возвращаем оригинальный коллайдер
+            shadow.SetActive(true);
+            newshadow.SetActive(false);
         }
 
         if (inputVector.x < 0)

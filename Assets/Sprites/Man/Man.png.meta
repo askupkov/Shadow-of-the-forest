@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6157072d7b87eee47b8c86da6f0f7310
+guid: d6fa648f87dbc27489dcd8d8a62e6ea8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,12 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_front_0
+      name: Man_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
+        width: 13
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52b1f221fc6c19a4cb62be3a18e73fae
-      internalID: 1736403939
+      spriteID: 7d78b33c30b20074a898f25065a64f1a
+      internalID: 410293132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_1
+      name: Man_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 13
         y: 0
-        width: 15
+        width: 13
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -132,19 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a259948e369854388a07e099ee4c5b
-      internalID: -401132140
+      spriteID: 5be14b9b8a1dcc04b9837e335d58bf33
+      internalID: 1748560659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_2
+      name: Man_2
       rect:
         serializedVersion: 2
-        x: 30
+        x: 26
         y: 0
-        width: 15
+        width: 13
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -153,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a2dc1425caf604c8681f30d6998824
-      internalID: 1522897548
+      spriteID: f0256931cd622114785028c282fa9437
+      internalID: -1395790804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_front_3
+      name: Man_3
       rect:
         serializedVersion: 2
-        x: 45
+        x: 39
         y: 0
-        width: 15
+        width: 13
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -174,92 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5f18852002dac5449ea99a8759da1f7
-      internalID: 70015109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_4
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ebcce45a416fc3458be47ee439725a6
-      internalID: 543301061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_5
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74f1b4ecab71836479f0e8500a4f2ebb
-      internalID: -1760762542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_6
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0562e2425e48c754ea4a13e0c7d5e57e
-      internalID: -154494673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_front_7
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 0
-        width: 15
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d41c7bdff17dbb342bee1804a373634a
-      internalID: -548738074
+      spriteID: 9883efb7cb478bb4c9a7458b8adf6365
+      internalID: -1724650179
       vertices: []
       indices: 
       edges: []
@@ -275,14 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run_front_0: 1736403939
-      run_front_1: -401132140
-      run_front_2: 1522897548
-      run_front_3: 70015109
-      run_front_4: 543301061
-      run_front_5: -1760762542
-      run_front_6: -154494673
-      run_front_7: -548738074
+      Man_0: 410293132
+      Man_1: 1748560659
+      Man_2: -1395790804
+      Man_3: -1724650179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ public class Dialog_starushka : MonoBehaviour
     private bool isSecondDialogStarted = false; // Флаг для второго диалога
     private bool isThirdDialogStarted = false;  // Флаг для третьего диалога
     public TextAsset inkJSON;
-    public BoxCollider2D Collider;
+    private BoxCollider2D Collider;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class Dialog_starushka : MonoBehaviour
 
     private IEnumerator StartInitialDialog()
     {
-        //yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f);
         DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
         while (DialogueManager.Instance.dialogPanelOpen)
         {

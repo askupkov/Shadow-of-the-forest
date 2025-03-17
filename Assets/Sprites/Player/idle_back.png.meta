@@ -102,7 +102,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 15
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -121,9 +121,9 @@ TextureImporter:
       name: idle_back_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 15
         y: 0
-        width: 16
+        width: 15
         height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
