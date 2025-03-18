@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 810a04e83adcdfc489440d7964eb78ab
+guid: 226ff79968ad2e54490f9e90e8d70e3e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,8 +102,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a7584aa7f53ae443815d35bfb31b4ca
-      internalID: 2124618511
+      spriteID: 16df1ee3d229e144fa4741c6cc35638c
+      internalID: 1248086383
       vertices: []
       indices: 
       edges: []
@@ -121,10 +121,10 @@ TextureImporter:
       name: House_dialogue_1
       rect:
         serializedVersion: 2
-        x: 121
+        x: 111
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0078aa65bb17560478164d19c37969b9
-      internalID: -1076894940
+      spriteID: f4c221664eece074ca7f410d13ec8a27
+      internalID: 2062658970
       vertices: []
       indices: 
       edges: []
@@ -142,10 +142,10 @@ TextureImporter:
       name: House_dialogue_2
       rect:
         serializedVersion: 2
-        x: 242
+        x: 222
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 247e0a73973ae3d4998f86060a6857af
-      internalID: -529963290
+      spriteID: 3063e3345b10b7f419a1c151208b9346
+      internalID: 1275711165
       vertices: []
       indices: 
       edges: []
@@ -163,10 +163,10 @@ TextureImporter:
       name: House_dialogue_3
       rect:
         serializedVersion: 2
-        x: 363
+        x: 333
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c28dcdbe72f8b545a3edf1e1ae02161
-      internalID: 607905301
+      spriteID: c37f2a4f24a42a9489bf56aaa20c99b2
+      internalID: 1793892284
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: House_dialogue_4
       rect:
         serializedVersion: 2
-        x: 484
+        x: 444
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23e9d11b47463048b88e753e93d30d4
-      internalID: -784754908
+      spriteID: e9dad4c4d7dfa734c8d828f6ba8db7c5
+      internalID: -750645316
       vertices: []
       indices: 
       edges: []
@@ -205,10 +205,10 @@ TextureImporter:
       name: House_dialogue_5
       rect:
         serializedVersion: 2
-        x: 605
+        x: 555
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101c790b0fb56be46a15a3ed44330e25
-      internalID: 2128894135
+      spriteID: ad63c75acb0611144a2a062c9d42cc71
+      internalID: 920315667
       vertices: []
       indices: 
       edges: []
@@ -226,10 +226,10 @@ TextureImporter:
       name: House_dialogue_6
       rect:
         serializedVersion: 2
-        x: 726
+        x: 666
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52870c670ad6e6648922bb4efd3eae4a
-      internalID: 1229731982
+      spriteID: 4d6c824321ad3a54cb8c1393f718377c
+      internalID: -53970043
       vertices: []
       indices: 
       edges: []
@@ -247,10 +247,10 @@ TextureImporter:
       name: House_dialogue_7
       rect:
         serializedVersion: 2
-        x: 847
+        x: 777
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a2621b10a590f4abd5638f493826e2
-      internalID: -1849665576
+      spriteID: 1c92728b8a0fca2438103480aae94cd6
+      internalID: 1664301968
       vertices: []
       indices: 
       edges: []
@@ -268,10 +268,10 @@ TextureImporter:
       name: House_dialogue_8
       rect:
         serializedVersion: 2
-        x: 968
+        x: 888
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8431ada1d6192747ab1566e4ded89e2
-      internalID: 731741625
+      spriteID: 90ea87bbe9a25764db3f8f33fe73c63f
+      internalID: -1332042811
       vertices: []
       indices: 
       edges: []
@@ -289,10 +289,10 @@ TextureImporter:
       name: House_dialogue_9
       rect:
         serializedVersion: 2
-        x: 1089
+        x: 999
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 538f38658b5494445b84a1e0395f9b2b
-      internalID: 426502483
+      spriteID: 9e5ca505a23475148b85443370416fc7
+      internalID: -1990486712
       vertices: []
       indices: 
       edges: []
@@ -310,10 +310,10 @@ TextureImporter:
       name: House_dialogue_10
       rect:
         serializedVersion: 2
-        x: 1210
+        x: 1110
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,8 +321,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da372c50862a8d41b29e70975501910
-      internalID: -1886592198
+      spriteID: ae3751b2f82cf9c48bcfe10bcc06d39d
+      internalID: 1027649201
       vertices: []
       indices: 
       edges: []
@@ -331,10 +331,10 @@ TextureImporter:
       name: House_dialogue_11
       rect:
         serializedVersion: 2
-        x: 1331
+        x: 1221
         y: 0
-        width: 121
-        height: 108
+        width: 111
+        height: 104
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,8 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7402f74218e134ba12275f58275306
-      internalID: -621016696
+      spriteID: be5d38d4abf8e36418bb5f67c5a89053
+      internalID: 1820979148
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      House_dialogue_0: 2124618511
-      House_dialogue_1: -1076894940
-      House_dialogue_10: -1886592198
-      House_dialogue_11: -621016696
-      House_dialogue_2: -529963290
-      House_dialogue_3: 607905301
-      House_dialogue_4: -784754908
-      House_dialogue_5: 2128894135
-      House_dialogue_6: 1229731982
-      House_dialogue_7: -1849665576
-      House_dialogue_8: 731741625
-      House_dialogue_9: 426502483
+      House_dialogue_0: 1248086383
+      House_dialogue_1: 2062658970
+      House_dialogue_10: 1027649201
+      House_dialogue_11: 1820979148
+      House_dialogue_2: 1275711165
+      House_dialogue_3: 1793892284
+      House_dialogue_4: -750645316
+      House_dialogue_5: 920315667
+      House_dialogue_6: -53970043
+      House_dialogue_7: 1664301968
+      House_dialogue_8: -1332042811
+      House_dialogue_9: -1990486712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

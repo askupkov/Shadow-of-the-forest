@@ -2,35 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    public static Door Instance { get; private set; }
     public string sceneToLoad;
     private Animator Animator;
     private bool playerInRange = false;
-    private bool Open = false;
+    public bool locked;
+    public int key;
+    private string PlayerPrefsKey => $"{gameObject.name}";
 
     public Vector3 position;
     public VectorValue playerStorage;
 
     private void Awake()
     {
+        Instance = this;
         Animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey(PlayerPrefsKey))
+        {
+            locked = PlayerPrefs.GetInt(PlayerPrefsKey) == 1;
+        }
+        else
+        {
+            PlayerPrefs.SetInt(PlayerPrefsKey, locked ? 1 : 0);
+            PlayerPrefs.Save();
+        }
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Open = true;
-            StartCoroutine(OpenDoorCoroutine());
+            if (!locked) 
+            {
+                StartCoroutine(OpenDoorCoroutine());
+            }
         }
     }
 
     private IEnumerator OpenDoorCoroutine()
     {
-        Animator.SetBool("Open", Open);
+        Animator.SetBool("Open", true);
         GameInput.Instance.OnDisable();
         playerStorage.initialValue = position;
         yield return new WaitForSeconds(1f);
@@ -38,11 +58,23 @@ public class Door : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void UnlockDoor()
+    {
+        locked = false;
+        Debug.Log("Дверь разблокирована!");
+
+        // Сохраняем состояние двери в PlayerPrefs
+        PlayerPrefs.SetInt(PlayerPrefsKey, 0);
+        PlayerPrefs.Save();
+
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            Inventory.Instance.activeDoor = this; // Устанавливаем ссылку на эту дверь
         }
     }
 
@@ -51,6 +83,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            Inventory.Instance.activeDoor = null; // Убираем ссылку на эту дверь
         }
     }
 }

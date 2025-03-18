@@ -14,6 +14,7 @@ using System.ComponentModel;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
+    public Door activeDoor; // Ссылка на текущую дверь
     public DataBaseInventory data; // Ссылка на базу данных инвентаря
     public List<ItemInventory> items = new List<ItemInventory>(); // Список предметов в инвентаре
     public GameObject gameObjShow; // Префаб для отображения предмета в инвентаре
@@ -56,11 +57,16 @@ public class Inventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Item_script.Instance.CloseMenu();
-            backGround.SetActive(false);
-            GameInput.Instance.OnEnabled();
-            InventoryOpen = false;
+            CloseInventory();
         }
+    }
+
+    private void CloseInventory()
+    {
+        Item_script.Instance.CloseMenu();
+        backGround.SetActive(false);
+        GameInput.Instance.OnEnabled();
+        InventoryOpen = false;
     }
 
     public void UseItem(int itemId)
@@ -73,6 +79,31 @@ public class Inventory : MonoBehaviour
                 {
                     case 1: // Еда
                         UseFood(items[i]);
+                        break;
+                    case 2:
+                        if (activeDoor != null) // Проверяем, есть ли активная дверь
+                        {
+                            if (activeDoor.key == itemId) // Проверяем, подходит ли ключ для этой двери
+                            {
+                                activeDoor.UnlockDoor(); // Открываем дверь
+                                Debug.Log("Дверь открыта!");
+                                items[i].count--; // Уменьшаем количество ключей
+                                if (items[i].count <= 0)
+                                {
+                                    items[i].id = 0; // Удаляем ключ из инвентаря
+                                }
+                                UpdateInventory(); // Обновляем отображение инвентаря
+                                CloseInventory();
+                            }
+                            else
+                            {
+                                Debug.Log("Этот ключ не подходит для этой двери.");
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Нет активной двери для открытия.");
+                        }
                         break;
                     case 3:
                         Healthbar.Instance.TakeDamage(20);

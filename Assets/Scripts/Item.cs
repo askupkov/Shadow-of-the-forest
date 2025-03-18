@@ -14,8 +14,7 @@ public class Item_script : MonoBehaviour
     public string itemName;
     public Canvas interactionButtons;
     private static Item_script currentActiveItem;
-    
-
+  
     private void Awake()
     {
         Instance = this;

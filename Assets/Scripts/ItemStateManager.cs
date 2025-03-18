@@ -8,12 +8,12 @@ public class ItemStateManager : MonoBehaviour
 
     void Start()
     {
+        itemName = Pick_Item.Instance.startingPoint;
         if (PlayerPrefs.GetInt(itemName, 0) == 1)
         {
             Destroy(gameObject);
         }
     }
-
     public void PickUpItem()
     {
         PlayerPrefs.SetInt(itemName, 1);

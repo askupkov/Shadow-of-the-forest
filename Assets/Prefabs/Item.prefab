@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
   itemID: 0
+  itemName: 
   interactionButtons: {fileID: 5915612416342046784}
 --- !u!1 &5242211816781363073
 GameObject:
@@ -879,7 +880,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_TargetDisplay: 0
 --- !u!114 &5076280141194145862
 MonoBehaviour:
