@@ -1,96 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ink;
 using UnityEngine;
-
+using UnityEngine.AI;
+using KnightAdventure.Utils;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player;
-    public float detectionRange = 5f;
-    public float attackRange = 1.5f;
-    public float moveSpeed = 3f;
-    public float attackCooldown = 1f;
+    [SerializeField] private State startingState;
+    [SerializeField] private float roamingDistanceMax = 7f;
+    [SerializeField] private float roamingDistanceMin = 3f;
+    [SerializeField] private float roamingTimerMax = 2f;
 
-    private Rigidbody2D rb;
-    private bool isAttacking = false;
-    private float lastAttackTime;
+    private NavMeshAgent navMeshAgent;
+    private State state;
+    private float roamingTime;
+    private Vector3 roamPosition;
+    private Vector3 startingPosition;
 
-
-    void Start()
+    private enum State
     {
-        rb = GetComponent<Rigidbody2D>();
+        Idle,
+        Roaming
+    }
+    private void Start()
+    {
+        startingPosition = transform.position;
+    }
 
-        if (player == null)
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
+        state = startingState;
+    }
+
+    private void Update()
+    {
+        switch (state)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
- 
-            }
+            default:
+            case State.Idle:
+                break;
+            case State.Roaming:
+                roamingTime -= Time.deltaTime;
+                if(roamingTime < 0)
+                {
+                    Roaming();
+                    roamingTime = roamingTimerMax;
+                }
+                break;
         }
     }
-
-    void Update()
+    private void Roaming()
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= detectionRange && distanceToPlayer > attackRange)
-        {
-            MoveTowardsPlayer();
-            isAttacking = false;
-        }
-        else if (distanceToPlayer <= attackRange)
-        {
-            AttackPlayer();
-        }
-        else
-        {
-            StopMoving();
-        }
+        roamPosition = GetRoamingPosition();
+        navMeshAgent.SetDestination(roamPosition);
     }
 
-    void MoveTowardsPlayer()
+    private Vector3 GetRoamingPosition()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = direction * moveSpeed;
-
-        // Развернуть спрайт
-        FlipSprite(direction);
-    }
-
-    void AttackPlayer()
-    {
-        if (!isAttacking && Time.time - lastAttackTime >= attackCooldown)
-        {
-            isAttacking = true;
-            lastAttackTime = Time.time;
-            Healthbar.Instance.TakeDamage(10);
-        }
-    }
-
-    void StopMoving()
-    {
-        rb.velocity = Vector2.zero;
-        isAttacking = false;
-    }
-
-    void FlipSprite(Vector2 direction)
-    {
-        if (direction.x > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (direction.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        return startingPosition + Utils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
     }
 }

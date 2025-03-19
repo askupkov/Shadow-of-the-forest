@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8440034272260891375}
   - component: {fileID: 3300229896900231379}
   - component: {fileID: 5007948447003920451}
+  - component: {fileID: 8624275315024640084}
   m_Layer: 0
   m_Name: tree
   m_TagString: Untagged
@@ -142,3 +143,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.052513864, y: 0.15643422}
   m_Size: {x: 1.3632501, y: 0.31298038}
   m_Direction: 1
+--- !u!114 &8624275315024640084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859643510553745384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 1.4363884, y: 0.42103648, z: 4}
+  m_Center: {x: 0.038377464, y: 0.15569675, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
