@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     public int key;
     private string PlayerPrefsKey => $"{gameObject.name}";
 
-    public Vector3 position;
+    public Vector2 position;
     public VectorValue playerStorage;
 
     private void Awake()
@@ -53,9 +53,10 @@ public class Door : MonoBehaviour
         Animator.SetBool("Open", true);
         GameInput.Instance.OnDisable();
         playerStorage.initialValue = position;
+        SceneFader.Instance.FadeToLevel();
         yield return new WaitForSeconds(1f);
-
         SceneManager.LoadScene(sceneToLoad);
+        SceneFader.Instance.FadeFromLevel();
     }
 
     public void UnlockDoor()

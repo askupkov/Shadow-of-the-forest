@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
     private bool playerInRange = false;
     public string sceneToLoad;
 
-    public Vector3 position;
+    public Vector2 position;
     public VectorValue playerStorage;
 
     private void Awake()
@@ -24,15 +24,18 @@ public class SceneController : MonoBehaviour
     {
         if (playerInRange)
         {
-            LoadScene(sceneToLoad);
+            StartCoroutine(LoadScene(sceneToLoad));
         }
     }
 
-    public void LoadScene(string sceneToLoad)
+    public IEnumerator LoadScene(string sceneToLoad)
     {
         GameInput.Instance.OnDisable(); // Отключаем ввод перед загрузкой новой сцены
         playerStorage.initialValue = position;
+        SceneFader.Instance.FadeToLevel();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(sceneToLoad);
+        SceneFader.Instance.FadeFromLevel();
 
     }
 

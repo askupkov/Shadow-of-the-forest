@@ -844,7 +844,7 @@ MonoBehaviour:
   startingPoint: key
   itemID: 2
   item: {fileID: 891570558}
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 2e9ea8b4fc251b647af16d8af1342d37, type: 3}
   DestroyItem: 0
 --- !u!61 &417573159
 BoxCollider2D:
