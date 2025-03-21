@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Man : MonoBehaviour
 {
-    public Transform destination;
+    public Transform destination1;
+    public Transform destination2;
     public float moveSpeed = 1f;
     public Animator animator;
+    public Animator animator2;
     public BoxCollider2D Collider;
     public TextAsset inkJSON;
 
@@ -19,6 +21,7 @@ public class Man : MonoBehaviour
         if (animator == null)
         {
             animator = GetComponent<Animator>();
+            animator2 = GetComponent<Animator>();
         }
     }
 
@@ -36,20 +39,37 @@ public class Man : MonoBehaviour
     {
         animator.SetBool("IsWalking", true);
 
-        while (Vector2.Distance(transform.position, destination.position) > 0.1f)
+        while (Vector2.Distance(transform.position, destination1.position) > 0.1f)
         {
             transform.position = Vector2.MoveTowards(
             transform.position,
-            destination.position,
+            destination1.position,
+            moveSpeed * Time.deltaTime
+            );
+
+            yield return null;
+        }
+        animator.SetBool("Right", true);
+        while (Vector2.Distance(transform.position, destination2.position) > 0.1f)
+        {
+            transform.position = Vector2.MoveTowards(
+            transform.position,
+            destination2.position,
             moveSpeed * Time.deltaTime
             );
 
             yield return null;
         }
 
+        animator2.SetBool("Stop", true);
         animator.SetBool("IsWalking", false);
 
         DialogueManager.Instance.StartDialog(inkJSON, "man1");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
+        }
+        animator2.SetBool("ComeIn", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
