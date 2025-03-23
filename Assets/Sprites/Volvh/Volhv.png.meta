@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01f453e17fe866948bffd84a9d7e6197
+guid: 610377ff1ae68a848b14eef898231e06
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.25}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -97,85 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_0
+      name: Volhv_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 15
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e661ee5a96518448fe567c7fbb5ac5
-      internalID: -1143877018
+      spriteID: 351c91d5ad7c48046893137a5e1b98a5
+      internalID: -820742618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_1
+      name: Volhv_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 15
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 15
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374e6af2ac3053041bcc37735f2ae4a3
-      internalID: -662328099
+      spriteID: a07447b3720f30b4fac510b4a9e95ff7
+      internalID: 1354858348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_2
+      name: Volhv_2
       rect:
         serializedVersion: 2
-        x: 340
+        x: 30
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 15
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f9060b21183644c964aa0a2fef01a7
-      internalID: -421812480
+      spriteID: 856328fbf0b17d34092b69d8480dad18
+      internalID: 1714798683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_3
+      name: Volhv_3
       rect:
         serializedVersion: 2
-        x: 510
+        x: 45
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 15
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f163ce408b534be49b0c513e6263b43f
-      internalID: -834992456
+      spriteID: c5f05127b8e277b479547c9229051b40
+      internalID: 520101742
       vertices: []
       indices: 
       edges: []
@@ -184,17 +184,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      photo_2025-01-08_22-03-02_0: -1143877018
-      photo_2025-01-08_22-03-02_1: -662328099
-      photo_2025-01-08_22-03-02_2: -421812480
-      photo_2025-01-08_22-03-02_3: -834992456
+      Volhv_0: -820742618
+      Volhv_1: 1354858348
+      Volhv_2: 1714798683
+      Volhv_3: 520101742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

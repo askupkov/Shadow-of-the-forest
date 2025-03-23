@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21e4262fd80f40a4b931fe1e96590613
+guid: 0c9428c39a6f0d74c87da0fc73c406df
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House_open_0
+      name: zahodit_v_dom_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 542bde53cd856f54e9726ceec1e27a0f
-      internalID: -937411993
+      spriteID: 869f0a09de42533479d1c7408fa286ca
+      internalID: -9314298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_1
+      name: zahodit_v_dom_1
       rect:
         serializedVersion: 2
         x: 111
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19bf3abc7f59d4c46b07d43efdfe295b
-      internalID: -1287908517
+      spriteID: 6e7f62342c6ab454aae1162b3e388c76
+      internalID: -180935107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_2
+      name: zahodit_v_dom_2
       rect:
         serializedVersion: 2
         x: 222
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af86055efa109f847ae2cd5c93d8ed98
-      internalID: -1602659073
+      spriteID: 5fb4e14479192a54bb59b9eb85830a26
+      internalID: -1349265591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_3
+      name: zahodit_v_dom_3
       rect:
         serializedVersion: 2
         x: 333
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4717087e2f1bfdd4fac19d3e00fdbd75
-      internalID: 725169789
+      spriteID: 24faa7e6e707e2148b911b4c1828f7a9
+      internalID: -1331631363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_4
+      name: zahodit_v_dom_4
       rect:
         serializedVersion: 2
         x: 444
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f8bfc0c4639896498c2c0c3dcc43a27
-      internalID: 1791241764
+      spriteID: b1eeb146965cc48468ec42318e2b53b7
+      internalID: -402815568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_5
+      name: zahodit_v_dom_5
       rect:
         serializedVersion: 2
         x: 555
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d2ab52fa37400458bf413f30a41cf2
-      internalID: 1403105135
+      spriteID: 118b53cd01cb2b643b302b832abce440
+      internalID: 1964614576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_6
+      name: zahodit_v_dom_6
       rect:
         serializedVersion: 2
         x: 666
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68b9a1dc30e00a74f804d9c2484964a5
-      internalID: -1576107094
+      spriteID: 42b037960347d6a479b075ed308d5d8c
+      internalID: -1543062364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_7
+      name: zahodit_v_dom_7
       rect:
         serializedVersion: 2
         x: 777
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4229815bf437d9439520c8c0db7f531
-      internalID: -1012847627
+      spriteID: 8896ae6bc7d148f41b8833c0ff416732
+      internalID: -1549454898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_8
+      name: zahodit_v_dom_8
       rect:
         serializedVersion: 2
         x: 888
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2c141b087c451a42b726bf94d1323a4
-      internalID: 609365207
+      spriteID: 5477a6dd77e3c1f4bb0c6a3de7656df5
+      internalID: 121546623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_9
+      name: zahodit_v_dom_9
       rect:
         serializedVersion: 2
         x: 999
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573621454fee7564d8be37977a29bd3f
-      internalID: 1782620667
+      spriteID: 3e4cbd0840343bf40b5214512c082de2
+      internalID: -661150359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_10
+      name: zahodit_v_dom_10
       rect:
         serializedVersion: 2
         x: 1110
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef062fc509ae5674fb377a3ff65a7228
-      internalID: 1478139810
+      spriteID: bef648fdb794c27498cf1ad62fd02a56
+      internalID: -1065354661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_11
+      name: zahodit_v_dom_11
       rect:
         serializedVersion: 2
         x: 1221
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae33646df0065934da0147fd52db4110
-      internalID: 15707889
+      spriteID: 58ea986eaf2b3174588f81d8a4637956
+      internalID: 145976952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: House_open_12
+      name: zahodit_v_dom_12
       rect:
         serializedVersion: 2
         x: 1332
@@ -363,8 +363,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fc268d4e9c3077419faecddac95c363
-      internalID: -1834543542
+      spriteID: 0046cc7d3da386544b24fa1635fa9a6f
+      internalID: -459853452
       vertices: []
       indices: 
       edges: []
@@ -380,19 +380,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      House_open_0: -937411993
-      House_open_1: -1287908517
-      House_open_10: 1478139810
-      House_open_11: 15707889
-      House_open_12: -1834543542
-      House_open_2: -1602659073
-      House_open_3: 725169789
-      House_open_4: 1791241764
-      House_open_5: 1403105135
-      House_open_6: -1576107094
-      House_open_7: -1012847627
-      House_open_8: 609365207
-      House_open_9: 1782620667
+      zahodit_v_dom_0: -9314298
+      zahodit_v_dom_1: -180935107
+      zahodit_v_dom_10: -1065354661
+      zahodit_v_dom_11: 145976952
+      zahodit_v_dom_12: -459853452
+      zahodit_v_dom_2: -1349265591
+      zahodit_v_dom_3: -1331631363
+      zahodit_v_dom_4: -402815568
+      zahodit_v_dom_5: 1964614576
+      zahodit_v_dom_6: -1543062364
+      zahodit_v_dom_7: -1549454898
+      zahodit_v_dom_8: 121546623
+      zahodit_v_dom_9: -661150359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

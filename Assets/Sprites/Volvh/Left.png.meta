@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c9428c39a6f0d74c87da0fc73c406df
+guid: 87f8efccc11248d43b342b8a748bee6e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,274 +97,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zahodit_v_dom_0
+      name: Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 869f0a09de42533479d1c7408fa286ca
-      internalID: -9314298
+      spriteID: 59aa10108619764469a5760350a6526d
+      internalID: -582283758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_1
+      name: Left_1
       rect:
         serializedVersion: 2
-        x: 111
+        x: 16
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e7f62342c6ab454aae1162b3e388c76
-      internalID: -180935107
+      spriteID: 9512b6045d8a6744092fcfa0159c945a
+      internalID: -1237437871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_2
+      name: Left_2
       rect:
         serializedVersion: 2
-        x: 222
+        x: 32
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fb4e14479192a54bb59b9eb85830a26
-      internalID: -1349265591
+      spriteID: c6ef73d11a6277c4c9eae5180fc58d1b
+      internalID: 1397535889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_3
+      name: Left_3
       rect:
         serializedVersion: 2
-        x: 333
+        x: 48
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24faa7e6e707e2148b911b4c1828f7a9
-      internalID: -1331631363
+      spriteID: 196f17ac3dceafe44b2778a7f419ac42
+      internalID: 152935765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_4
+      name: Left_4
       rect:
         serializedVersion: 2
-        x: 444
+        x: 64
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1eeb146965cc48468ec42318e2b53b7
-      internalID: -402815568
+      spriteID: 32e6e8afb36bbd643ac76c51b202b77e
+      internalID: -2030794616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_5
+      name: Left_5
       rect:
         serializedVersion: 2
-        x: 555
+        x: 80
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 118b53cd01cb2b643b302b832abce440
-      internalID: 1964614576
+      spriteID: 0b9eecc69436f584084c54dbbebef718
+      internalID: 962776906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_6
+      name: Left_6
       rect:
         serializedVersion: 2
-        x: 666
+        x: 96
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b037960347d6a479b075ed308d5d8c
-      internalID: -1543062364
+      spriteID: 9b145c77dce4240478875b7dbd1b5b8f
+      internalID: 825764120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zahodit_v_dom_7
+      name: Left_7
       rect:
         serializedVersion: 2
-        x: 777
+        x: 112
         y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8896ae6bc7d148f41b8833c0ff416732
-      internalID: -1549454898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zahodit_v_dom_8
-      rect:
-        serializedVersion: 2
-        x: 888
-        y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5477a6dd77e3c1f4bb0c6a3de7656df5
-      internalID: 121546623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zahodit_v_dom_9
-      rect:
-        serializedVersion: 2
-        x: 999
-        y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e4cbd0840343bf40b5214512c082de2
-      internalID: -661150359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zahodit_v_dom_10
-      rect:
-        serializedVersion: 2
-        x: 1110
-        y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bef648fdb794c27498cf1ad62fd02a56
-      internalID: -1065354661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zahodit_v_dom_11
-      rect:
-        serializedVersion: 2
-        x: 1221
-        y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58ea986eaf2b3174588f81d8a4637956
-      internalID: 145976952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zahodit_v_dom_12
-      rect:
-        serializedVersion: 2
-        x: 1332
-        y: 0
-        width: 111
-        height: 104
-      alignment: 9
-      pivot: {x: 0.5, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0046cc7d3da386544b24fa1635fa9a6f
-      internalID: -459853452
+      spriteID: 17dacdcf23707f844a43240ffd9e07f1
+      internalID: -1628117532
       vertices: []
       indices: 
       edges: []
@@ -380,19 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      zahodit_v_dom_0: -9314298
-      zahodit_v_dom_1: -180935107
-      zahodit_v_dom_10: -1065354661
-      zahodit_v_dom_11: 145976952
-      zahodit_v_dom_12: -459853452
-      zahodit_v_dom_2: -1349265591
-      zahodit_v_dom_3: -1331631363
-      zahodit_v_dom_4: -402815568
-      zahodit_v_dom_5: 1964614576
-      zahodit_v_dom_6: -1543062364
-      zahodit_v_dom_7: -1549454898
-      zahodit_v_dom_8: 121546623
-      zahodit_v_dom_9: -661150359
+      Left_0: -582283758
+      Left_1: -1237437871
+      Left_2: 1397535889
+      Left_3: 152935765
+      Left_4: -2030794616
+      Left_5: 962776906
+      Left_6: 825764120
+      Left_7: -1628117532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
