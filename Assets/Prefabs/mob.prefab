@@ -113,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &7082721804191159052
 CapsuleCollider2D:
@@ -144,7 +144,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.005922842, y: 0.10631937}
@@ -165,7 +165,13 @@ MonoBehaviour:
   startingState: 1
   roamingDistanceMax: 7
   roamingDistanceMin: 3
-  roamingTimerMax: 2
+  roamingTimerMax: 10
+  isChasingEnemy: 1
+  chasingDistance: 4
+  chasingSpeedMultiplier: 2
+  isAttackingEnemy: 1
+  attackingDistance: 0.5
+  attackRate: 2
 --- !u!195 &5281638791625387625
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,8 +182,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 2
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
