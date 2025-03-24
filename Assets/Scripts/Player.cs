@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float movingSpeed = 10f;
     [SerializeField] private float runSpeed = 20f;
     public CapsuleCollider2D originalCollider; // »сходный коллайдер
-    public CapsuleCollider2D newCollider; // Ќовый коллайдер при нажатии Shift
+    public CapsuleCollider2D ShiftCollider; // Ќовый коллайдер при нажатии Shift
+    public CapsuleCollider2D standCollider;
     public GameObject shadow;
     public GameObject newshadow;
     public VectorValue pos;
@@ -59,16 +60,24 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
         //Debug.Log(inputVector);
 
-        if (speed == runSpeed && inputVector.x != 0 ){
-            newCollider.enabled = true; // ≈сли клавиша Shift нажата, активируем новый коллайдер
+        if (speed == runSpeed && inputVector.x != 0)
+        {
+            ShiftCollider.enabled = true; // ≈сли клавиша Shift нажата, активируем новый коллайдер
             originalCollider.enabled = false;
             shadow.SetActive(false);
             newshadow.SetActive(true);
         }
-        else
+        else if (speed == movingSpeed && inputVector.x != 0)
         {
             originalCollider.enabled = true;
-            newCollider.enabled = false; // ≈сли клавиша Shift не нажата, возвращаем оригинальный коллайдер
+            ShiftCollider.enabled = false; // ≈сли клавиша Shift не нажата, возвращаем оригинальный коллайдер
+            shadow.SetActive(true);
+            newshadow.SetActive(false);
+        }
+        else 
+        {
+            originalCollider.enabled = false;
+            ShiftCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
