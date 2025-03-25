@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,11 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float movingSpeed = 10f;
     [SerializeField] private float runSpeed = 20f;
     public CapsuleCollider2D originalCollider; // Исходный коллайдер
-    public CapsuleCollider2D ShiftCollider; // Новый коллайдер при нажатии Shift
+    public CapsuleCollider2D shiftCollider; // Новый коллайдер при нажатии Shift
     public CapsuleCollider2D standCollider;
     public GameObject shadow;
     public GameObject newshadow;
     public VectorValue pos;
+    public bool isMovingToDestination = false;
+    private Transform targetDestination;
 
     private float speed;
 
@@ -43,41 +46,42 @@ public class Player : MonoBehaviour
 
     private void HandleMovent()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) 
+        Vector2 inputVector;
+        if (isMovingToDestination)
         {
-            speed = runSpeed;
-            
+            inputVector = ((Vector2)targetDestination.position - rb.position).normalized;
+            speed = movingSpeed;
         }
         else
         {
-            speed = movingSpeed;
-            
+            inputVector = GameInput.Instance.GetMovementVector();
+            speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : movingSpeed;
         }
-
-        
-
-        Vector2 inputVector = GameInput.Instance.GetMovementVector();
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
+
         //Debug.Log(inputVector);
 
         if (speed == runSpeed && inputVector.x != 0)
         {
-            ShiftCollider.enabled = true; // Если клавиша Shift нажата, активируем новый коллайдер
+            shiftCollider.enabled = true; // Если клавиша Shift нажата
             originalCollider.enabled = false;
+            standCollider.enabled = false;
             shadow.SetActive(false);
             newshadow.SetActive(true);
         }
         else if (speed == movingSpeed && inputVector.x != 0)
         {
             originalCollider.enabled = true;
-            ShiftCollider.enabled = false; // Если клавиша Shift не нажата, возвращаем оригинальный коллайдер
+            shiftCollider.enabled = false; // Если клавиша Shift не нажата
+            standCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
         else 
         {
+            standCollider.enabled = true;
             originalCollider.enabled = false;
-            ShiftCollider.enabled = false;
+            shiftCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
@@ -123,9 +127,28 @@ public class Player : MonoBehaviour
         {
             isRunning = 0;
         }
-
-        //Debug.Log(isWalking);
     }
+
+    public void StartToMove(Transform destination)
+    {
+        StartCoroutine(MoveToDestination(destination));
+    }
+
+    private IEnumerator MoveToDestination(Transform destination)
+    {
+        GameInput.Instance.OnDisable();
+        isMovingToDestination = true;
+        targetDestination = destination;
+
+        while (Vector2.Distance(transform.position, destination.position) > 0.1f)
+        { 
+            yield return null;
+        }
+        transform.position = destination.position;
+        isMovingToDestination = false;
+        GameInput.Instance.OnEnabled();
+    }
+
 
     public int IsWalking()
     {

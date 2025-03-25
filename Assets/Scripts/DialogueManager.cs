@@ -41,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         characterSprites.Add("Стражник", Resources.Load<Sprite>("Characters/Guard"));
         characterSprites.Add("Старушка", Resources.Load<Sprite>("Characters/Starushka"));
         characterSprites.Add("Мужчина", Resources.Load<Sprite>("Characters/Man"));
+        characterSprites.Add("Волхв", Resources.Load<Sprite>("Characters/Volhv"));
 
         // Проверяем, что все спрайты загружены
         foreach (var kvp in characterSprites)

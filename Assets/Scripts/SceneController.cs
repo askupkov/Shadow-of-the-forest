@@ -28,7 +28,12 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public IEnumerator LoadScene(string sceneToLoad)
+    public void StartLoadScene(string sceneToLoad)
+    {
+        StartCoroutine(LoadScene(sceneToLoad));
+    }
+
+    private IEnumerator LoadScene(string sceneToLoad)
     {
         GameInput.Instance.OnDisable(); // Отключаем ввод перед загрузкой новой сцены
         playerStorage.initialValue = position;

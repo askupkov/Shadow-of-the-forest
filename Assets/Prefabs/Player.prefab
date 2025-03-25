@@ -306,8 +306,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005412209, y: 0.10619626}
-  m_Size: {x: 0.35041898, y: 0.19681121}
+  m_Offset: {x: -0.009581465, y: 0.10619626}
+  m_Size: {x: 0.44214737, y: 0.19681294}
   m_Direction: 1
 --- !u!114 &5380029152651921876
 MonoBehaviour:
@@ -324,7 +324,7 @@ MonoBehaviour:
   movingSpeed: 2
   runSpeed: 5
   originalCollider: {fileID: 193483003976852073}
-  ShiftCollider: {fileID: 5238669560669884649}
+  shiftCollider: {fileID: 5238669560669884649}
   standCollider: {fileID: 625270097778988490}
   shadow: {fileID: 6746332669684891401}
   newshadow: {fileID: 7456523057049596388}
