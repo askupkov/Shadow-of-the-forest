@@ -64,8 +64,8 @@ public class Player : MonoBehaviour
         if (speed == runSpeed && inputVector.x != 0)
         {
             shiftCollider.enabled = true; // Если клавиша Shift нажата
-            originalCollider.enabled = false;
-            standCollider.enabled = false;
+            originalCollider.enabled = true;
+            standCollider.enabled = true;
             shadow.SetActive(false);
             newshadow.SetActive(true);
         }

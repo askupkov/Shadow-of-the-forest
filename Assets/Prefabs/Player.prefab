@@ -236,8 +236,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004228282, y: 0.106824495}
-  m_Size: {x: 0.76094913, y: 0.19577514}
+  m_Offset: {x: -0.0042282823, y: 0.10263784}
+  m_Size: {x: 0.76094925, y: 0.20414883}
   m_Direction: 1
 --- !u!70 &5238669560669884649
 CapsuleCollider2D:
@@ -271,8 +271,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0064085256, y: 0.10427396}
-  m_Size: {x: 1.103445, y: 0.19641852}
+  m_Offset: {x: 0.006408525, y: 0.100924656}
+  m_Size: {x: 1.1034452, y: 0.20311749}
   m_Direction: 1
 --- !u!70 &625270097778988490
 CapsuleCollider2D:
@@ -306,8 +306,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009581465, y: 0.10619626}
-  m_Size: {x: 0.44214737, y: 0.19681294}
+  m_Offset: {x: -0.009581465, y: 0.102288716}
+  m_Size: {x: 0.44214743, y: 0.20462836}
   m_Direction: 1
 --- !u!114 &5380029152651921876
 MonoBehaviour:
@@ -329,6 +329,7 @@ MonoBehaviour:
   shadow: {fileID: 6746332669684891401}
   newshadow: {fileID: 7456523057049596388}
   pos: {fileID: 11400000, guid: 2761d26dc47118446b7b7e80ef7c5b85, type: 2}
+  isMovingToDestination: 0
 --- !u!1 &3351191135532759476
 GameObject:
   m_ObjectHideFlags: 0
