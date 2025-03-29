@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Volhv : MonoBehaviour
+public class NPC : MonoBehaviour
 {
-    public static Volhv Instance { get; private set; }
+    public static NPC Instance { get; private set; }
     private Animator animator;
-    private float speed = 0.7f;
+    [SerializeField] float speed = 0.7f;
     private Rigidbody2D rb;
     private Transform targetDestination;
     public bool isMovingToDestination;

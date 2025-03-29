@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class Dialog_starushka : MonoBehaviour
 {
     private Animator Animator;
-    private bool playerInRange = false;
+    private bool playerInColliderRange = false;
+    private bool playerInCollider2Range = false;
     private bool isSecondDialogStarted = false; // Флаг для второго диалога
     private bool isThirdDialogStarted = false;  // Флаг для третьего диалога
     public TextAsset inkJSON;
     private BoxCollider2D Collider;
+    [SerializeField] BoxCollider2D Collider2;
+
+    private string PlayerPrefs => $"{gameObject.name}";
 
     private void Awake()
     {
@@ -20,11 +24,12 @@ public class Dialog_starushka : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
-        StartCoroutine(StartInitialDialog());
+        LoadState();
     }
 
     private IEnumerator StartInitialDialog()
     {
+        GameInput.Instance.OnDisable();
         yield return new WaitForSeconds(0.3f);
         DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
         while (DialogueManager.Instance.dialogPanelOpen)
@@ -38,11 +43,21 @@ public class Dialog_starushka : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && isSecondDialogStarted)
+        if (playerInColliderRange && isSecondDialogStarted)
         {
             DialogueManager.Instance.StartDialog(inkJSON, "starushka2");
             Collider.enabled = false;
+            playerInColliderRange = false;
             isThirdDialogStarted = true;
+        }
+
+        if (playerInCollider2Range)
+        {
+            StartCoroutine(StartInitialDialog());
+            Collider2.enabled = false;
+            playerInCollider2Range = false;
+            UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefs}_Collider2Enabled", 0);
+            UnityEngine.PlayerPrefs.Save();
         }
 
         if (!DialogueManager.Instance.dialogPanelOpen && isThirdDialogStarted)
@@ -55,7 +70,14 @@ public class Dialog_starushka : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+            if (other.IsTouching(Collider))
+            {
+                playerInColliderRange = true;
+            }
+            else if (other.IsTouching(Collider2))
+            {
+                playerInCollider2Range = true;
+            }
         }
     }
 
@@ -63,7 +85,27 @@ public class Dialog_starushka : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
+            if (other.IsTouching(Collider))
+            {
+                playerInColliderRange = false;
+            }
+            else if (other.IsTouching(Collider2))
+            {
+                playerInCollider2Range = false;
+            }
+        }
+    }
+
+    private void LoadState()
+    {
+        if (UnityEngine.PlayerPrefs.HasKey($"{PlayerPrefs}_Collider2Enabled"))
+        {
+            Collider2.enabled = UnityEngine.PlayerPrefs.GetInt($"{PlayerPrefs}_Collider2Enabled") == 1;
+        }
+        else
+        {
+            UnityEngine.PlayerPrefs.SetInt(PlayerPrefs, Collider2.enabled ? 1 : 0);
+            UnityEngine.PlayerPrefs.Save();
         }
     }
 }

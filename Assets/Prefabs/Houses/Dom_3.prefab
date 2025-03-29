@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 3602038243639868405}
   - component: {fileID: 1040486395744299844}
   - component: {fileID: 7117470932587839652}
-  - component: {fileID: 7353674091269903633}
   - component: {fileID: 3784212301212814109}
   - component: {fileID: 6739750140106550262}
   - component: {fileID: 4227071835767135195}
+  - component: {fileID: 7353674091269903633}
+  - component: {fileID: 460991024241911662}
   m_Layer: 0
   m_Name: Dom_3
   m_TagString: Untagged
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4468487593486515766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -156,19 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0436296, y: 0.28943586}
   m_EdgeRadius: 0
---- !u!114 &7353674091269903633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4468487593486515766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e0c74841aa81742898d00b7bb5eeb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 8280df4c58a510a42a0c13282432af13, type: 3}
 --- !u!60 &3784212301212814109
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -218,17 +206,17 @@ PolygonCollider2D:
       - {x: -0.262455, y: 2.0828707}
       - {x: -1.8726387, y: 1.0314865}
       - {x: -2.2091818, y: 0.84818554}
-      - {x: -2.9979787, y: 0.31904125}
-      - {x: -3.0314026, y: 0.2451787}
-      - {x: -2.9995646, y: 0.18379879}
+      - {x: -3.0168939, y: 0.35957384}
+      - {x: -3.0719357, y: 0.2451787}
+      - {x: -3.059013, y: 0.18650103}
       - {x: -0.4451747, y: -1.1408637}
       - {x: 0.4730215, y: -0.7864115}
       - {x: 1.6867852, y: -1.5989459}
       - {x: 1.982646, y: -1.1837339}
       - {x: 2.6044216, y: -1.1904008}
       - {x: 2.323228, y: -0.58516765}
-      - {x: 3.4344988, y: -0.11602092}
-      - {x: 3.4110043, y: 0.038601637}
+      - {x: 3.4865108, y: -0.08134627}
+      - {x: 3.4760194, y: 0.038602114}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &6739750140106550262
 Tilemap:
@@ -304,3 +292,62 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &7353674091269903633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468487593486515766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e0c74841aa81742898d00b7bb5eeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 8280df4c58a510a42a0c13282432af13, type: 3}
+  Collider2: {fileID: 0}
+--- !u!61 &460991024241911662
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468487593486515766}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.053206, y: -3.9173217}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 6.9375, y: 6.5}
+    newSize: {x: 6.9375, y: 6.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0763578, y: 0.30745983}
+  m_EdgeRadius: 0
