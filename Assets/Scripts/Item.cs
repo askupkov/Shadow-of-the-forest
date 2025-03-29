@@ -37,7 +37,6 @@ public class Item_script : MonoBehaviour
     public void InspectItem()
     {
         Item_script.Instance.CloseMenu();
-        Item_script.Instance.CloseMenu();
         Inventory.Instance.backGround.SetActive(false);
         Inventory.Instance.InventoryOpen = false;
         DialogueManager.Instance.StartDialog(inkJSON, itemName);
