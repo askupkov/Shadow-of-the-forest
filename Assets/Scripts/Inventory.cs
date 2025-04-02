@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        backGround.SetActive(true);
         backGround.SetActive(false);
         // Если инвентарь пуст, добавляем графику
         if (items.Count == 0)
@@ -55,7 +56,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen)
         {
             CloseInventory();
         }
@@ -107,6 +108,10 @@ public class Inventory : MonoBehaviour
                         break;
                     case 3:
                         Healthbar.Instance.TakeDamage(20);
+                        break;
+                    case 4:
+                        Book.Instance.OnEnableBook();
+                        CloseInventory();
                         break;
                     default:
                         Debug.Log("Неизвестный предмет");
