@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin channelPerlin;
     private CinemachineVirtualCamera virtualCamera;
     private float camSize;
+    private Transform player;
     void OnEnable()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -31,6 +32,12 @@ public class CameraController : MonoBehaviour
         cameraShake -= shake;
         changeCameraSizeEvent -= changeCameraSize;
         changeFollowTargetEvent -= changeFollowTargent;
+    }
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
+        virtualCamera.m_Follow = player;
     }
     private void Update()
     {

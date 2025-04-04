@@ -12,6 +12,6 @@ public class NewBehaviourScript : MonoBehaviour
         // Инстанциируем персистентный объект
         Instantiate(persistentPrefab);
 
-        SceneManager.LoadScene("1");
+        SceneManager.LoadScene(1);
     }
 }

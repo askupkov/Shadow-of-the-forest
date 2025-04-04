@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class HouseVolhv : MonoBehaviour
 {
+    [SerializeField] SceneController sceneController;
     private bool playerInColliderRange = false;
     private bool playerInCollider2Range = false;
     [SerializeField] Transform destination1;
@@ -14,7 +15,7 @@ public class HouseVolhv : MonoBehaviour
     [SerializeField] Transform destination3;
     private BoxCollider2D Collider;
     [SerializeField] Animator animator; // —сылка на Animator
-    [SerializeField] string sceneToLoad;
+    [SerializeField] int sceneToLoad;
     [SerializeField] TextAsset inkJSON;
     [SerializeField] GameObject volhv;
     [SerializeField] BoxCollider2D Collider2;
@@ -86,7 +87,7 @@ public class HouseVolhv : MonoBehaviour
         GameInput.Instance.OnDisable();
         animator.SetTrigger("EnterDoor");
         yield return new WaitForSeconds(0.6f);
-        SceneController.Instance.StartLoadScene(sceneToLoad);
+        sceneController.StartLoadScene(sceneToLoad);
         Collider2.enabled = true;
         UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefsVolhv}_Collider2Enabled", 1);
         UnityEngine.PlayerPrefs.Save();

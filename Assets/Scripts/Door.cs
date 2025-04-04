@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     public static Door Instance { get; private set; }
-    public string sceneToLoad;
+    public int sceneToLoad;
     private Animator Animator;
     private bool playerInRange = false;
     public bool locked;

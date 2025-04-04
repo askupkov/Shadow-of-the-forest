@@ -9,22 +9,34 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 4d74d0b241be1ae44b0104eacafc683d
   - enabled: 1
-    path: Assets/Scenes/1.unity
+    path: Assets/Scenes/HouseGG/RoomGG.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/2.unity
+    path: Assets/Scenes/HouseGG/Hall.unity
     guid: cbfd0785ba049de419f6c8b2e1f141f0
   - enabled: 1
-    path: Assets/Scenes/3.unity
-    guid: 565dda76448500d499ae644385eef42e
-  - enabled: 1
-    path: Assets/Scenes/4.unity
+    path: Assets/Scenes/HouseGG/RoomParents.unity
     guid: 010a2ccc28265754baf75a0a7ba27584
   - enabled: 1
-    path: Assets/Scenes/5.unity
+    path: Assets/Scenes/Village.unity
     guid: 7d6ef31ecec6ded4faa0a5cc41a315fb
   - enabled: 1
-    path: Assets/Scenes/6.unity
+    path: Assets/Scenes/Fork.unity
+    guid: 2e0d203d2d8700b40baafbc8aed3cc85
+  - enabled: 1
+    path: Assets/Scenes/RoadVolhv.unity
+    guid: 9cb1a9b29133daa44a40ca56c183e75e
+  - enabled: 1
+    path: Assets/Scenes/RoadHouseVolhv.unity
+    guid: 046ff6680a426d64f9d4317a84a84b85
+  - enabled: 1
+    path: Assets/Scenes/HouseVolhv.unity
     guid: 0240e8eb2d9a8c244a473bb8e34716fb
+  - enabled: 1
+    path: Assets/Scenes/RoadGrigoriy.unity
+    guid: 44a5d63ef70edbe42a14ff2ef621a447
+  - enabled: 1
+    path: Assets/Scenes/HouseGrigoriy.unity
+    guid: 58c2671eb5fb2a84ea096cb1aad952e1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}

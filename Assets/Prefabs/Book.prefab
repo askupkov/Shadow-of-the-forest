@@ -252,12 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1324868606892577659}
+  inkJSON: {fileID: 4900000, guid: d9c002b3eb698c647a21a150d74a5b68, type: 3}
   BookUI: {fileID: 2486744678929432254}
   pageTexts:
   - {fileID: 8050038484746779752}
   - {fileID: 4614290938885053884}
-  countPage: 5
-  inkJSON: {fileID: 4900000, guid: d9c002b3eb698c647a21a150d74a5b68, type: 3}
+  BookOpen: 0
 --- !u!1 &3368453497350735931
 GameObject:
   m_ObjectHideFlags: 0

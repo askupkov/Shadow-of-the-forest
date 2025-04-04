@@ -10,7 +10,7 @@ public class SceneController : MonoBehaviour
     public static SceneController Instance { get; private set; }
 
     private bool playerInRange = false;
-    public string sceneToLoad;
+    public int sceneToLoad;
 
     public Vector2 position;
     public VectorValue playerStorage;
@@ -28,12 +28,12 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void StartLoadScene(string sceneToLoad)
+    public void StartLoadScene(int sceneToLoad)
     {
         StartCoroutine(LoadScene(sceneToLoad));
     }
 
-    private IEnumerator LoadScene(string sceneToLoad)
+    private IEnumerator LoadScene(int sceneToLoad)
     {
         GameInput.Instance.OnDisable(); // Отключаем ввод перед загрузкой новой сцены
         playerStorage.initialValue = position;
