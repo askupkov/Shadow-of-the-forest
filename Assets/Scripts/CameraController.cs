@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController Instance { get; private set; }
     public static Action<float, float, float> cameraShake;
     public static Action<float> changeCameraSizeEvent;
     public static Action<Transform> changeFollowTargetEvent;
@@ -16,6 +17,11 @@ public class CameraController : MonoBehaviour
     private CinemachineVirtualCamera virtualCamera;
     private float camSize;
     private Transform player;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void OnEnable()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -68,6 +74,12 @@ public class CameraController : MonoBehaviour
             virtualCamera.m_Follow = followObject;
         }
     }
+
+    public void FollowNull()
+    {
+        virtualCamera.m_Follow = null;
+    }
+
     private IEnumerator shakeCam(float strength, float time, float fadeTime)
     {
         float OriginStrength = strength;

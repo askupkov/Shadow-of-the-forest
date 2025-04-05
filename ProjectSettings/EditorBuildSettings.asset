@@ -38,5 +38,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HouseGrigoriy.unity
     guid: 58c2671eb5fb2a84ea096cb1aad952e1
+  - enabled: 1
+    path: Assets/Scenes/Pit.unity
+    guid: acb23c665759216469a3935ec64bbfac
+  - enabled: 1
+    path: Assets/Scenes/InsidePit.unity
+    guid: bde23488cef657047a182d4323430fdc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}

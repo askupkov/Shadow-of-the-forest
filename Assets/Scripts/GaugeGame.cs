@@ -2,26 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GaugeGame : MonoBehaviour
 {
+    public static GaugeGame Instance { get; private set; }
     public RectTransform movingBar; // Движущаяся полоска
-    public RectTransform gaugePanel; // Шкала
+    public GameObject gaugePanel; // Шкала
+    private RectTransform gaugePanelRect;
     public RectTransform targetZone; // Целевая зона
     public float speed = 500f; // Скорость движения
     private bool moveRight = true; // Направление движения
+    private bool GameBegun = false;
 
     public bool isPlaying = false; // Игра активна
     public bool isSuccess = false; // Успех попадания
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
-        StartGame();
+        gaugePanel.SetActive(false);
+        gaugePanelRect = gaugePanel.GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && GameBegun)
         {
             StopGame();
         }
@@ -30,8 +40,8 @@ public class GaugeGame : MonoBehaviour
 
         // Движение полоски
         float currentX = movingBar.anchoredPosition.x;
-        float minX = -(gaugePanel.rect.width / 2) + (movingBar.rect.width / 2);
-        float maxX = (gaugePanel.rect.width / 2) - (movingBar.rect.width / 2);
+        float minX = -(gaugePanelRect.rect.width / 2) + (movingBar.rect.width / 2);
+        float maxX = (gaugePanelRect.rect.width / 2) - (movingBar.rect.width / 2);
 
         if (moveRight)
         {
@@ -74,17 +84,24 @@ public class GaugeGame : MonoBehaviour
         {
             Debug.Log("Успех!");
             isSuccess = true;
+            Pit.Instance.start_succes();
+            speed += 300f;
+            GameBegun = false;
         }
         else
         {
             Debug.Log("Промах!");
             isSuccess = false;
+            Pit.Instance.start_fall();
+            GameBegun = false;
         }
     }
 
     // Метод для запуска игры
     public void StartGame()
     {
+        gaugePanel.SetActive(true);
+        GameBegun = true;
         isPlaying = true;
         isSuccess = false;
     }

@@ -811,6 +811,9 @@ MonoBehaviour:
   - id: 4
     name: spellbook
     img: {fileID: 21300000, guid: 1967b9ea6866c9b4b9ab5f0f522faf74, type: 3}
+  - id: 5
+    name: flower
+    img: {fileID: 21300000, guid: 7811fa2d647a90544bf4dd730fc92232, type: 3}
 --- !u!1 &4987082067938132767
 GameObject:
   m_ObjectHideFlags: 0
