@@ -14,7 +14,6 @@ using System.ComponentModel;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
-    public Door activeDoor; // Ссылка на текущую дверь
     public DataBaseInventory data; // Ссылка на базу данных инвентаря
     public List<ItemInventory> items = new List<ItemInventory>(); // Список предметов в инвентаре
     public GameObject gameObjShow; // Префаб для отображения предмета в инвентаре
@@ -76,61 +75,30 @@ public class Inventory : MonoBehaviour
         {
             if (items[i].id == itemId && items[i].count > 0)
             {
-                switch (itemId)
-                {
-                    case 1: // Еда
-                        UseFood(items[i]);
-                        break;
-                    case 2:
-                        if (activeDoor != null) // Проверяем, есть ли активная дверь
-                        {
-                            if (activeDoor.key == itemId) // Проверяем, подходит ли ключ для этой двери
-                            {
-                                activeDoor.UnlockDoor(); // Открываем дверь
-                                Debug.Log("Дверь открыта!");
-                                items[i].count--; // Уменьшаем количество ключей
-                                if (items[i].count <= 0)
-                                {
-                                    items[i].id = 0; // Удаляем ключ из инвентаря
-                                }
-                                UpdateInventory(); // Обновляем отображение инвентаря
-                                CloseInventory();
-                            }
-                            else
-                            {
-                                Debug.Log("Этот ключ не подходит для этой двери.");
-                            }
-                        }
-                        else
-                        {
-                            Debug.Log("Нет активной двери для открытия.");
-                        }
-                        break;
-                    case 3:
-                        Healthbar.Instance.TakeDamage(20);
-                        break;
-                    case 4:
-                        Book.Instance.OnEnableBook();
-                        CloseInventory();
-                        break;
-                    default:
-                        Debug.Log("Неизвестный предмет");
-                        break;
-                }
-                UpdateInventory();
+                ItemUseManager.Instance.UseItem(itemId, this);
+
+                UpdateInventory(); // Обновляем отображение инвентаря
+                CloseInventory();
                 return;
             }
         }
         Debug.Log("Предмет не найден или количество равно нулю");
     }
 
-    private void UseFood(ItemInventory item)
+    public void ConsumeItem(int itemId)
     {
-        Debug.Log("Использована еда");
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].id == itemId && items[i].count > 0)
+            {
+                Consume(items[i]);
+            }
+        }
+    }
 
-        // Логика использования еды (например, восстановление здоровья)
+    private void Consume(ItemInventory item)
+    {
         item.count--;
-        Healthbar.Instance.Heal(20);
         if (item.count <= 0)
         {
             item.id = 0; // Удаляем предмет из инвентаря, если количество стало 0
@@ -141,7 +109,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int itemId)
     {
-
         // Проверяем, есть ли предмет в инвентаре
         for (int i = 0; i < items.Count; i++)
         {
@@ -199,6 +166,19 @@ public class Inventory : MonoBehaviour
             items[i].itemGameObj.GetComponentInChildren<Image>().sprite = data.items[items[i].id].img; // Обновляем изображение предмета
 
         }
+    }
+
+    // Метод для проверки наличия предмета
+    public bool HasItem(int itemId)
+    {
+        foreach (var item in items)
+        {
+            if (item.id == itemId && item.count > 0)
+            {
+                return true; // Предмет найден
+            }
+        }
+        return false; // Предмет не найден
     }
 }
 

@@ -10,7 +10,7 @@ public class Dialog_starushka : MonoBehaviour
     private bool playerInCollider2Range = false;
     private bool isSecondDialogStarted = false; // Флаг для второго диалога
     private bool isThirdDialogStarted = false;  // Флаг для третьего диалога
-    public TextAsset inkJSON;
+    [SerializeField] TextAsset inkJSON;
     private BoxCollider2D Collider;
     [SerializeField] BoxCollider2D Collider2;
 

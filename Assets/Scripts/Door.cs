@@ -75,7 +75,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            Inventory.Instance.activeDoor = this; // Устанавливаем ссылку на эту дверь
+            ItemUseManager.Instance.activeDoor = this; // Устанавливаем ссылку на эту дверь
         }
     }
 
@@ -84,7 +84,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Inventory.Instance.activeDoor = null; // Убираем ссылку на эту дверь
+            ItemUseManager.Instance.activeDoor = null; // Убираем ссылку на эту дверь
         }
     }
 }

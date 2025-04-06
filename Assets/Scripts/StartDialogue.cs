@@ -6,7 +6,7 @@ using UnityEngine;
 public class StartDialogue : MonoBehaviour
 {
     private bool playerInRange;
-    public TextAsset inkJSON;
+    [SerializeField] TextAsset inkJSON;
     public string Tag;
     private Collider2D Collider;
 

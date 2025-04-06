@@ -9,14 +9,18 @@ public class GaugeGame : MonoBehaviour
     public static GaugeGame Instance { get; private set; }
     public RectTransform movingBar; // Движущаяся полоска
     public GameObject gaugePanel; // Шкала
+    public GameObject victoryPanel;
+    public GameObject failPanel;
     private RectTransform gaugePanelRect;
     public RectTransform targetZone; // Целевая зона
     public float speed = 500f; // Скорость движения
     private bool moveRight = true; // Направление движения
     private bool GameBegun = false;
 
-    public bool isPlaying = false; // Игра активна
-    public bool isSuccess = false; // Успех попадания
+    private bool isPlaying = false; // Игра активна
+
+    private float minTargetWidth = 0.06f; // Минимальная ширина целевой зоны (в процентах от ширины шкалы)
+    private float maxTargetWidth = 0.18f; // Максимальная ширина целевой зоны (в процентах от ширины шкалы)
 
 
     private void Awake()
@@ -83,16 +87,13 @@ public class GaugeGame : MonoBehaviour
         if (barPosition >= targetMin && barPosition <= targetMax)
         {
             Debug.Log("Успех!");
-            isSuccess = true;
-            Pit.Instance.start_succes();
-            speed += 300f;
+            PitInside.Instance.start_succes();
             GameBegun = false;
         }
         else
         {
             Debug.Log("Промах!");
-            isSuccess = false;
-            Pit.Instance.start_fall();
+            PitInside.Instance.start_fall();
             GameBegun = false;
         }
     }
@@ -103,6 +104,21 @@ public class GaugeGame : MonoBehaviour
         gaugePanel.SetActive(true);
         GameBegun = true;
         isPlaying = true;
-        isSuccess = false;
+
+        RandomizeTargetZone();
+    }
+    private void RandomizeTargetZone()
+    {
+        // Рандомизация ширины целевой зоны
+        float randomWidthPercentage = Random.Range(minTargetWidth, maxTargetWidth);
+        Debug.Log(randomWidthPercentage);
+        float newWidth = gaugePanelRect.rect.width * randomWidthPercentage;
+        targetZone.sizeDelta = new Vector2(newWidth, targetZone.sizeDelta.y);
+
+        // Рандомизация положения целевой зоны
+        float minX = -(gaugePanelRect.rect.width / 2) + (newWidth / 2);
+        float maxX = (gaugePanelRect.rect.width / 2) - (newWidth / 2);
+        float randomX = Random.Range(minX, maxX);
+        targetZone.anchoredPosition = new Vector2(randomX, targetZone.anchoredPosition.y);
     }
 }

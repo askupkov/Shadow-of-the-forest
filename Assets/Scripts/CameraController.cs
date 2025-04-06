@@ -47,17 +47,10 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    transposer.m_ScreenX = leftOfset;
-        //}
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    transposer.m_ScreenX = rightOfset;
-        //}
 
     }
-    private void shake(float strength, float time, float fadeTime)
+
+    void shake(float strength, float time, float fadeTime)
     {
         StartCoroutine(shakeCam(strength, time, fadeTime));
     }
