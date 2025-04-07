@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f72a0d113981ef4cafb0a34ef973507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeDoor: {fileID: 0}
   data: {fileID: 4962601279769965981}
   items: []
   gameObjShow: {fileID: 4339035437425645115, guid: ad15d5a31f49e8c4282df23d4bcc211e, type: 3}
@@ -88,6 +87,15 @@ MonoBehaviour:
   - id: 6
     name: rope
     img: {fileID: 21300000, guid: 1f04e044b5fcf784a9da52cb0b33da18, type: 3}
+  - id: 7
+    name: bread
+    img: {fileID: 21300000, guid: 9ad3a56ea2f79124ea531d77c5385b98, type: 3}
+  - id: 8
+    name: bucket
+    img: {fileID: 21300000, guid: 3b3b664f0b2e37d48a6701b8e9c03db0, type: 3}
+  - id: 9
+    name: milk
+    img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
 --- !u!114 &1136633055786402608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,3 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbeaa2927e44aa847ae97aaf08fe46ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDoor: {fileID: 0}

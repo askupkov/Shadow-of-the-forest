@@ -7,7 +7,7 @@ using static UnityEditor.Progress;
 public class Pick_Item : MonoBehaviour
 {
     public static Pick_Item Instance { get; private set; }
-    public TextAsset inkJSON;
+    [SerializeField] TextAsset inkJSON;
     public string startingPoint;
     private bool playerInRange = false;
     private BoxCollider2D Collider;

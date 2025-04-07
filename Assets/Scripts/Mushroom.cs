@@ -1,95 +1,131 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ink;
 using UnityEngine;
+using UnityEngine.AI;
+using KnightAdventure.Utils;
+using UnityEngine.EventSystems;
+using System;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Mushroom : MonoBehaviour
 {
-    public Transform player;
-    public float detectionRange = 5f;
-    public float attackRange = 1.5f;
-    public float moveSpeed = 3f;
-    public float attackCooldown = 1f;
+    [SerializeField] private State startingState; // Начальное состояние
 
-    private Rigidbody2D rb;
-    private bool isAttacking = false;
-    private float lastAttackTime;
+    [SerializeField] private bool isChasingEnemy = false; // Включение/Отключение состояния приследования
+    [SerializeField] private float chasingDistance = 4f;
+
+    [SerializeField] private bool isAttackingEnemy = false; // Включение/Отключение состояния атаки
+    [SerializeField] private float attackingDistance = 2f;
+    [SerializeField] private float attackRate = 2f;
+
+    [SerializeField] Animator animator;
+    private float nextAttackTime = 0f;
+    private int isWalking;
+
+    private NavMeshAgent navMeshAgent;
+    private State state;
 
 
-    void Start()
+    private enum State
     {
-        rb = GetComponent<Rigidbody2D>();
+        Idle,
+        Chasing,
+        Attacking,
+        Death
+    }
 
-        if (player == null)
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
+        state = startingState;
+
+    }
+
+    private void Update()
+    {
+        StateHandler();
+    }
+
+
+    private void StateHandler()
+    {
+        switch (state)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
+            default:
+            case State.Idle: // Покой
+                Idle();
+                CheckCurrentState();
+                break;
 
-            }
+            case State.Chasing: // Приследование
+                Chasing();
+                CheckCurrentState();
+                break;
+
+            case State.Attacking: // Атака
+                Attacking();
+                state = State.Death;
+                break;
+
+            case State.Death: // Смерть
+                StartCoroutine(Death());
+                break;
         }
     }
 
-    void Update()
+    private void Idle()
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= detectionRange && distanceToPlayer > attackRange)
-        {
-            MoveTowardsPlayer();
-            isAttacking = false;
-        }
-        else if (distanceToPlayer <= attackRange)
-        {
-            AttackPlayer();
-        }
-        else
-        {
-            StopMoving();
-        }
+        animator.SetBool("Run", false);
     }
 
-    void MoveTowardsPlayer()
+    private void Chasing()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = direction * moveSpeed;
-
-        // Развернуть спрайт
-        FlipSprite(direction);
+        animator.SetBool("Run", true);
+        navMeshAgent.SetDestination(Player.Instance.transform.position);
     }
 
-    void AttackPlayer()
+    private void Attacking()
     {
-        if (!isAttacking && Time.time - lastAttackTime >= attackCooldown)
+        if (Time.time > nextAttackTime)
         {
-            isAttacking = true;
-            lastAttackTime = Time.time;
+            animator.SetTrigger("Boom");
+            nextAttackTime = Time.time + attackRate;
             Healthbar.Instance.TakeDamage(10);
         }
     }
-
-    void StopMoving()
+    private IEnumerator Death()
     {
-        rb.velocity = Vector2.zero;
-        isAttacking = false;
+        yield return new WaitForSeconds(1.6f);
+        Destroy(gameObject);
     }
 
-    void FlipSprite(Vector2 direction)
+    private void CheckCurrentState() // Проверка состояния
     {
-        if (direction.x > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (direction.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        State newState = State.Idle;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        if (isChasingEnemy)
+        {
+            if (distanceToPlayer <= chasingDistance)
+            {
+                newState = State.Chasing;
+            }
+        }
+        if (isAttackingEnemy)
+        {
+            if (distanceToPlayer <= attackingDistance)
+            {
+                newState = State.Attacking;
+            }
+        }
+        if (newState != state)
+        {
+            navMeshAgent.ResetPath(); // Останавливаем движение
+            state = newState;
+        }
     }
 }

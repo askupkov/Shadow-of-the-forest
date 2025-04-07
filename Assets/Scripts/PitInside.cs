@@ -20,6 +20,8 @@ public class PitInside : MonoBehaviour
     private BoxCollider2D Collider;
     [SerializeField] PolygonCollider2D polygonCollider;
 
+    public bool visit = false;
+
     private float scrollSpeed = 0.1f; // Скорость движения фона
     private Material material;
     private Vector2 offset;
@@ -34,6 +36,7 @@ public class PitInside : MonoBehaviour
     {
         rb = player.GetComponent<Rigidbody2D>();
         StartCoroutine(StartDown());
+        visit = true;
     }
 
     private IEnumerator StartDown()

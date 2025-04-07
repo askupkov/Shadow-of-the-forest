@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject persistentPrefab;
+    [SerializeField] int scene;
 
     void Start()
     {
         // Инстанциируем персистентный объект
         Instantiate(persistentPrefab);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene);
     }
 }

@@ -119,4 +119,18 @@ speaker: Святослав
 Верёвка
 ->DONE
 
+=== bucket ===
+speaker: Святослав
+Ведро
+->DONE
+
+=== milk ===
+speaker: Святослав
+Молоко
+->DONE
+
+=== cows ===
+speaker: Святослав
+Мне нужно ведро
+->DONE
     -> END
