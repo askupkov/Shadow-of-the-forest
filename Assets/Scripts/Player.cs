@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public VectorValue pos;
     public bool isMovingToDestination = false;
     private Transform targetDestination;
+    public bool lighting;
 
     private float speed;
 
@@ -44,6 +45,11 @@ public class Player : MonoBehaviour
         HandleMovent();
     }
 
+    public void Candle()
+    {
+        lighting = !lighting;
+    }
+
     private void HandleMovent()
     {
         Vector2 inputVector;
@@ -55,7 +61,7 @@ public class Player : MonoBehaviour
         else
         {
             inputVector = GameInput.Instance.GetMovementVector();
-            speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : movingSpeed;
+            speed = Input.GetKey(KeyCode.LeftShift) && lighting == false ? runSpeed : movingSpeed;
         }
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
 
@@ -150,6 +156,10 @@ public class Player : MonoBehaviour
     }
 
 
+    public bool IsLighting()
+    {
+        return lighting;
+    }
     public int IsWalking()
     {
         return isWalking;

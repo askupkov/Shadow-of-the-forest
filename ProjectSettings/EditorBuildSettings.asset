@@ -44,5 +44,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PitInside.unity
     guid: bde23488cef657047a182d4323430fdc
+  - enabled: 1
+    path: Assets/Scenes/RoadWindmill.unity
+    guid: 9039d5375aa74264e9c28377f295b54d
+  - enabled: 1
+    path: Assets/Scenes/WindmillFirstFloor.unity
+    guid: 755a4dc88e0e2754c8228a9e43d8307a
+  - enabled: 1
+    path: Assets/Scenes/WindmillSecondFloor.unity
+    guid: d4dc5c93985490c4887ccd47e7eb13e9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}

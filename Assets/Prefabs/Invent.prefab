@@ -93,6 +93,9 @@ MonoBehaviour:
   - id: 8
     name: bucket
     img: {fileID: 21300000, guid: 3b3b664f0b2e37d48a6701b8e9c03db0, type: 3}
+  - id: 10
+    name: candle
+    img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
   - id: 9
     name: milk
     img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}

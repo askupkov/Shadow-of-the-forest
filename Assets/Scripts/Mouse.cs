@@ -20,7 +20,7 @@ public class Mouse : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange)
+        if (playerInRange && Player.Instance.lighting)
         {
             Collider.enabled = false;
             StartCoroutine(mouse_run());

@@ -45,9 +45,33 @@ public class ItemUseManager : MonoBehaviour
             case 6: // Веревка
                 rope(itemId);
                 break;
+            case 7: // Хлеб
+                
+                break;
+            case 8: // Ведро
+                bucket();
+                break;
+
+            case 9: // Молоко
+
+                break;
+
+            case 10: // Свеча
+                Player.Instance.Candle();
+                break;
+
             default:
                 Debug.Log("Неизвестный предмет");
                 break;
+        }
+    }
+
+    private void bucket()
+    {
+        if (Cows.Instance.playerInRange)
+        {
+            Inventory.Instance.ConsumeItem(8);
+            Inventory.Instance.AddItem(9);
         }
     }
 

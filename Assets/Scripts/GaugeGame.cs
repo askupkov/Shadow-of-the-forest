@@ -8,7 +8,8 @@ public class GaugeGame : MonoBehaviour
 {
     public static GaugeGame Instance { get; private set; }
     public RectTransform movingBar; // Движущаяся полоска
-    public GameObject gaugePanel; // Шкала
+    public GameObject panel; // Шкала
+    public GameObject gaugePanel; // Панель
     public GameObject victoryPanel;
     public GameObject failPanel;
     private RectTransform gaugePanelRect;
@@ -30,7 +31,7 @@ public class GaugeGame : MonoBehaviour
     void Start()
     {
         gaugePanel.SetActive(false);
-        gaugePanelRect = gaugePanel.GetComponent<RectTransform>();
+        gaugePanelRect = panel.GetComponent<RectTransform>();
     }
 
     void Update()
@@ -79,20 +80,14 @@ public class GaugeGame : MonoBehaviour
         float targetMin = targetZone.anchoredPosition.x - targetZone.rect.width / 2;
         float targetMax = targetZone.anchoredPosition.x + targetZone.rect.width / 2;
 
-        // Отладка: выводим значения в консоль
-        Debug.Log($"Bar Position: {barPosition}");
-        Debug.Log($"Target Min: {targetMin}, Target Max: {targetMax}");
-
         // Проверяем попадание
         if (barPosition >= targetMin && barPosition <= targetMax)
         {
-            Debug.Log("Успех!");
             PitInside.Instance.start_succes();
             GameBegun = false;
         }
         else
         {
-            Debug.Log("Промах!");
             PitInside.Instance.start_fall();
             GameBegun = false;
         }

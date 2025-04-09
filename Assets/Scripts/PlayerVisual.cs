@@ -8,6 +8,7 @@ public class PlayerVisual : MonoBehaviour
 
     private const string IS_WALKING = "IsWalking";
     private const string IS_RUNNING = "IsRunning";
+    private const string CANDLE = "Candle";
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayerVisual : MonoBehaviour
     {
         animator.SetInteger(IS_WALKING, Player.Instance.IsWalking());
         animator.SetInteger(IS_RUNNING, Player.Instance.IsRunning());
+        animator.SetBool(CANDLE, Player.Instance.IsLighting());
     }
 }
 

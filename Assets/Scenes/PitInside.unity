@@ -1021,6 +1021,10 @@ PrefabInstance:
       propertyPath: maxTargetWidth
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2768616354077181042, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5295362346061908264, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -1036,6 +1040,18 @@ PrefabInstance:
     - target: {fileID: 6936696750323431044, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
       propertyPath: m_Name
       value: Fail
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936696750323431044, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244800080040037786, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244800080040037786, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9092868992758119599, guid: 7f3914004dbc70345a5b3c91d42028e1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1410,6 +1426,7 @@ MonoBehaviour:
   destination: {fileID: 134799158}
   destination2: {fileID: 252179527}
   polygonCollider: {fileID: 508532664}
+  visit: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

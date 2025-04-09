@@ -133,4 +133,14 @@ speaker: Святослав
 speaker: Святослав
 Мне нужно ведро
 ->DONE
+
+=== bread ===
+speaker: Святослав
+Хлеб
+->DONE
+
+=== temno ===
+speaker: Святослав
+Нужна свеча
+->DONE
     -> END

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Cows : MonoBehaviour
 {
+    public static Cows Instance { get; private set; }
     Animator animator;
-    private bool playerInRange;
+    public bool playerInRange;
     [SerializeField] Pick_Item Pick_Item;
     [SerializeField] TextAsset inkJSON;
     BoxCollider2D Collider;
 
     private void Awake()
     {
+        Instance = this;
         Collider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
@@ -20,24 +22,19 @@ public class Cows : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            if(Inventory.Instance.HasItem(8) == true)
-            {
-                Inventory.Instance.ConsumeItem(8);
-                Pick_Item.pick_item();
-            }
-            else
-            {
-                DialogueManager.Instance.StartDialog(inkJSON, "cows");
-            }
-            if(DialogueManager.Instance.dialogPanelOpen == true)
-            {
-                Collider.enabled = false;
-            }
-            else
-            {
-                Collider.enabled = true;
-            }
+            StartCoroutine(cows());
         }
+    }
+
+    private IEnumerator cows()
+    {
+        DialogueManager.Instance.StartDialog(inkJSON, "cows");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            Collider.enabled = false;
+            yield return null;
+        }
+        Collider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
