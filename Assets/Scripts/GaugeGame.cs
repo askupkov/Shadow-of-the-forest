@@ -21,7 +21,7 @@ public class GaugeGame : MonoBehaviour
     private bool isPlaying = false; // Игра активна
 
     private float minTargetWidth = 0.06f; // Минимальная ширина целевой зоны (в процентах от ширины шкалы)
-    private float maxTargetWidth = 0.18f; // Максимальная ширина целевой зоны (в процентах от ширины шкалы)
+    private float maxTargetWidth = 0.15f; // Максимальная ширина целевой зоны (в процентах от ширины шкалы)
 
 
     private void Awake()
@@ -106,7 +106,6 @@ public class GaugeGame : MonoBehaviour
     {
         // Рандомизация ширины целевой зоны
         float randomWidthPercentage = Random.Range(minTargetWidth, maxTargetWidth);
-        Debug.Log(randomWidthPercentage);
         float newWidth = gaugePanelRect.rect.width * randomWidthPercentage;
         targetZone.sizeDelta = new Vector2(newWidth, targetZone.sizeDelta.y);
 

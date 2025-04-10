@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public bool isMovingToDestination = false;
     private Transform targetDestination;
     public bool lighting;
+    public bool damage;
 
     private float speed;
 
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
         lighting = !lighting;
     }
 
+
     private void HandleMovent()
     {
         Vector2 inputVector;
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
 
         if (speed == runSpeed && inputVector.x != 0)
         {
-            shiftCollider.enabled = true; // Если клавиша Shift нажата
+            shiftCollider.enabled = true;
             originalCollider.enabled = true;
             standCollider.enabled = true;
             shadow.SetActive(false);
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
         else if (speed == movingSpeed && inputVector.x != 0)
         {
             originalCollider.enabled = true;
-            shiftCollider.enabled = false; // Если клавиша Shift не нажата
+            shiftCollider.enabled = false;
             standCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
@@ -168,4 +170,5 @@ public class Player : MonoBehaviour
     {
         return isRunning;
     }
+
 }

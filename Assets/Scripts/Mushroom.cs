@@ -10,6 +10,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class Mushroom : MonoBehaviour
 {
+    public static Mushroom Instance { get; private set; }
     [SerializeField] private State startingState; // Начальное состояние
 
     [SerializeField] private bool isChasingEnemy = false; // Включение/Отключение состояния приследования
@@ -25,7 +26,10 @@ public class Mushroom : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private State state;
-
+    [SerializeField] bool death;
+    Rigidbody2D rb;
+    [SerializeField] bool damage;
+    private bool isDamageTriggered = false;
 
     private enum State
     {
@@ -37,6 +41,8 @@ public class Mushroom : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
@@ -48,6 +54,19 @@ public class Mushroom : MonoBehaviour
     private void Update()
     {
         StateHandler();
+        if (death)
+        {
+            Destroy(gameObject);
+        }
+        if (damage && !isDamageTriggered)
+        {
+            PlayerVisual.Instance.TriggerDamage();
+            isDamageTriggered = true;
+        }
+        if (!damage)
+        {
+            isDamageTriggered = false;
+        }
     }
 
 
@@ -70,37 +89,34 @@ public class Mushroom : MonoBehaviour
                 Attacking();
                 state = State.Death;
                 break;
+            case State.Death:
 
-            case State.Death: // Смерть
-                StartCoroutine(Death());
                 break;
         }
     }
 
     private void Idle()
     {
-        animator.SetBool("Run", false);
+        animator.SetInteger("IsWalking", 0);
     }
 
     private void Chasing()
     {
-        animator.SetBool("Run", true);
+        HandleMovement();
         navMeshAgent.SetDestination(Player.Instance.transform.position);
     }
 
     private void Attacking()
     {
+        
         if (Time.time > nextAttackTime)
         {
-            animator.SetTrigger("Boom");
+           
+            animator.SetInteger("IsWalking", 5);
+
             nextAttackTime = Time.time + attackRate;
             Healthbar.Instance.TakeDamage(10);
         }
-    }
-    private IEnumerator Death()
-    {
-        yield return new WaitForSeconds(1.6f);
-        Destroy(gameObject);
     }
 
     private void CheckCurrentState() // Проверка состояния
@@ -127,5 +143,35 @@ public class Mushroom : MonoBehaviour
             navMeshAgent.ResetPath(); // Останавливаем движение
             state = newState;
         }
+    }
+
+    private void HandleMovement()
+    {
+        Vector2 inputVector;
+
+        inputVector = ((Vector2)Player.Instance.transform.position - rb.position).normalized;
+
+        if (inputVector.x < 0)
+        {
+            isWalking = 3;
+        }
+        else if (inputVector.x > 0)
+        {
+            isWalking = 1;
+        }
+        else if (inputVector.y > 0)
+        {
+            isWalking = 4;
+        }
+        else if (inputVector.y < 0)
+        {
+            isWalking = 2;
+        }
+        UpdateAnimations();
+    }
+
+    private void UpdateAnimations()
+    {
+        animator.SetInteger("IsWalking", isWalking);
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f7823f6b4856af4c9a4beeccb0d8c21
+guid: f707c9e54dbfaeb44a19fece36be51ac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,190 +97,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_0
+      name: korova_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abb33915a5d614247be7ca247414a5e9
-      internalID: -750917772
+      spriteID: 31e388642fc9fea4d9d0a57fe28923b9
+      internalID: 394103042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_1
+      name: korova_1
       rect:
         serializedVersion: 2
-        x: 14
+        x: 21
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64899ae888b1f184c8e9839302d62189
-      internalID: 1343917050
+      spriteID: 66cf271becb4b6149ac2e11454d65fdc
+      internalID: 421717744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_2
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fa3a108d4ddd6943bf2e2af9f354fc3
-      internalID: 752696906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: New_3
+      name: korova_2
       rect:
         serializedVersion: 2
         x: 42
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d0ca6d518da3ce40a74785e867b8e07
-      internalID: -2114109527
+      spriteID: 8302a6920ccf7f240bf1302d3c8124c3
+      internalID: 654062123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_4
+      name: korova_3
       rect:
         serializedVersion: 2
-        x: 56
+        x: 63
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1411aa629925ace46b432701f140c632
-      internalID: 1856300117
+      spriteID: cca94c8c46a939645a2298833ec030af
+      internalID: -1532668614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_5
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 125dc49a54a49d3479aba990c6848044
-      internalID: 1252715199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: New_6
+      name: korova_4
       rect:
         serializedVersion: 2
         x: 84
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b326d872be7e42a4f968bbfb535fddbe
-      internalID: -1081799702
+      spriteID: eddf78ddca886204ba8b2fc31ecb6c82
+      internalID: -993836844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_7
+      name: korova_5
       rect:
         serializedVersion: 2
-        x: 98
+        x: 105
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd927bd91d5cafb478534a6d7e15296c
-      internalID: -1646507292
+      spriteID: 0604b23bd5b5ccf49b565199092e62ee
+      internalID: -838974544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_8
+      name: korova_6
       rect:
         serializedVersion: 2
-        x: 112
+        x: 126
         y: 0
-        width: 14
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb336ec66482d634a99654c955668e5f
-      internalID: 1022981805
+      spriteID: f8f2bbd7ab3132e48938dda38764276e
+      internalID: -2123571743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: korova_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33815af820179dd45a657e8b720f8cba
+      internalID: 432638083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: korova_8
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3cbae0f780564419c9823573ffa394
+      internalID: 600829178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: korova_9
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac676718b26c4a4ab67144ed1db88c1
+      internalID: 811698886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: korova_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2462eb1519fbf0547adc0867b6788bde
+      internalID: 788148771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: korova_11
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a2f197fce3b8f4b97052e31078fbe2
+      internalID: 813555538
       vertices: []
       indices: 
       edges: []
@@ -296,15 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      New_0: -750917772
-      New_1: 1343917050
-      New_2: 752696906
-      New_3: -2114109527
-      New_4: 1856300117
-      New_5: 1252715199
-      New_6: -1081799702
-      New_7: -1646507292
-      New_8: 1022981805
+      korova_0: 394103042
+      korova_1: 421717744
+      korova_10: 788148771
+      korova_11: 813555538
+      korova_2: 654062123
+      korova_3: -1532668614
+      korova_4: -993836844
+      korova_5: -838974544
+      korova_6: -2123571743
+      korova_7: 432638083
+      korova_8: 600829178
+      korova_9: 811698886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

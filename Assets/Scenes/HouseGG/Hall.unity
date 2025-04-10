@@ -2880,6 +2880,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 274809227801277867, guid: f5fadea70e36d464a914e0b316571864, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8325838
+      objectReference: {fileID: 0}
+    - target: {fileID: 274809227801277867, guid: f5fadea70e36d464a914e0b316571864, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.19155782
+      objectReference: {fileID: 0}
     - target: {fileID: 2596214893648586390, guid: f5fadea70e36d464a914e0b316571864, type: 3}
       propertyPath: m_Name
       value: Table

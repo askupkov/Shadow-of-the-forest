@@ -71,13 +71,13 @@ MonoBehaviour:
     img: {fileID: 21300000, guid: bffef3689b0ae554fb345dfa9fbf82e5, type: 3}
   - id: 1
     name: doll
-    img: {fileID: 21300000, guid: 044a81a19f29f8744a84860cad8128bb, type: 3}
+    img: {fileID: 21300000, guid: cca84f1cf36c7dc4abddfe140caf9869, type: 3}
   - id: 2
     name: key
     img: {fileID: 21300000, guid: 2e9ea8b4fc251b647af16d8af1342d37, type: 3}
   - id: 3
     name: berries
-    img: {fileID: 21300000, guid: 2f90aa367d826784f892a4e5f854ba04, type: 3}
+    img: {fileID: 21300000, guid: bc5e5ba8beb4de5479f5bdbd9e64f666, type: 3}
   - id: 4
     name: spellbook
     img: {fileID: 21300000, guid: 1967b9ea6866c9b4b9ab5f0f522faf74, type: 3}
@@ -86,18 +86,18 @@ MonoBehaviour:
     img: {fileID: 21300000, guid: 7811fa2d647a90544bf4dd730fc92232, type: 3}
   - id: 6
     name: rope
-    img: {fileID: 21300000, guid: 1f04e044b5fcf784a9da52cb0b33da18, type: 3}
+    img: {fileID: 21300000, guid: d1518d2908cc2ae4bb198496ef0c973b, type: 3}
   - id: 7
     name: bread
     img: {fileID: 21300000, guid: 9ad3a56ea2f79124ea531d77c5385b98, type: 3}
   - id: 8
     name: bucket
-    img: {fileID: 21300000, guid: 3b3b664f0b2e37d48a6701b8e9c03db0, type: 3}
-  - id: 10
-    name: candle
-    img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
+    img: {fileID: 21300000, guid: 8ae2bbfb5913340499e752c9f22bb568, type: 3}
   - id: 9
     name: milk
+    img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
+  - id: 10
+    name: candle
     img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
 --- !u!114 &1136633055786402608
 MonoBehaviour:
