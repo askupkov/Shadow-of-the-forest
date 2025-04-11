@@ -125,6 +125,8 @@ public class PitInside : MonoBehaviour
             scrollSpeed = 0;
             CameraController.Instance.FollowNull();
             rb.gravityScale = 80f;
+            yield return new WaitForSeconds(2f);
+            Player.Instance.Die();
             yield return new WaitForSeconds(1f);
             Destroy(player);
         }

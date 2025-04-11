@@ -20,8 +20,10 @@ public class Player : MonoBehaviour
     private Transform targetDestination;
     public bool lighting;
     public bool damage;
+    private Vector2 inputVector;
 
-    private float speed;
+
+    public float speed;
 
     private Rigidbody2D rb;
 
@@ -41,6 +43,22 @@ public class Player : MonoBehaviour
 
     }
 
+    public void Noice()
+    {
+        if (Player.Instance.speed == 2 && inputVector != Vector2.zero)
+        {
+            NoiseManager.Instance.IncreaseNoise(1f * Time.deltaTime);
+        }
+        else if (Player.Instance.speed == 5 && inputVector != Vector2.zero)
+        {
+            NoiseManager.Instance.IncreaseNoise(5f * Time.deltaTime);
+        }
+        else
+        {
+            NoiseManager.Instance.DecreaseNoise(0.5f * Time.deltaTime);
+        }
+    }
+
     private void FixedUpdate()
     {
         HandleMovent();
@@ -51,10 +69,16 @@ public class Player : MonoBehaviour
         lighting = !lighting;
     }
 
+    public void Die()
+    {
+        Debug.Log("Player died!");
+        GameOver.Instance.ShowGameOverScreen(); // Показываем экран смерти
+        GameInput.Instance.OnDisable(); // Блокируем управление
+    }
 
     private void HandleMovent()
     {
-        Vector2 inputVector;
+
         if (isMovingToDestination)
         {
             inputVector = ((Vector2)targetDestination.position - rb.position).normalized;

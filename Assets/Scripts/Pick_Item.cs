@@ -23,7 +23,7 @@ public class Pick_Item : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
-        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
+        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1 && DestroyItem)
         {
             Destroy(gameObject);
         }
@@ -46,17 +46,11 @@ public class Pick_Item : MonoBehaviour
         {
             PickUpItem();
         }
-        else
-        {
-            PlayerPrefs.SetInt(gameObject.name, 1);
-            PlayerPrefs.Save();
-        }
     }
 
     public void PickUpItem()
     {
-        PlayerPrefs.SetInt(gameObject.name, 1);
-        PlayerPrefs.Save();
+        ItemController.Instance.addPickedItems(gameObject.name);
         Destroy(gameObject);
     }
 

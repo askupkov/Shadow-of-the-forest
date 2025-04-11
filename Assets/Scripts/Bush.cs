@@ -16,10 +16,10 @@ public class Bush : MonoBehaviour
     }
     private void Start()
     {
-        bool hasBerries = PlayerPrefs.GetInt(PlayerPrefsKey, 1) == 1;
+        bool hasBerries = PlayerPrefs.GetInt(PlayerPrefsKey, 0) == 1;
         Animator.SetBool("With_berries", true);
 
-        if (!hasBerries)
+        if (hasBerries)
         {
             Animator.SetBool("With_berries", false);
             Collider.enabled = false;
@@ -38,20 +38,13 @@ public class Bush : MonoBehaviour
     {
         if (Animator.GetBool("With_berries"))
         {
-            Debug.Log("ягоды собраны!");
-
             Animator.SetBool("With_berries", false);
 
-            PlayerPrefs.SetInt(PlayerPrefsKey, 0);
-            PlayerPrefs.Save();
+            ItemController.Instance.addPickedItems(gameObject.name);
 
             Collider.enabled = false;
 
             Inventory.Instance.AddItem(3);
-        }
-        else
-        {
-            Debug.Log("Ќа этом кусте уже нет €год.");
         }
     }
 

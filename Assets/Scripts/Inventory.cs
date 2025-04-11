@@ -21,6 +21,9 @@ public class Inventory : MonoBehaviour
     public int maxCount; // Максимальное количество предметов в инвентаре
     public GameObject backGround; // Фон инвентаря
     public bool InventoryOpen = false;
+    public List<int> pickedItems = new List<int>(); // Список ID подобранных предметов
+    public List<int> usedItems = new List<int>(); // Список ID использованных предметов
+    private bool resetScene = false;
 
     private void Awake()
     {
@@ -36,6 +39,27 @@ public class Inventory : MonoBehaviour
         {
             AddGraphics();
         }
+    }
+
+    public void ClearPickedItems()
+    {
+        pickedItems.Clear();
+        usedItems.Clear();
+    }
+
+    public void ResetScene()
+    {
+        foreach (int itemId in pickedItems) // Удаление предметов после проигрыша
+        {
+            resetScene = true;
+            ConsumeItem(itemId);
+        }
+        foreach (int itemId in usedItems) // Добавление предметов после проигрыша
+        {
+            resetScene = true;
+            AddItem(itemId);
+        }
+        ClearPickedItems();
     }
 
     private void Update()
@@ -87,6 +111,12 @@ public class Inventory : MonoBehaviour
 
     public void ConsumeItem(int itemId)
     {
+        if(!resetScene)
+        {
+            usedItems.Add(itemId);
+            resetScene = false;
+        }
+        
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].id == itemId && items[i].count > 0)
@@ -109,6 +139,11 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int itemId)
     {
+        if (!resetScene)
+        {
+            pickedItems.Add(itemId);
+            resetScene = false;
+        }
         // Проверяем, есть ли предмет в инвентаре
         for (int i = 0; i < items.Count; i++)
         {

@@ -9,7 +9,7 @@ public class Healthbar : MonoBehaviour
     public static Healthbar Instance { get; private set; }
 
     Image healthBar;
-    public float maxHealth = 100f; // Максимальное здоровье
+    public float maxHealth = 100f;
     public float HP;
 
     private void Awake()
@@ -20,27 +20,32 @@ public class Healthbar : MonoBehaviour
     private void Start()
     {
         healthBar = GetComponent<Image>();
-        HP = maxHealth; // Устанавливаем текущее здоровье на максимальное
-        UpdateHealthSlider(); // Обновляем шкалу здоровья
+        HP = maxHealth;
+        UpdateHealthSlider();
     }
 
     public void TakeDamage(int damage)
     {
-        HP -= damage; // Уменьшаем текущее здоровье
-        if (HP < 0) HP = 0; // Убедитесь, что здоровье не ниже 0
-        UpdateHealthSlider(); // Обновляем шкалу здоровья
+        HP -= damage;
+        if (HP <= 0)
+        {
+            HP = 0;
+            Player.Instance.Die();
+        }
+        UpdateHealthSlider();
+        
     }
 
     public void Heal(int amount)
     {
-        HP += amount; // Увеличиваем текущее здоровье
-        if (HP > maxHealth) HP = maxHealth; // Не превышайте максимальное здоровье
-        UpdateHealthSlider(); // Обновляем шкалу здоровья
+        HP += amount;
+        if (HP > maxHealth) HP = maxHealth;
+        UpdateHealthSlider();
     }
 
     private void UpdateHealthSlider()
     {
-        healthBar.fillAmount = HP / maxHealth;// Обновляем значение слайдера
+        healthBar.fillAmount = HP / maxHealth;
     }
 }
 

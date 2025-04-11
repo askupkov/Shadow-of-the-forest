@@ -53,5 +53,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WindmillSecondFloor.unity
     guid: d4dc5c93985490c4887ccd47e7eb13e9
+  - enabled: 1
+    path: Assets/Scenes/MenuManager.unity
+    guid: b1eb5165fa34a7845a80e768390db496
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}
