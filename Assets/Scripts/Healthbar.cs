@@ -20,8 +20,27 @@ public class Healthbar : MonoBehaviour
     private void Start()
     {
         healthBar = GetComponent<Image>();
-        HP = maxHealth;
-        UpdateHealthSlider();
+        LoadHealth();
+    }
+
+    public void SaveHealth()
+    {
+        PlayerPrefs.SetFloat("CurrentHP", HP);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadHealth()
+    {
+        if (PlayerPrefs.HasKey("CurrentHP"))
+        {
+            HP = PlayerPrefs.GetFloat("CurrentHP");
+            UpdateHealthSlider();
+        }
+        else
+        {
+            HP = maxHealth;
+            UpdateHealthSlider();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -30,19 +49,10 @@ public class Healthbar : MonoBehaviour
         if (HP <= 0)
         {
             HP = 0;
-            StartCoroutine(die());
+            Player.Instance.StartDie();
         }
         UpdateHealthSlider();
         
-    }
-
-    private IEnumerator die()
-    {
-        GameInput.Instance.OnDisable();
-        yield return new WaitForSeconds(0.4f);
-        PlayerVisual.Instance.TriggerDie();
-        yield return new WaitForSeconds(4f);
-        Player.Instance.Die();
     }
 
     public void Heal(int amount)

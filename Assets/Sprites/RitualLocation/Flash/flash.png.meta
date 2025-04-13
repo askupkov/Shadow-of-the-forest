@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b55fbd5d321a1774e9fc3401f09342f6
+guid: 09c9c88e564885149acdab359b55b95b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,85 +97,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DieRight_0
+      name: svet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 519a3a4667b190b48970057b9f63980e
-      internalID: -115880642
+      spriteID: d686605bf474c2f4ba1fe97e93d342b3
+      internalID: -259758760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_1
+      name: svet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 99
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5def83b0916cd8141bca4fc404ed8fab
-      internalID: 1726426501
+      spriteID: 39e078fecc0abd645b3c3f935a040300
+      internalID: -1781882649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_2
+      name: svet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 198
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8939f77c9c979b54693485e079ae25e5
-      internalID: 706320568
+      spriteID: 36d8bfe40dab78b498d952028dd7a5a0
+      internalID: 1740948258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_3
+      name: svet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 297
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf37dcc3271476748a4b632318688fa7
-      internalID: 90577356
+      spriteID: c6e14324ea2ab6647ac6295facd8f9e8
+      internalID: 769893859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: svet_4
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea6c627e35cb6e4f96e83807ef42d60
+      internalID: -1440994449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: svet_5
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b855df9ab960e438bb97ccb8627adc
+      internalID: 1930396154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: svet_6
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 0
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b56a649c95f1f64bb8319b615d97506
+      internalID: -698466751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: svet_7
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 0
+        width: 99
+        height: 310
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b7287d1d17f514da5c0559cd22506b
+      internalID: -548805096
       vertices: []
       indices: 
       edges: []
@@ -191,10 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DieRight_0: -115880642
-      DieRight_1: 1726426501
-      DieRight_2: 706320568
-      DieRight_3: 90577356
+      svet_0: -259758760
+      svet_1: -1781882649
+      svet_2: 1740948258
+      svet_3: 769893859
+      svet_4: -1440994449
+      svet_5: 1930396154
+      svet_6: -698466751
+      svet_7: -548805096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

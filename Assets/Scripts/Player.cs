@@ -21,13 +21,16 @@ public class Player : MonoBehaviour
     public bool lighting;
     public bool damage;
     private Vector2 inputVector;
+    private bool checkAnimation = true;
+    public bool stealth = false;
+    private int lastHorizontalDirection = 1;
 
 
     public float speed;
 
     private Rigidbody2D rb;
 
-    //private float minMovingSpeed = 0.1f;
+
     private int isWalking = 0;
     private int isRunning = 0;
 
@@ -61,7 +64,15 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovent();
+        if (checkAnimation)
+        {
+            HandleMovent();
+        }
+        if (stealth)
+        {
+            HandleMoventStealth();
+            checkAnimation = false;
+        }
     }
 
     public void Candle()
@@ -69,12 +80,23 @@ public class Player : MonoBehaviour
         lighting = !lighting;
     }
 
-    public void Die()
+    public void StartDie()
     {
-        Debug.Log("Player died!");
+        StartCoroutine(Die());
+    }
+    private IEnumerator Die()
+    {
+        GameInput.Instance.OnDisable();
+        yield return new WaitForSeconds(0.4f);
+        checkAnimation = false;
+        shadow.SetActive(false);
+        newshadow.SetActive(false);
+        PlayerVisual.Instance.TriggerDie();
+        yield return new WaitForSeconds(4f);
         GameOver.Instance.ShowGameOverScreen(); // Показываем экран смерти
         GameInput.Instance.OnDisable(); // Блокируем управление
     }
+
 
     private void HandleMovent()
     {
@@ -109,7 +131,7 @@ public class Player : MonoBehaviour
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
-        else 
+        else
         {
             standCollider.enabled = true;
             originalCollider.enabled = false;
@@ -161,6 +183,33 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void HandleMoventStealth()
+    {
+        inputVector = GameInput.Instance.GetMovementVector();
+        speed = movingSpeed;
+        rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
+        shiftCollider.enabled = false;
+        standCollider.enabled = false;
+        if (inputVector.x < 0)
+        {
+            isWalking = 3;
+            lastHorizontalDirection = isWalking;
+        }
+        else if (inputVector.x > 0)
+        {
+            isWalking = 1;
+            lastHorizontalDirection = isWalking;
+        }
+        else if (inputVector.y != 0)
+        {
+            isWalking = lastHorizontalDirection;
+        }
+        else
+        {
+            isWalking = 0;
+        }
+    }
+
     public void StartToMove(Transform destination)
     {
         StartCoroutine(MoveToDestination(destination));
@@ -173,7 +222,7 @@ public class Player : MonoBehaviour
         targetDestination = destination;
 
         while (Vector2.Distance(transform.position, destination.position) > 0.1f)
-        { 
+        {
             yield return null;
         }
         transform.position = destination.position;

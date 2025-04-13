@@ -39,7 +39,9 @@ public class SceneController : MonoBehaviour
         playerStorage.initialValue = position;
         SceneFader.Instance.FadeToLevel();
         yield return new WaitForSeconds(1f);
+
         Inventory.Instance.ClearPickedItems();
+        Healthbar.Instance.SaveHealth();
         ItemController.Instance.SaveScene();
         SceneManager.LoadScene(sceneToLoad);
         SceneFader.Instance.FadeFromLevel();

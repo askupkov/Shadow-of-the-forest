@@ -193,6 +193,8 @@ MonoBehaviour:
   pos: {fileID: 11400000, guid: 2761d26dc47118446b7b7e80ef7c5b85, type: 2}
   isMovingToDestination: 0
   lighting: 0
+  damage: 0
+  speed: 0
 --- !u!1 &3351191135532759476
 GameObject:
   m_ObjectHideFlags: 0

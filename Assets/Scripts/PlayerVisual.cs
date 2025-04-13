@@ -34,6 +34,10 @@ public class PlayerVisual : MonoBehaviour
     {
         animator.SetBool("Die", true);
     }
+    public void Stealth()
+    {
+        animator.SetTrigger("Stealth");
+    }
 
     private IEnumerator Control()
     {

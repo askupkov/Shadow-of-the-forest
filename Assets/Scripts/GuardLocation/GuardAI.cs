@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using KnightAdventure.Utils;
+using UnityEngine.SceneManagement;
+
+
 
 public class GuardAI : MonoBehaviour
 {
     public static GuardAI Instance { get; private set; }
+    public static List<GuardAI> guards = new List<GuardAI>();
     public float detectionRadius;
     private NavMeshAgent navMeshAgent;
     private State state;
@@ -16,6 +20,8 @@ public class GuardAI : MonoBehaviour
     Animator animator;
     [SerializeField] Vector2 destination1;
     [SerializeField] Vector2 destination2;
+    [SerializeField] GameObject Right;
+    [SerializeField] GameObject Left;
 
     private bool gameover;
     private bool isWaiting = false; // Флаг, показывающий, находится ли стражник в состоянии ожидания
@@ -24,6 +30,7 @@ public class GuardAI : MonoBehaviour
 
     private Rigidbody2D rb;
     private int isWalking;
+
 
     private enum State
     {
@@ -34,6 +41,7 @@ public class GuardAI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        guards.Add(this);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -104,7 +112,10 @@ public class GuardAI : MonoBehaviour
 
     public void atack()
     {
-        state = State.Attacking;
+        if (IsClosestGuard())
+        {
+            state = State.Attacking;
+        }
     }
 
     private void Roaming()
@@ -140,7 +151,7 @@ public class GuardAI : MonoBehaviour
             // Моб приближается по оси X (горизонтально)
             currentDestination = new Vector2(
                 playerPosition.x - directionX * 1f, // Отступ по X
-                playerPosition.y
+                playerPosition.y - 0.1f
             );
         }
         else
@@ -161,7 +172,6 @@ public class GuardAI : MonoBehaviour
         {
             // Начинаем атаку
             gameover = true;
-            //animator.SetInteger("IsWalking", 5);
             animator.SetTrigger("Attack");
 
             NoiseManager.Instance.GameOver();
@@ -178,8 +188,11 @@ public class GuardAI : MonoBehaviour
         // Проверяем, находится ли моб на позиции для атаки
         if (distanceToPlayer <= detectionRadius && BushManager.Instance.PlayerHidden == false)
         {
-            GameInput.Instance.OnDisable();
-            newState = State.Attacking;
+            if (IsClosestGuard())
+            {
+                GameInput.Instance.OnDisable();
+                newState = State.Attacking;
+            }
         }
         if (newState != state)
         {
@@ -202,10 +215,14 @@ public class GuardAI : MonoBehaviour
             if (inputVector.x < 0)
             {
                 isWalking = 3; // Движение влево
+                Right.SetActive(false);
+                Left.SetActive(true);
             }
             else if (inputVector.x > 0)
             {
                 isWalking = 1; // Движение вправо
+                Right.SetActive(true);
+                Left.SetActive(false);
             }
         }
         else
@@ -229,6 +246,27 @@ public class GuardAI : MonoBehaviour
 
         UpdateAnimations();
     }
+
+    private bool IsClosestGuard()
+    {
+        // Находим ближайшего стражника к игроку
+        float closestDistance = float.MaxValue;
+        GuardAI closestGuard = null;
+
+        foreach (var guard in guards)
+        {
+            float distance = Vector3.Distance(guard.transform.position, Player.Instance.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestGuard = guard;
+            }
+        }
+
+        // Возвращаем true, если текущий стражник является ближайшим
+        return closestGuard == this;
+    }
+
     private void UpdateAnimations()
     {
         animator.SetInteger("IsWalking", isWalking);

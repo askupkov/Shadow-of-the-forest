@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b55fbd5d321a1774e9fc3401f09342f6
+guid: 33a66330083fcb24dba86a0c00b3d6c9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,85 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DieRight_0
+      name: Right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 519a3a4667b190b48970057b9f63980e
-      internalID: -115880642
+      spriteID: 449acc563fbd2d34f978dbc76521a152
+      internalID: -794398046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_1
+      name: Right_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 15
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5def83b0916cd8141bca4fc404ed8fab
-      internalID: 1726426501
+      spriteID: 9b3a85e9e3c461f4c87f3de7d5464e85
+      internalID: 1036768298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_2
+      name: Right_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 30
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8939f77c9c979b54693485e079ae25e5
-      internalID: 706320568
+      spriteID: 81b33f10d04c5164c91e3d1c90cf3dd4
+      internalID: -159596736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_3
+      name: Right_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 45
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf37dcc3271476748a4b632318688fa7
-      internalID: 90577356
+      spriteID: 43b32368172c76c4eb3ce4d0f7ddccf9
+      internalID: -583811108
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DieRight_0: -115880642
-      DieRight_1: 1726426501
-      DieRight_2: 706320568
-      DieRight_3: 90577356
+      Right_0: -794398046
+      Right_1: 1036768298
+      Right_2: -159596736
+      Right_3: -583811108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b55fbd5d321a1774e9fc3401f09342f6
+guid: de24095dbd6bd0c4f8d3857340488465
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,85 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DieRight_0
+      name: Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 519a3a4667b190b48970057b9f63980e
-      internalID: -115880642
+      spriteID: 4ccc13b174d5a174b818703e408e72f9
+      internalID: -667411096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_1
+      name: Left_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 15
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5def83b0916cd8141bca4fc404ed8fab
-      internalID: 1726426501
+      spriteID: 9962370248040bd4dbf9b7c853039ce7
+      internalID: 1216034053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_2
+      name: Left_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 30
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8939f77c9c979b54693485e079ae25e5
-      internalID: 706320568
+      spriteID: 9683832690389f8439c1009fd3dc1cd0
+      internalID: 198023950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DieRight_3
+      name: Left_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 45
         y: 0
-        width: 32
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5, y: 0.045}
+        width: 15
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf37dcc3271476748a4b632318688fa7
-      internalID: 90577356
+      spriteID: 8bbcc9775484b564c8a57414ebed8710
+      internalID: 201529807
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DieRight_0: -115880642
-      DieRight_1: 1726426501
-      DieRight_2: 706320568
-      DieRight_3: 90577356
+      Left_0: -667411096
+      Left_1: 1216034053
+      Left_2: 198023950
+      Left_3: 201529807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

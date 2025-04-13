@@ -25,8 +25,12 @@ public class GameOver : MonoBehaviour
     public void OnRestartButton()
     {
         GameManager.Instance.RestartGame();
+
         Inventory.Instance.ResetScene();
         ItemController.Instance.ClearPickedItems();
+        Healthbar.Instance.LoadHealth();
+        GuardAI.guards.Clear();
+
         gameOverPanel.SetActive(false);
     }
 
