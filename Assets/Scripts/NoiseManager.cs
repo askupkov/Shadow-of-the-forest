@@ -10,6 +10,7 @@ public class NoiseManager : MonoBehaviour
     public float maxNoise = 10f; // Максимальный уровень шума
     private float currentNoise = 0f; // Текущий уровень шума
 
+
     private void Awake()
     {
         Instance = this;
@@ -59,13 +60,12 @@ public class NoiseManager : MonoBehaviour
     // Действие при полном заполнении шкалы шума
     private void OnNoiseDetected()
     {
-        Debug.Log("Стражник заметил вас!");
-        GameOver();
+        GameInput.Instance.OnDisable();
+        GuardAI.Instance.atack();
     }
 
-    // Завершение игры
-    private void GameOver()
+    public void GameOver()
     {
-        // Здесь код для завершения игры (например, показ экрана поражения)
+        Debug.Log("GameOver!");
     }
 }

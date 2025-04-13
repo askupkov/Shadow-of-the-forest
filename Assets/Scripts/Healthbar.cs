@@ -30,10 +30,19 @@ public class Healthbar : MonoBehaviour
         if (HP <= 0)
         {
             HP = 0;
-            Player.Instance.Die();
+            StartCoroutine(die());
         }
         UpdateHealthSlider();
         
+    }
+
+    private IEnumerator die()
+    {
+        GameInput.Instance.OnDisable();
+        yield return new WaitForSeconds(0.4f);
+        PlayerVisual.Instance.TriggerDie();
+        yield return new WaitForSeconds(4f);
+        Player.Instance.Die();
     }
 
     public void Heal(int amount)

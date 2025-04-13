@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 849a2463cde5ea34f83c8ebe7aafc41b
+guid: 76e730a521b18824ebecd0c716375d05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Left 1_0
+      name: Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 36
-        height: 42
+        height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69cca9c7da772df448a4a48d6fec9fc9
-      internalID: -127479551
+      spriteID: c4185b29057071c4a96641e4dfaef370
+      internalID: 146927923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left 1_1
+      name: Left_1
       rect:
         serializedVersion: 2
         x: 36
         y: 0
         width: 36
-        height: 42
+        height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f0e9e8c57f0ef34fa9ae881b4578a59
-      internalID: -1669477616
+      spriteID: 32572f18ebb0dd648ba295f276ed2e1a
+      internalID: 928000286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left 1_2
+      name: Left_2
       rect:
         serializedVersion: 2
         x: 72
         y: 0
         width: 36
-        height: 42
+        height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17eb161c189e7514589b53a6df8d1a97
-      internalID: 560591624
+      spriteID: 97ab64c749136874899f853c343b22e8
+      internalID: 336798178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left 1_3
+      name: Left_3
       rect:
         serializedVersion: 2
         x: 108
         y: 0
         width: 36
-        height: 42
+        height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,92 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a3f72fa7c24eac458731d65efe48b4f
-      internalID: -1333610798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left 1_4
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 36
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89738526c26546249a409bec567097eb
-      internalID: -1793550932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left 1_5
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 36
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c04878a48edb26749ad2a3f088569288
-      internalID: 1164750817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left 1_6
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 36
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03b4520e65189614c9f67ea08677706d
-      internalID: 881647266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left 1_7
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 36
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3c2d05c5ac72854b93791f4ee7fbf6a
-      internalID: -857475643
+      spriteID: 816511af7f538a442899a75abc044d43
+      internalID: -558614842
       vertices: []
       indices: 
       edges: []
@@ -275,14 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Left 1_0: -127479551
-      Left 1_1: -1669477616
-      Left 1_2: 560591624
-      Left 1_3: -1333610798
-      Left 1_4: -1793550932
-      Left 1_5: 1164750817
-      Left 1_6: 881647266
-      Left 1_7: -857475643
+      Left_0: 146927923
+      Left_1: 928000286
+      Left_2: 336798178
+      Left_3: -558614842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

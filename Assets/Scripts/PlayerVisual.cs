@@ -6,7 +6,6 @@ public class PlayerVisual : MonoBehaviour
 {
     public static PlayerVisual Instance { get; private set; }
     private Animator animator;
-    //[SerializeField] bool OnDisable;
 
     private const string IS_WALKING = "IsWalking";
     private const string IS_RUNNING = "IsRunning";
@@ -31,12 +30,20 @@ public class PlayerVisual : MonoBehaviour
         animator.SetTrigger(DAMAGE);
     }
 
+    public void TriggerDie()
+    {
+        animator.SetBool("Die", true);
+    }
+
     private IEnumerator Control()
     {
         GameInput.Instance.OnDisable();
         
         yield return new WaitForSeconds(0.5f);
-        GameInput.Instance.OnEnabled();
+        if(Healthbar.Instance.HP > 0)
+        {
+            GameInput.Instance.OnEnabled();
+        }
     }
 }
 
