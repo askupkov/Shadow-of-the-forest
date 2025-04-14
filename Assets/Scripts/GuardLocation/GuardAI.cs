@@ -12,7 +12,6 @@ public class GuardAI : MonoBehaviour
 {
     public static GuardAI Instance { get; private set; }
     public static List<GuardAI> guards = new List<GuardAI>();
-    public float detectionRadius;
     private NavMeshAgent navMeshAgent;
     private State state;
     private float roamingTimer;
@@ -22,6 +21,8 @@ public class GuardAI : MonoBehaviour
     [SerializeField] Vector2 destination2;
     [SerializeField] GameObject Right;
     [SerializeField] GameObject Left;
+    [SerializeField] GameObject Back;
+    [SerializeField] GameObject Front;
 
     private bool gameover;
     private bool isWaiting = false; // Флаг, показывающий, находится ли стражник в состоянии ожидания
@@ -30,6 +31,7 @@ public class GuardAI : MonoBehaviour
 
     private Rigidbody2D rb;
     private int isWalking;
+    private bool playerInRange;
 
 
     private enum State
@@ -180,13 +182,11 @@ public class GuardAI : MonoBehaviour
 
     private void CheckCurrentState() // Проверка состояния
     {
-        Vector2 raisedPosition = new Vector2(transform.position.x, transform.position.y + 1);
-        float distanceToPlayer = Vector3.Distance(raisedPosition, Player.Instance.transform.position);
         State newState = State.Roaming;
 
 
         // Проверяем, находится ли моб на позиции для атаки
-        if (distanceToPlayer <= detectionRadius && BushManager.Instance.PlayerHidden == false)
+        if (playerInRange && BushManager.Instance.PlayerHidden == false)
         {
             if (IsClosestGuard())
             {
@@ -216,12 +216,16 @@ public class GuardAI : MonoBehaviour
             {
                 isWalking = 3; // Движение влево
                 Right.SetActive(false);
+                Back.SetActive(false);
+                Front.SetActive(false);
                 Left.SetActive(true);
             }
             else if (inputVector.x > 0)
             {
                 isWalking = 1; // Движение вправо
                 Right.SetActive(true);
+                Back.SetActive(false);
+                Front.SetActive(false);
                 Left.SetActive(false);
             }
         }
@@ -231,10 +235,18 @@ public class GuardAI : MonoBehaviour
             if (inputVector.y > 0)
             {
                 isWalking = 4; // Движение вверх
+                Right.SetActive(false);
+                Back.SetActive(true);
+                Front.SetActive(false);
+                Left.SetActive(false);
             }
             else if (inputVector.y < 0)
             {
                 isWalking = 2; // Движение вниз
+                Right.SetActive(false);
+                Back.SetActive(false);
+                Front.SetActive(true);
+                Left.SetActive(false);
             }
         }
 
@@ -270,6 +282,21 @@ public class GuardAI : MonoBehaviour
     private void UpdateAnimations()
     {
         animator.SetInteger("IsWalking", isWalking);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 }
 
