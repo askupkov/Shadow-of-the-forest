@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.653
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
@@ -1888,8 +1888,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 152.30771
   m_PointLightOuterAngle: 263.07693
-  m_PointLightInnerRadius: 6.52
-  m_PointLightOuterRadius: 8.073898
+  m_PointLightInnerRadius: 5
+  m_PointLightOuterRadius: 8
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1908,12 +1908,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160351298}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.99996823, w: 0.007975858}
-  m_LocalPosition: {x: 0.259, y: 3.653, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99996823, w: 0.007975858}
+  m_LocalPosition: {x: 0.018998325, y: 1.5530002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1786889248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1420927595
 PrefabInstance:
@@ -2329,7 +2329,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7170654220948605286, guid: 5521cdcbc312ebc44bad17eaa49f73b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1160351300}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4419761204866776017, guid: 5521cdcbc312ebc44bad17eaa49f73b3, type: 3}
       insertIndex: -1
@@ -2402,6 +2405,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
   startingPoint: bake
+--- !u!4 &1786889248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7170654220948605286, guid: 5521cdcbc312ebc44bad17eaa49f73b3, type: 3}
+  m_PrefabInstance: {fileID: 1786889244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1804888146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3036,7 +3044,6 @@ SceneRoots:
   - {fileID: 2075257970}
   - {fileID: 568807929}
   - {fileID: 924277997}
-  - {fileID: 1160351300}
   - {fileID: 417573160}
   - {fileID: 2140854119}
   - {fileID: 561216902}
