@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Man : MonoBehaviour
 {
-    public Transform destination1;
-    public Transform destination2;
+    [SerializeField] Transform destination1;
+    [SerializeField] Transform destination2;
+    [SerializeField] Transform destination3;
     public float moveSpeed = 1f;
     public Animator animator;
     public Animator animator2;
@@ -37,8 +38,13 @@ public class Man : MonoBehaviour
 
     private IEnumerator MoveToDestination()
     {
+        Player.Instance.StartToMove(destination3);
+        while (Player.Instance.isMovingToDestination)
+        {
+            yield return null;
+        }
+        GameInput.Instance.OnDisable();
         animator.SetBool("IsWalking", true);
-
         while (Vector2.Distance(transform.position, destination1.position) > 0.1f)
         {
             transform.position = Vector2.MoveTowards(

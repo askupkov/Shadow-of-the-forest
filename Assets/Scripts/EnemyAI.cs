@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private bool isChasingEnemy = false; // Включение/Отключение состояния приследования
     [SerializeField] private float chasingDistance = 4f;
-    [SerializeField] private float chasingSpeedMultiplier = 2f;
+    //[SerializeField] private float chasingSpeedMultiplier = 2f;
 
     [SerializeField] private bool isAttackingEnemy = false; // Включение/Отключение состояния атаки
     [SerializeField] private float attackingDistance = 2f;

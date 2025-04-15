@@ -13,6 +13,7 @@ public class Dialog_starushka : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
     private BoxCollider2D Collider;
     [SerializeField] BoxCollider2D Collider2;
+    [SerializeField] Transform destination;
 
     private string PlayerPrefs => $"{gameObject.name}";
 
@@ -25,17 +26,17 @@ public class Dialog_starushka : MonoBehaviour
     {
         Collider = GetComponent<BoxCollider2D>();
         LoadState();
+        DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
     }
 
     private IEnumerator StartInitialDialog()
     {
-        GameInput.Instance.OnDisable();
-        yield return new WaitForSeconds(0.3f);
-        DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
-        while (DialogueManager.Instance.dialogPanelOpen)
+        Player.Instance.StartToMove(destination);
+        while (Player.Instance.isMovingToDestination)
         {
             yield return null;
         }
+        GameInput.Instance.OnDisable();
         DialogueManager.Instance.StartDialog(inkJSON, "starushka1");
         isSecondDialogStarted = true;
         Animator.SetBool("Dialog_starushka", true);

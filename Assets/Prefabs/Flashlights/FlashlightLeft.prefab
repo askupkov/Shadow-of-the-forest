@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3872920842971346763}
   - component: {fileID: 4683387755797410099}
   - component: {fileID: 7440470472930875125}
+  - component: {fileID: 2343526834704504147}
   m_Layer: 0
   m_Name: FlashlightLeft
   m_TagString: Untagged
@@ -121,6 +122,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.1212726, y: 0.10481818}
   m_Size: {x: 0.51132745, y: 0.25313944}
   m_Direction: 1
+--- !u!114 &2343526834704504147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049268698944923024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.56666875, y: 0.28469735, z: 4}
+  m_Center: {x: 0.12379801, y: 0.096274704, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8753510323858898743
 GameObject:
   m_ObjectHideFlags: 0

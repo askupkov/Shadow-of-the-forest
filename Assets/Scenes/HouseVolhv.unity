@@ -1438,6 +1438,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5084214
+      objectReference: {fileID: 0}
+    - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.2542107
+      objectReference: {fileID: 0}
     - target: {fileID: 815207568582980442, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Name
       value: SceneController
@@ -1460,7 +1468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780891896674779228, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.96
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 7780891896674779228, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_LocalPosition.z

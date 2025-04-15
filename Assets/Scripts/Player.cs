@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class Player : MonoBehaviour
     public bool stealth = false;
     private int lastHorizontalDirection = 1;
 
+    private NavMeshAgent navMeshAgent;
+
+
 
     public float speed;
 
@@ -43,7 +47,9 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
+        navMeshAgent.enabled = false;
     }
 
     public void Noice()
@@ -93,8 +99,8 @@ public class Player : MonoBehaviour
         newshadow.SetActive(false);
         PlayerVisual.Instance.TriggerDie();
         yield return new WaitForSeconds(4f);
-        GameOver.Instance.ShowGameOverScreen(); // Показываем экран смерти
-        GameInput.Instance.OnDisable(); // Блокируем управление
+        GameOver.Instance.ShowGameOverScreen();
+        GameInput.Instance.OnDisable();
     }
 
 
@@ -103,17 +109,16 @@ public class Player : MonoBehaviour
 
         if (isMovingToDestination)
         {
+            navMeshAgent.SetDestination(targetDestination.position);
             inputVector = ((Vector2)targetDestination.position - rb.position).normalized;
-            speed = movingSpeed;
         }
         else
         {
             inputVector = GameInput.Instance.GetMovementVector();
             speed = Input.GetKey(KeyCode.LeftShift) && lighting == false ? runSpeed : movingSpeed;
+            rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
         }
-        rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
 
-        //Debug.Log(inputVector);
 
         if (speed == runSpeed && inputVector.x != 0)
         {
@@ -183,6 +188,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private void HandleMoventStealth()
     {
         inputVector = GameInput.Instance.GetMovementVector();
@@ -218,14 +224,25 @@ public class Player : MonoBehaviour
     private IEnumerator MoveToDestination(Transform destination)
     {
         GameInput.Instance.OnDisable();
+
+        
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
         isMovingToDestination = true;
+
         targetDestination = destination;
 
-        while (Vector2.Distance(transform.position, destination.position) > 0.1f)
+        if (navMeshAgent != null)
         {
-            yield return null;
+            navMeshAgent.enabled = true;
+            navMeshAgent.SetDestination(destination.position);
+            while (navMeshAgent.pathPending || navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+            {
+                yield return null;
+            }
+            navMeshAgent.enabled = false;
         }
-        transform.position = destination.position;
+
         isMovingToDestination = false;
         GameInput.Instance.OnEnabled();
     }

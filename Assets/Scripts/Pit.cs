@@ -88,22 +88,17 @@ public class Pit : MonoBehaviour
 
     private IEnumerator MoveToPit()
     {
+        Player.Instance.StartToMove(destination1);
+        while (Player.Instance.isMovingToDestination)
+        {
+            yield return null;
+        }
         DialogueManager.Instance.StartDialog(inkJSON, "pit1");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
         }
-        //Player.Instance.StartToMove(destination1);
-        //while (Player.Instance.isMovingToDestination)
-        //{
-        //    yield return null;
-        //}
-        //Player.Instance.StartToMove(destination2);
-        //while (Player.Instance.isMovingToDestination)
-        //{
-        //    yield return null;
-        //}
-        Player.Instance.StartToMove(destination3);
+        Player.Instance.StartToMove(destination2);
         while (Player.Instance.isMovingToDestination)
         {
             yield return null;
