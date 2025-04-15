@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,85 +97,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_0
+      name: kamni_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d5cb74c70e4784c87fc8129a5356fa
+      internalID: -83519426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de832543eac56234b92fc42303589bc0
+      internalID: 1179465040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73baf2ac8e96e24386d81c50f6f1df9
+      internalID: -471914095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299204c592176e846bc2a42b2e5fcf6d
+      internalID: 121255807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e30d1b79fc2156469b40b75d8ae1c0b
+      internalID: -1121827398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec2830e6b90520e43aed2e84f3e41c8d
+      internalID: -1022264035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b4ca9d8ec844a4d833868728d0c0c6
+      internalID: 6995570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamni_7
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e661ee5a96518448fe567c7fbb5ac5
-      internalID: -1143877018
+      spriteID: 5a70e8e454cfc7241b67268fb9afa33f
+      internalID: -1978347590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_1
+      name: kamni_8
       rect:
         serializedVersion: 2
-        x: 170
+        x: 24
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374e6af2ac3053041bcc37735f2ae4a3
-      internalID: -662328099
+      spriteID: 41e4d4e0d61e5224982765315fabcc53
+      internalID: 272156761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_2
+      name: kamni_9
       rect:
         serializedVersion: 2
-        x: 340
+        x: 48
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f9060b21183644c964aa0a2fef01a7
-      internalID: -421812480
+      spriteID: e3e3d24af73c5cb4c9aaf813713228e6
+      internalID: -1216464558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_3
+      name: kamni_10
       rect:
         serializedVersion: 2
-        x: 510
+        x: 96
         y: 0
-        width: 170
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f163ce408b534be49b0c513e6263b43f
-      internalID: -834992456
+      spriteID: 56490340c9491034b8d178fcc3c28770
+      internalID: -380665130
       vertices: []
       indices: 
       edges: []
@@ -191,10 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      photo_2025-01-08_22-03-02_0: -1143877018
-      photo_2025-01-08_22-03-02_1: -662328099
-      photo_2025-01-08_22-03-02_2: -421812480
-      photo_2025-01-08_22-03-02_3: -834992456
+      kamni_0: -83519426
+      kamni_1: 1179465040
+      kamni_10: -380665130
+      kamni_2: -471914095
+      kamni_3: 121255807
+      kamni_4: -1121827398
+      kamni_5: -1022264035
+      kamni_6: 6995570
+      kamni_7: -1978347590
+      kamni_8: 272156761
+      kamni_9: -1216464558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
