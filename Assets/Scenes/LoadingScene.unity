@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistentPrefab: {fileID: 5352155989873434205, guid: c5a35be76397c5946a278b75913158bb, type: 3}
-  scene: 17
+  scene: 4
 --- !u!4 &98539387
 Transform:
   m_ObjectHideFlags: 0
