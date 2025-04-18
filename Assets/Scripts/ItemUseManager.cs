@@ -71,7 +71,7 @@ public class ItemUseManager : MonoBehaviour
         if (Swamp.Instance.playerInRange)
         {
             Inventory.Instance.ConsumeItem(5);
-            Swamp.Instance.ritual();
+            Swamp.Instance.start_ritual();
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e15ce2a9a65a88a43854447f4e367fa5
+guid: cf0bceb00782cae4f9c929dfed753fb2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,14 +105,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97c3f308b7d465b4081d93d849dfa419
-      internalID: 1137590170
+      spriteID: bb5738a055ce82941977eefea4a289d3
+      internalID: -572552355
       vertices: []
       indices: 
       edges: []
@@ -126,14 +126,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693e513fa4497a646960aa16a566bd3d
-      internalID: 1409116784
+      spriteID: 25f8c29a921c06542b7fe9e9e054c79e
+      internalID: 2040531359
       vertices: []
       indices: 
       edges: []
@@ -147,14 +147,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: defb42c7890582a41a24bab03272722d
-      internalID: 165958639
+      spriteID: 807cb833d70db1a4298ee6cc3d1b3b95
+      internalID: 2099141236
       vertices: []
       indices: 
       edges: []
@@ -168,14 +168,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45bd4deeb46bf43478c492ec9e94defb
-      internalID: 957328413
+      spriteID: fdac68af348260743b29f3225e1c658a
+      internalID: 711931362
       vertices: []
       indices: 
       edges: []
@@ -189,14 +189,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5981cd915b90d64cb2ae9abd627d175
-      internalID: -546721972
+      spriteID: 4bf451cd08e0dd44784ddf28d74b71b7
+      internalID: -1719987894
       vertices: []
       indices: 
       edges: []
@@ -210,14 +210,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d30fd83b616074f856516d5d7dc028
-      internalID: 1949144814
+      spriteID: c589ab16cd894484084ff1c3022d0a30
+      internalID: 605878096
       vertices: []
       indices: 
       edges: []
@@ -231,14 +231,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6583690c0b53c34391da990c5928830
-      internalID: 506362230
+      spriteID: 694993201fa8d3847a5b74c73b5ee003
+      internalID: -1203140089
       vertices: []
       indices: 
       edges: []
@@ -252,14 +252,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd00623fbfc261743a54734a7ce6c5d3
-      internalID: -643267096
+      spriteID: a3e8ec58ac865764ea6b8c7d3be90b7a
+      internalID: 627224397
       vertices: []
       indices: 
       edges: []
@@ -273,14 +273,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fcbe255442b7034ba03afe22dd567b3
-      internalID: -2074898473
+      spriteID: 6ba9b3f8dd88e4141b8149916ac3e3ad
+      internalID: 672049816
       vertices: []
       indices: 
       edges: []
@@ -294,14 +294,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9275aea4d6a7124b95ac6e124a8e2d8
-      internalID: 1778263231
+      spriteID: 17c4e9d4e72ae13438187e2247425854
+      internalID: -1249030048
       vertices: []
       indices: 
       edges: []
@@ -315,14 +315,14 @@ TextureImporter:
         width: 295
         height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c10cea0422405ce4da7d3325724d25a5
-      internalID: 566771000
+      spriteID: 41b74dc1d5affda4589e51e749462cd9
+      internalID: -386730732
       vertices: []
       indices: 
       edges: []
@@ -338,17 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      water_lily_0: 1137590170
-      water_lily_1: 1409116784
-      water_lily_10: 566771000
-      water_lily_2: 165958639
-      water_lily_3: 957328413
-      water_lily_4: -546721972
-      water_lily_5: 1949144814
-      water_lily_6: 506362230
-      water_lily_7: -643267096
-      water_lily_8: -2074898473
-      water_lily_9: 1778263231
+      water_lily_0: -572552355
+      water_lily_1: 2040531359
+      water_lily_10: -386730732
+      water_lily_2: 2099141236
+      water_lily_3: 711931362
+      water_lily_4: -1719987894
+      water_lily_5: 605878096
+      water_lily_6: -1203140089
+      water_lily_7: 627224397
+      water_lily_8: 672049816
+      water_lily_9: -1249030048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

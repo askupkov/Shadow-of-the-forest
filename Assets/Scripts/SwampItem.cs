@@ -5,35 +5,21 @@ using UnityEngine.UI;
 
 public class SwampItem : MonoBehaviour
 {
-    [SerializeField] TextAsset inkJSON;
     [SerializeField] string item;
-    [SerializeField] GameObject button;
     private bool playerInRange = false;
-    Animator animator;
-    
+    private BoxCollider2D Collider;
 
     private void Start()
     {
-        button.SetActive(false);
-        animator = GetComponent<Animator>();
+        Collider = GetComponent<BoxCollider2D>();
     }
 
-
-    private void startItem()
+    private void Update()
     {
-        switch(item)
+        if(playerInRange && Input.GetKeyUp(KeyCode.E))
         {
-            case "coin":
-                Debug.Log("Coin");
-                break;
-
-            case "obereg":
-                Debug.Log("Obereg");
-                break;
-
-            case "stone":
-                Debug.Log("Stone");
-                break;
+            Swamp.Instance.startItem(item);
+            Collider.enabled = false;
         }
     }
 
@@ -41,9 +27,7 @@ public class SwampItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            button.SetActive(true);
-            DialogueManager.Instance.StartDialog(inkJSON, item);
-            animator.SetBool("TriggerItem", true);
+            playerInRange = true;
         }
     }
 
@@ -51,8 +35,7 @@ public class SwampItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            button.SetActive(false);
-            animator.SetBool("TriggerItem", false);
+            playerInRange = false;
         }
     }
 }
