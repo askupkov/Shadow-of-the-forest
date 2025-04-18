@@ -62,5 +62,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leshiy.unity
     guid: d023a754af87cc54e81b8c4243518232
+  - enabled: 1
+    path: Assets/Scenes/Swamp.unity
+    guid: a2026947d290ccb47880f288f8563b93
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}

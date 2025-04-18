@@ -40,7 +40,7 @@ public class ItemUseManager : MonoBehaviour
                 break;
 
             case 5: // Цветок
-
+                flower();
                 break;
             case 6: // Веревка
                 rope(itemId);
@@ -63,6 +63,15 @@ public class ItemUseManager : MonoBehaviour
             default:
                 Debug.Log("Неизвестный предмет");
                 break;
+        }
+    }
+
+    private void flower()
+    {
+        if (Swamp.Instance.playerInRange)
+        {
+            Inventory.Instance.ConsumeItem(5);
+            Swamp.Instance.ritual();
         }
     }
 

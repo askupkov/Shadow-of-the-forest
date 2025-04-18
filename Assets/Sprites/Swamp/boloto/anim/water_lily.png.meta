@@ -97,85 +97,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_0
+      name: water_lily_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 300
+        width: 295
+        height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e661ee5a96518448fe567c7fbb5ac5
-      internalID: -1143877018
+      spriteID: 97c3f308b7d465b4081d93d849dfa419
+      internalID: 1137590170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_1
+      name: water_lily_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 295
         y: 0
-        width: 170
-        height: 300
+        width: 295
+        height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374e6af2ac3053041bcc37735f2ae4a3
-      internalID: -662328099
+      spriteID: 693e513fa4497a646960aa16a566bd3d
+      internalID: 1409116784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_2
+      name: water_lily_2
       rect:
         serializedVersion: 2
-        x: 340
+        x: 590
         y: 0
-        width: 170
-        height: 300
+        width: 295
+        height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f9060b21183644c964aa0a2fef01a7
-      internalID: -421812480
+      spriteID: defb42c7890582a41a24bab03272722d
+      internalID: 165958639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_2025-01-08_22-03-02_3
+      name: water_lily_3
       rect:
         serializedVersion: 2
-        x: 510
+        x: 885
         y: 0
-        width: 170
-        height: 300
+        width: 295
+        height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f163ce408b534be49b0c513e6263b43f
-      internalID: -834992456
+      spriteID: 45bd4deeb46bf43478c492ec9e94defb
+      internalID: 957328413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_4
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5981cd915b90d64cb2ae9abd627d175
+      internalID: -546721972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_5
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d30fd83b616074f856516d5d7dc028
+      internalID: 1949144814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_6
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6583690c0b53c34391da990c5928830
+      internalID: 506362230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_7
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd00623fbfc261743a54734a7ce6c5d3
+      internalID: -643267096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_8
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcbe255442b7034ba03afe22dd567b3
+      internalID: -2074898473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_9
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9275aea4d6a7124b95ac6e124a8e2d8
+      internalID: 1778263231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_lily_10
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 0
+        width: 295
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10cea0422405ce4da7d3325724d25a5
+      internalID: 566771000
       vertices: []
       indices: 
       edges: []
@@ -191,10 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      photo_2025-01-08_22-03-02_0: -1143877018
-      photo_2025-01-08_22-03-02_1: -662328099
-      photo_2025-01-08_22-03-02_2: -421812480
-      photo_2025-01-08_22-03-02_3: -834992456
+      water_lily_0: 1137590170
+      water_lily_1: 1409116784
+      water_lily_10: 566771000
+      water_lily_2: 165958639
+      water_lily_3: 957328413
+      water_lily_4: -546721972
+      water_lily_5: 1949144814
+      water_lily_6: 506362230
+      water_lily_7: -643267096
+      water_lily_8: -2074898473
+      water_lily_9: 1778263231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

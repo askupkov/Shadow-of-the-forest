@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Swamp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static Swamp Instance { get; private set; }
+    public bool playerInRange;
+    Animator floweranim;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ritual()
     {
-        
+        floweranim.SetTrigger("ritual");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 }
