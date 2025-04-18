@@ -15,7 +15,7 @@ public class GuardAI : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private State state;
     private float roamingTimer;
-    [SerializeField] private float roamingTimerMax = 2f; // Максимальное время брожения
+    [SerializeField] private float roamingTimerMax = 2f;
     Animator animator;
     [SerializeField] Vector2 destination1;
     [SerializeField] Vector2 destination2;
@@ -25,9 +25,9 @@ public class GuardAI : MonoBehaviour
     [SerializeField] GameObject Front;
 
     private bool gameover;
-    private bool isWaiting = false; // Флаг, показывающий, находится ли стражник в состоянии ожидания
-    private float waitTimer = 0f; // Таймер для отслеживания времени ожидания
-    private Vector2 currentDestination; // Текущая цель движения
+    private bool isWaiting = false;
+    private float waitTimer = 0f;
+    private Vector2 currentDestination;
 
     private Rigidbody2D rb;
     private int isWalking;
@@ -50,7 +50,6 @@ public class GuardAI : MonoBehaviour
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
 
-        // Устанавливаем начальную цель
         currentDestination = destination1;
         navMeshAgent.SetDestination(currentDestination);
     }
@@ -75,15 +74,14 @@ public class GuardAI : MonoBehaviour
         switch (state)
         {
             default:
-            case State.Roaming: // Брожение
+            case State.Roaming:
                 if (isWaiting)
                 {
-                    // Уменьшаем таймер ожидания
                     waitTimer -= Time.deltaTime;
 
                     if (waitTimer <= 0)
                     {
-                        isWaiting = false; // Завершаем ожидание
+                        isWaiting = false;
                     }
                 }
                 else
@@ -96,17 +94,16 @@ public class GuardAI : MonoBehaviour
                         roamingTimer = roamingTimerMax;
                     }
 
-                    // Проверяем, достиг ли стражник своей цели
                     if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
                     {
-                        isWaiting = true; // Активируем ожидание на точке
+                        isWaiting = true;
                     }
                 }
                 CheckCurrentState();
                 break;
 
 
-            case State.Attacking: // Атака
+            case State.Attacking:
                 Attacking();
                 break;
         }
@@ -122,54 +119,43 @@ public class GuardAI : MonoBehaviour
 
     private void Roaming()
     {
-        if (!isWaiting) // Если стражник не находится в состоянии ожидания
+        if (!isWaiting)
         {
-            // Переключаем текущую цель
             currentDestination = (currentDestination == destination1) ? destination2 : destination1;
 
-            // Устанавливаем новую цель для NavMeshAgent
             navMeshAgent.SetDestination(currentDestination);
 
-            // Генерация времени ожидания
-            waitTimer = 2f; // Время ожидания на точке
+            waitTimer = 2f;
 
-            isWaiting = true; // Устанавливаем флаг ожидания
+            isWaiting = true;
         }
     }
 
     private void Attacking()
     {
-
-        // Получаем позицию игрока
         Vector2 playerPosition = Player.Instance.transform.position;
 
-        // Определяем направление движения моба относительно игрока
-        float directionX = Mathf.Sign(playerPosition.x - transform.position.x); // Направление по X
-        float directionY = Mathf.Sign(playerPosition.y - transform.position.y); // Направление по Y
+        float directionX = Mathf.Sign(playerPosition.x - transform.position.x);
+        float directionY = Mathf.Sign(playerPosition.y - transform.position.y);
 
-        // Вычисляем позицию для атаки
         if (Mathf.Abs(playerPosition.x - transform.position.x) > Mathf.Abs(playerPosition.y - transform.position.y))
         {
-            // Моб приближается по оси X (горизонтально)
             currentDestination = new Vector2(
-                playerPosition.x - directionX * 1f, // Отступ по X
+                playerPosition.x - directionX * 1f,
                 playerPosition.y - 0.1f
             );
         }
         else
         {
-            // Моб приближается по оси Y (вертикально)
             currentDestination = new Vector2(
-                playerPosition.x, // Выравнивание по X
+                playerPosition.x,
                 playerPosition.y - directionY * 1f
             );
         }
 
-        // Устанавливаем цель для NavMeshAgent
         navMeshAgent.SetDestination(currentDestination);
 
 
-        // Проверяем, достиг ли моб позиции для атаки
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             // Начинаем атаку
@@ -180,12 +166,10 @@ public class GuardAI : MonoBehaviour
         }
     }
 
-    private void CheckCurrentState() // Проверка состояния
+    private void CheckCurrentState()
     {
         State newState = State.Roaming;
 
-
-        // Проверяем, находится ли моб на позиции для атаки
         if (playerInRange && BushManager.Instance.PlayerHidden == false)
         {
             if (IsClosestGuard())
@@ -196,7 +180,7 @@ public class GuardAI : MonoBehaviour
         }
         if (newState != state)
         {
-            navMeshAgent.ResetPath(); // Останавливаем движение
+            navMeshAgent.ResetPath();
             state = newState;
         }
     }
@@ -211,10 +195,9 @@ public class GuardAI : MonoBehaviour
 
         if (Mathf.Abs(inputVector.x) > Mathf.Abs(inputVector.y))
         {
-            // Горизонтальное движение доминирует
             if (inputVector.x < 0)
             {
-                isWalking = 3; // Движение влево
+                isWalking = 3;
                 Right.SetActive(false);
                 Back.SetActive(false);
                 Front.SetActive(false);
@@ -222,7 +205,7 @@ public class GuardAI : MonoBehaviour
             }
             else if (inputVector.x > 0)
             {
-                isWalking = 1; // Движение вправо
+                isWalking = 1;
                 Right.SetActive(true);
                 Back.SetActive(false);
                 Front.SetActive(false);
@@ -231,10 +214,9 @@ public class GuardAI : MonoBehaviour
         }
         else
         {
-            // Вертикальное движение доминирует
             if (inputVector.y > 0)
             {
-                isWalking = 4; // Движение вверх
+                isWalking = 4;
                 Right.SetActive(false);
                 Back.SetActive(true);
                 Front.SetActive(false);
@@ -242,7 +224,7 @@ public class GuardAI : MonoBehaviour
             }
             else if (inputVector.y < 0)
             {
-                isWalking = 2; // Движение вниз
+                isWalking = 2;
                 Right.SetActive(false);
                 Back.SetActive(false);
                 Front.SetActive(true);
@@ -250,10 +232,9 @@ public class GuardAI : MonoBehaviour
             }
         }
 
-        // Если вектор движения равен нулю, персонаж стоит
         if (inputVector == Vector2.zero)
         {
-            isWalking = 0; // Стоит на месте
+            isWalking = 0;
         }
 
         UpdateAnimations();
@@ -261,7 +242,6 @@ public class GuardAI : MonoBehaviour
 
     private bool IsClosestGuard()
     {
-        // Находим ближайшего стражника к игроку
         float closestDistance = float.MaxValue;
         GuardAI closestGuard = null;
 
@@ -274,8 +254,6 @@ public class GuardAI : MonoBehaviour
                 closestGuard = guard;
             }
         }
-
-        // Возвращаем true, если текущий стражник является ближайшим
         return closestGuard == this;
     }
 
