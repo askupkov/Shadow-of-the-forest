@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            NoiseManager.Instance.DecreaseNoise(0.5f * Time.deltaTime);
+            NoiseManager.Instance.DecreaseNoise(0.8f * Time.deltaTime);
         }
     }
 
@@ -196,6 +196,7 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
         shiftCollider.enabled = false;
         standCollider.enabled = false;
+        originalCollider.enabled = true;
         if (inputVector.x < 0)
         {
             isWalking = 3;

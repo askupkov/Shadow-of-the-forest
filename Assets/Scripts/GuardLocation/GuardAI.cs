@@ -15,7 +15,7 @@ public class GuardAI : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private State state;
     private float roamingTimer;
-    [SerializeField] private float roamingTimerMax = 2f;
+    [SerializeField] private float roamingTimerMax = 5f;
     Animator animator;
     [SerializeField] Vector2 destination1;
     [SerializeField] Vector2 destination2;
@@ -25,7 +25,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] GameObject Front;
 
     private bool gameover;
-    private bool isWaiting = false;
+    private bool isWaiting = true;
     private float waitTimer = 0f;
     private Vector2 currentDestination;
 
@@ -111,10 +111,7 @@ public class GuardAI : MonoBehaviour
 
     public void atack()
     {
-        if (IsClosestGuard())
-        {
-            state = State.Attacking;
-        }
+        state = State.Attacking;
     }
 
     private void Roaming()
@@ -170,13 +167,10 @@ public class GuardAI : MonoBehaviour
     {
         State newState = State.Roaming;
 
-        if (playerInRange && BushManager.Instance.PlayerHidden == false)
+        if (playerInRange && BushManager.Instance.PlayerHidden == false && NoiseManager.Instance.atack == false)
         {
-            if (IsClosestGuard())
-            {
-                GameInput.Instance.OnDisable();
-                newState = State.Attacking;
-            }
+            GameInput.Instance.OnDisable();
+            newState = State.Attacking;
         }
         if (newState != state)
         {
@@ -238,23 +232,6 @@ public class GuardAI : MonoBehaviour
         }
 
         UpdateAnimations();
-    }
-
-    private bool IsClosestGuard()
-    {
-        float closestDistance = float.MaxValue;
-        GuardAI closestGuard = null;
-
-        foreach (var guard in guards)
-        {
-            float distance = Vector3.Distance(guard.transform.position, Player.Instance.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestGuard = guard;
-            }
-        }
-        return closestGuard == this;
     }
 
     private void UpdateAnimations()

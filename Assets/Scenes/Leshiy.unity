@@ -1142,6 +1142,7 @@ MonoBehaviour:
   - {fileID: 715451402}
   - {fileID: 715451401}
   spikeLifetime: 1.583
+  minDistance: 2
 --- !u!50 &816254732
 Rigidbody2D:
   serializedVersion: 4
@@ -1504,8 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e29a522ebc8d174e8c0fafc08784293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowPrefab: {fileID: 3476286066697189750, guid: 168a827c21c490241a56d5ffb1824264, type: 3}
-  shadowSpeed: 3
+  LightningPrefab: {fileID: 3476286066697189750, guid: 168a827c21c490241a56d5ffb1824264, type: 3}
 --- !u!4 &1402404429
 Transform:
   m_ObjectHideFlags: 0

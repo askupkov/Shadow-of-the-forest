@@ -9,7 +9,7 @@ public class NoiseManager : MonoBehaviour
     public Image noiseBarFill; // Ссылка на заполняющуюся полоску
     public float maxNoise = 10f; // Максимальный уровень шума
     private float currentNoise = 0f; // Текущий уровень шума
-
+    public bool atack;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class NoiseManager : MonoBehaviour
         currentNoise = Mathf.Clamp(currentNoise, 0f, maxNoise);
         UpdateNoiseBar();
 
-        if (currentNoise >= maxNoise)
+        if (currentNoise >= maxNoise && !atack)
         {
             OnNoiseDetected(); // Игрок замечен
         }
@@ -61,7 +61,31 @@ public class NoiseManager : MonoBehaviour
     private void OnNoiseDetected()
     {
         GameInput.Instance.OnDisable();
-        GuardAI.Instance.atack();
+        atack = true;
+        // Находим ближайшего стража
+        GuardAI closestGuard = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (var guard in GuardAI.guards)
+        {
+            if (guard == null || !guard.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+
+            float distance = Vector3.Distance(guard.transform.position, Player.Instance.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestGuard = guard;
+            }
+        }
+
+        // Активируем атаку у ближайшего стража
+        if (closestGuard != null)
+        {
+            closestGuard.atack();
+        }
     }
 
     public void GameOver()

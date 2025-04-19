@@ -68,6 +68,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+
     public void FollowNull()
     {
         virtualCamera.m_Follow = null;
