@@ -65,5 +65,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Swamp.unity
     guid: a2026947d290ccb47880f288f8563b93
+  - enabled: 1
+    path: Assets/Scenes/RitualLocation.unity
+    guid: c71fdfc8b39096a4395089f8f11c7311
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 91f442c0fde6bdc4a8820ea3deafe391, type: 3}
