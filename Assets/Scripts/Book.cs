@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEngine.UI;
 
 public class Book : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Book : MonoBehaviour
 
     public GameObject BookUI; // UI-панель с книгой
     public TextMeshProUGUI[] pageTexts; // Массив текстовых полей для страниц
+    [SerializeField] Image[] pageImages; // Массив изображений для страниц
+    [SerializeField] Sprite[] pageSprites;
     public bool BookOpen;
 
     float fadeDuration = 0.15f;
@@ -91,6 +94,11 @@ public class Book : MonoBehaviour
         {
             text.text = "";
         }
+        foreach (var image in pageImages)
+        {
+            image.sprite = null;
+            image.enabled = false;
+        }
     }
 
     private void UpdatePageText()
@@ -105,6 +113,16 @@ public class Book : MonoBehaviour
             else
             {
                 pageTexts[i].text = ""; // Очищаем текст, если больше нет контента
+            }
+            // Обновляем изображения
+            if (pageIndex < pageSprites.Length && pageSprites[pageIndex] != null)
+            {
+                pageImages[i].sprite = pageSprites[pageIndex];
+                pageImages[i].enabled = true; // Включаем изображение
+            }
+            else
+            {
+                pageImages[i].enabled = false; // Отключаем изображение, если его нет
             }
         }
     }

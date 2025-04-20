@@ -215,6 +215,19 @@ public class Inventory : MonoBehaviour
         }
         return false; // Предмет не найден
     }
+
+    // Метод для получения количества конкретного предмета в инвентаре
+    public int GetItemCount(int itemId)
+    {
+        foreach (var item in items)
+        {
+            if (item.id == itemId)
+            {
+                return item.count; 
+            }
+        }
+        return 0;
+    }
 }
 
 // Класс для представления предмета в инвентаре

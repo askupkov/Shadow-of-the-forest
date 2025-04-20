@@ -148,5 +148,16 @@ speaker: Святослав
 Нужна свеча
 ->DONE
 
+=== victim === 
+speaker: Святослав
+Мешок
+->DONE
+
+=== candle === 
+speaker: Святослав
+Свеча
+->DONE
+
+
 
     -> END

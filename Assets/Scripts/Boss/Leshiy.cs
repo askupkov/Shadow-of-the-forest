@@ -10,6 +10,7 @@ public class Leshiy : MonoBehaviour
     [SerializeField] Animator animatorLeshiy;
     [SerializeField] Animator RootsLeft;
     [SerializeField] Animator RootsRight;
+    [SerializeField] TextAsset inkJSON;
     private bool playerInRange;
 
     [SerializeField] private GameObject spikePrefab;
@@ -50,7 +51,7 @@ public class Leshiy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         string[] attackTypes = { "RootsLeft", "RootsRight" };
         string[] spikesTypes = { "Spikes1", "Spikes", "Spikes2" };
-        waveLength = 15; // Количество атак в волне
+        waveLength = 1; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];
@@ -97,7 +98,7 @@ public class Leshiy : MonoBehaviour
         yield return new WaitForSeconds(10f);
         string[] attackTypes = { "RootsLeft", "RootsRight" };
         string[] spikesTypes = { "Spikes1", "Spikes", "Spikes2" };
-        waveLength = 20; // Количество атак в волне
+        waveLength = 1; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];

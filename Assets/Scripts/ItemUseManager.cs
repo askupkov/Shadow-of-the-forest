@@ -22,7 +22,11 @@ public class ItemUseManager : MonoBehaviour
         switch (itemId)
         {
             case 1: //  ÛÍÎ‡
-                
+                if (Ritual—ircle.Instance.playerInRange)
+                {
+                    Ritual—ircle.Instance.addDoll();
+                    Inventory.Instance.ConsumeItem(itemId);
+                }
                 break;
 
 
@@ -46,7 +50,7 @@ public class ItemUseManager : MonoBehaviour
                 rope(itemId);
                 break;
             case 7: // ’ÎÂ·
-                
+
                 break;
             case 8: // ¬Â‰Ó
                 bucket();
@@ -57,7 +61,28 @@ public class ItemUseManager : MonoBehaviour
                 break;
 
             case 10: // —‚Â˜‡
-                Player.Instance.Candle();
+                if (Ritual—ircle.Instance.playerInRange)
+                {
+                    if (Inventory.Instance.GetItemCount(itemId) >= 5)
+                    {
+                        Ritual—ircle.Instance.addCandles();
+                        for(int i = 0; i < 5; i++){
+                            Inventory.Instance.ConsumeItem(itemId);
+                        }
+                       
+                    }
+                }
+                else
+                {
+                    Player.Instance.Candle();
+                }
+                break;
+            case 11: // ÃÂ¯ÓÍ
+                if (Ritual—ircle.Instance.playerInRange)
+                {
+                    Ritual—ircle.Instance.addvictim();
+                    Inventory.Instance.ConsumeItem(itemId);
+                }
                 break;
 
             default:

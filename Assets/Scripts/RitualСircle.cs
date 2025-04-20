@@ -4,31 +4,100 @@ using UnityEngine;
 
 public class RitualСircle : MonoBehaviour
 {
-    private bool playerInRange;
+    public static RitualСircle Instance {  get; private set; }
+    public bool playerInRange;
     [SerializeField] Animator animator;
     BoxCollider2D Collider;
     [SerializeField] GameObject items;
+    [SerializeField] GameObject candles;
+    [SerializeField] GameObject doll;
+    [SerializeField] GameObject victim;
+    [SerializeField] GameObject leshiy;
+    [SerializeField] TextAsset inkJSON;
+    private bool candlesRitual;
+    private bool dollRitual;
+    private bool victimRitual;
+
+    private bool startdialog = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
+        {
+            startdialog = false;
+        }
+        if(PlayerPrefs.GetInt("candlesRitual", 0) == 1)
+        {
+            candles.SetActive(true);
+            candlesRitual = true;
+        }
+        if(PlayerPrefs.GetInt("dollRitual", 0) == 1)
+        {
+            doll.SetActive(true);
+            dollRitual = true;
+        }
+        if(PlayerPrefs.GetInt("victimRitual", 0) == 1)
+        {
+            victim.SetActive(true);
+            victimRitual = true;
+        }
     }
 
     private void Update()
     {
-        if (playerInRange)
+        if (playerInRange && startdialog)
         {
-            StartCoroutine(enumerator());
+            DialogueManager.Instance.StartDialog(inkJSON, "leshiy");
+            startdialog = false;
+            PlayerPrefs.SetInt(gameObject.name, 1);
         }
     }
 
-    private IEnumerator enumerator()
+    public void addCandles()
     {
-        Collider.enabled = false;
-        animator.SetBool("Flash",true);
-        yield return new WaitForSeconds(1.5f);
-        Destroy(items);
-        animator.SetBool("Flash", false);
+        candles.SetActive(true);
+        PlayerPrefs.SetInt("candlesRitual", 1);
+        candlesRitual = true;
+    }
+
+    public void addDoll()
+    {
+        doll.SetActive(true);
+        dollRitual = true;
+        PlayerPrefs.SetInt("dollRitual", 1);
+    }
+
+    public void addvictim()
+    {
+        victim.SetActive(true);
+        PlayerPrefs.SetInt("victimRitual", 1);
+        victimRitual = true;
+    }
+
+    private IEnumerator ritual()
+    {
+        if(candlesRitual && victimRitual && dollRitual)
+        {
+            DialogueManager.Instance.StartDialog(inkJSON, "leshiy1");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            Collider.enabled = false;
+            animator.SetBool("Flash", true);
+            yield return new WaitForSeconds(1.5f);
+            leshiy.SetActive(true);
+            Destroy(items);
+            animator.SetBool("Flash", false);
+            yield return new WaitForSeconds(0.5f);
+            DialogueManager.Instance.StartDialog(inkJSON, "leshiy2");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
