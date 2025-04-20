@@ -38,7 +38,7 @@ public class Lightning : MonoBehaviour
         }
 
         LightningRb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         animator.SetTrigger("Hit");
         if (Vector2.Distance(player.position, currentLightning.transform.position) < 1f)
         {

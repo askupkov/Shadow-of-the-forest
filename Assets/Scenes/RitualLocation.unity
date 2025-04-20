@@ -2168,6 +2168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368827783}
   - component: {fileID: 368827782}
+  - component: {fileID: 368827784}
   m_Layer: 0
   m_Name: doroga
   m_TagString: Untagged
@@ -2242,6 +2243,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &368827784
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368827781}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 25.754139, y: 27.611622}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -12.406521, y: 13.446945}
+      - {x: -12.7862835, y: -13.848532}
+      - {x: -5.7764997, y: -13.773905}
+      - {x: -5.8484325, y: -2.2073689}
+      - {x: -6.45212, y: -0.59794617}
+      - {x: -8.651792, y: 2.034958}
+      - {x: -8.849679, y: 6.226636}
+      - {x: -7.863618, y: 8.333029}
+      - {x: -7.008889, y: 9.151257}
+      - {x: -4.9894524, y: 10.254292}
+      - {x: 0.013766408, y: 10.725903}
+      - {x: 6.963213, y: 9.84536}
+      - {x: 8.776133, y: 6.2814}
+      - {x: 8.610397, y: 1.8585062}
+      - {x: 6.5945435, y: -0.10846233}
+      - {x: 6.0233984, y: -1.3269138}
+      - {x: 5.866108, y: -13.809444}
+      - {x: 12.773727, y: -13.875355}
+      - {x: 13.14094, y: 13.6305485}
+  m_UseDelaunayMesh: 0
 --- !u!1 &371270665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,6 +3920,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3702635572761997990, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 833582128}
     - target: {fileID: 5655955018924658017, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.33
@@ -4100,7 +4169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.x
-      value: 7.6306553
+      value: 11.592281
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.y
@@ -4108,7 +4177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.x
-      value: 0.91356564
+      value: 0.8594444
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.y
@@ -4236,10 +4305,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.78, y: 14}
-      - {x: 2.78, y: -32}
-      - {x: 31, y: -32}
-      - {x: 31, y: 14}
+    - - {x: 5, y: 0}
+      - {x: 5, y: -26.6}
+      - {x: 30, y: -26.6}
+      - {x: 30, y: 0}
   m_UseDelaunayMesh: 0
 --- !u!4 &833582129
 Transform:

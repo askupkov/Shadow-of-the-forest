@@ -2336,6 +2336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411118407}
   - component: {fileID: 411118406}
+  - component: {fileID: 411118408}
   m_Layer: 0
   m_Name: doroga_k_melnize
   m_TagString: Untagged
@@ -2410,6 +2411,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &411118408
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411118405}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 46.75}
+    newSize: {x: 32, y: 46.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -16, y: 23.375}
+      - {x: -16, y: -23.375}
+      - {x: -3.6500573, y: -23.384874}
+      - {x: 1.7343411, y: -23.358042}
+      - {x: -3.626894, y: -23.327963}
+      - {x: -4.3148155, y: -18.371063}
+      - {x: -4.640201, y: -13.682732}
+      - {x: -5.938008, y: -10.220783}
+      - {x: -5.3259125, y: -5.6899176}
+      - {x: -5.8593874, y: -0.8394761}
+      - {x: -7.306583, y: 3.2315116}
+      - {x: -7.2980075, y: 6.4910555}
+      - {x: -8.298107, y: 10.518665}
+      - {x: -7.7702813, y: 15.016559}
+      - {x: -4.271989, y: 16.80146}
+      - {x: -1.2942395, y: 17.752434}
+      - {x: 3.3064804, y: 17.025671}
+      - {x: 6.0640974, y: 13.843915}
+      - {x: 6.0833817, y: 10.629299}
+      - {x: 5.3113117, y: 5.635529}
+      - {x: 6.1766596, y: 2.2837977}
+      - {x: 5.7267675, y: -1.5373898}
+      - {x: 7.8476686, y: -5.3574524}
+      - {x: 7.8182964, y: -9.540602}
+      - {x: 4.796325, y: -16.246881}
+      - {x: 1.7286959, y: -23.38114}
+      - {x: 16, y: -23.375}
+      - {x: 16, y: 23.375}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &438737031
 PrefabInstance:
   m_ObjectHideFlags: 0

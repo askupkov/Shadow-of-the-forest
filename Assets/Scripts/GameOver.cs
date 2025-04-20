@@ -37,5 +37,6 @@ public class GameOver : MonoBehaviour
     public void OnMainMenuButton()
     {
         GameManager.Instance.ReturnToMainMenu();
+        gameOverPanel.SetActive(false);
     }
 }

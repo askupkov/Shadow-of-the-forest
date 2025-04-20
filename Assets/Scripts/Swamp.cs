@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class Swamp : MonoBehaviour
 {
@@ -25,16 +26,36 @@ public class Swamp : MonoBehaviour
 
     [SerializeField] Transform destination1;
     [SerializeField] Transform destination2;
-    private bool second;
+    private bool second_ritual;
+    private bool passed;
 
     private void Awake()
     {
         Instance = this;
     }
 
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
+        {
+            liliesAnim.SetTrigger("lilies");
+            lilies.enabled = false;
+        }
+    }
+
+    private void Update()
+    {
+        if(playerInRange && !passed)
+        {
+            //DialogueManager.Instance.StartDialog(inkJSON, "");
+            passed = true;
+        }
+    }
+
     public void start_ritual()
     {
         StartCoroutine(ritual());
+        PlayerPrefs.SetInt(gameObject.name, 1);
     }
 
     private IEnumerator ritual()
@@ -43,7 +64,7 @@ public class Swamp : MonoBehaviour
         flowerAnim.SetTrigger("ritual");
         StartCoroutine(player());
         yield return new WaitForSeconds(2f);
-        if (second)
+        if (second_ritual)
         {
             DialogueManager.Instance.StartDialog(inkJSON, "swampsecond");
             while (DialogueManager.Instance.dialogPanelOpen)
@@ -161,7 +182,7 @@ public class Swamp : MonoBehaviour
         {
             yield return null;
         }
-        second = true;
+        second_ritual = true;
     }
 
     private IEnumerator obereg_answer()

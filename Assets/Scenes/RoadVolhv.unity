@@ -4170,6 +4170,7 @@ GameObject:
   - component: {fileID: 1000101284}
   - component: {fileID: 1000101283}
   - component: {fileID: 1000101285}
+  - component: {fileID: 1000101286}
   m_Layer: 0
   m_Name: doroga_k_volhvy
   m_TagString: Untagged
@@ -4260,6 +4261,93 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!60 &1000101286
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000101282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 16}
+    newSize: {x: 32, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 15.875977, y: 19.68965}
+      - {x: 0.91473985, y: 19.778389}
+      - {x: 0.89061284, y: 8.609613}
+      - {x: -16.062553, y: 8.125109}
+      - {x: -16.017345, y: 0.019428253}
+      - {x: -14.590111, y: 0.2714162}
+      - {x: -12.951735, y: 2.3858743}
+      - {x: -10.678845, y: 3.3631463}
+      - {x: -8.905553, y: 3.7463622}
+      - {x: -4.607484, y: 3.0247068}
+      - {x: -1.5899658, y: 2.8845596}
+      - {x: 2.31779, y: 2.1563897}
+      - {x: 5.7530594, y: 3.9539025}
+      - {x: 5.2282047, y: 7.7905326}
+      - {x: 3.2929294, y: 10.878554}
+      - {x: 2.5925913, y: 12.630891}
+      - {x: 2.6714413, y: 14.517262}
+      - {x: 3.083127, y: 16.069155}
+      - {x: 4.219246, y: 17.131268}
+      - {x: 7.6584597, y: 18.378023}
+      - {x: 12.296175, y: 17.226023}
+      - {x: 13.376479, y: 14.3879595}
+      - {x: 13.057316, y: 10.537242}
+      - {x: 11.351613, y: 6.384555}
+      - {x: 12.384404, y: 2.4640903}
+      - {x: 15.987528, y: 0.5275874}
+      - {x: 15.959656, y: -5.1495304}
+      - {x: 13.299361, y: -5.886833}
+      - {x: 10.503233, y: -6.0384893}
+      - {x: 8.270515, y: -6.043707}
+      - {x: 5.605318, y: -5.7875776}
+      - {x: 2.0779846, y: -6.423584}
+      - {x: -0.657928, y: -5.924597}
+      - {x: -4.4265604, y: -6.1014004}
+      - {x: -8.618276, y: -6.0648823}
+      - {x: -12.469142, y: -5.6775503}
+      - {x: -13.317288, y: -4.9929676}
+      - {x: -15.990589, y: -4.747754}
+      - {x: -16.036558, y: 0.10756111}
+      - {x: -16, y: -8}
+      - {x: 16, y: -8}
+      - {x: 16, y: 8}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &1005977947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4882,19 +4970,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.x
-      value: 0.706316
+      value: 0.23375511
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.y
-      value: 2.507907
+      value: 5.682774
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.x
-      value: -0.146842
+      value: 0.1500225
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.y
-      value: -0.063268185
+      value: -0.1987884
       objectReference: {fileID: 0}
     - target: {fileID: 815207568582980442, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Name
@@ -7029,19 +7117,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.x
-      value: 0.706316
+      value: 0.34086323
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Size.y
-      value: 2.507907
+      value: 4.805272
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.x
-      value: -0.146842
+      value: -0.3295684
       objectReference: {fileID: 0}
     - target: {fileID: 813274701192541400, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Offset.y
-      value: -0.063268185
+      value: -0.3117137
       objectReference: {fileID: 0}
     - target: {fileID: 815207568582980442, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_Name
