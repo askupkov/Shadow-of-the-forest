@@ -76,6 +76,11 @@ public class Man : MonoBehaviour
             yield return null;
         }
         animator2.SetBool("ComeIn", true);
+        DialogueManager.Instance.StartDialog(inkJSON, "man2");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

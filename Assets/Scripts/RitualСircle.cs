@@ -14,6 +14,8 @@ public class RitualСircle : MonoBehaviour
     [SerializeField] GameObject victim;
     [SerializeField] GameObject leshiy;
     [SerializeField] TextAsset inkJSON;
+
+    [SerializeField] GameObject final_scene;
     private bool candlesRitual;
     private bool dollRitual;
     private bool victimRitual;
@@ -46,6 +48,11 @@ public class RitualСircle : MonoBehaviour
         {
             victim.SetActive(true);
             victimRitual = true;
+        }
+
+        if(PlayerPrefs.GetInt("finalScene", 0) == 1)
+        {
+            StartCoroutine(final());
         }
     }
 
@@ -80,6 +87,11 @@ public class RitualСircle : MonoBehaviour
         victimRitual = true;
     }
 
+    public void startritual()
+    {
+        StartCoroutine(ritual());
+    }
+
     private IEnumerator ritual()
     {
         if(candlesRitual && victimRitual && dollRitual)
@@ -98,6 +110,17 @@ public class RitualСircle : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             DialogueManager.Instance.StartDialog(inkJSON, "leshiy2");
         }
+    }
+    
+    private IEnumerator final()
+    {
+        GameInput.Instance.OnDisable();
+        final_scene.SetActive(true);
+        CameraController.changeFollowTargetEvent(final_scene.transform);
+        yield return new WaitForSeconds(5f);
+        SceneFader.Instance.FadeToLevel();
+        yield return new WaitForSeconds(3);
+        GameManager.Instance.ReturnToMainMenu();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

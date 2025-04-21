@@ -54,6 +54,11 @@ public class HouseVolhv : MonoBehaviour
 
     private IEnumerator VolhvDialogue()
     {
+        Player.Instance.StartToMove(destination1);
+        while (Player.Instance.isMovingToDestination)
+        {
+            yield return null;
+        }
         DialogueManager.Instance.StartDialog(inkJSON, "volhv");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
@@ -74,11 +79,6 @@ public class HouseVolhv : MonoBehaviour
         PlayerPrefs.SetInt(volhv.name, 1);
         PlayerPrefs.Save();
         yield return new WaitForSeconds(1f);
-        Player.Instance.StartToMove(destination1);
-        while (Player.Instance.isMovingToDestination)
-        {
-            yield return null;
-        }
         Player.Instance.StartToMove(destination2);
         while (Player.Instance.isMovingToDestination)
         {

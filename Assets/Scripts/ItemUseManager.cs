@@ -61,15 +61,19 @@ public class ItemUseManager : MonoBehaviour
                 break;
 
             case 10: // —‚Â˜‡
-                if (Ritual—ircle.Instance.playerInRange)
+                if (Ritual—ircle.Instance != null)
                 {
-                    if (Inventory.Instance.GetItemCount(itemId) >= 5)
+                    if (Ritual—ircle.Instance.playerInRange)
                     {
-                        Ritual—ircle.Instance.addCandles();
-                        for(int i = 0; i < 5; i++){
-                            Inventory.Instance.ConsumeItem(itemId);
+                        if (Inventory.Instance.GetItemCount(itemId) >= 5)
+                        {
+                            Ritual—ircle.Instance.addCandles();
+                            for (int i = 0; i < 5; i++)
+                            {
+                                Inventory.Instance.ConsumeItem(itemId);
+                            }
+
                         }
-                       
                     }
                 }
                 else

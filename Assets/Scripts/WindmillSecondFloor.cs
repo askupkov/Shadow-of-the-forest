@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WindmillSecondFloor : MonoBehaviour
 {
@@ -37,9 +38,20 @@ public class WindmillSecondFloor : MonoBehaviour
     {
         GameInput.Instance.OnDisable();
         DialogueManager.Instance.StartDialog(inkJSON, "domovoy1");
+        Inventory.Instance.ConsumeItem(7);
+        Inventory.Instance.ConsumeItem(9);
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
+        }
+        DialogueManager.Instance.StartDialog(inkJSON, "domovoy2");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Inventory.Instance.AddItem(10);
         }
         SceneController.Instance.StartLoadScene(14);
     }

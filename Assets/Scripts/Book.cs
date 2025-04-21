@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using Ink.Runtime;
@@ -105,25 +104,26 @@ public class Book : MonoBehaviour
     {
         for (int i = 0; i < pageTexts.Length; i++)
         {
+            pageTexts[i].text = "";
             int pageIndex = currentPage * pageTexts.Length + i;
             if (pageIndex < storyLines.Count)
             {
-                pageTexts[i].text = storyLines[pageIndex];
+                pageTexts[i].text += storyLines[pageIndex];
             }
             else
             {
                 pageTexts[i].text = ""; // Очищаем текст, если больше нет контента
             }
             // Обновляем изображения
-            if (pageIndex < pageSprites.Length && pageSprites[pageIndex] != null)
-            {
-                pageImages[i].sprite = pageSprites[pageIndex];
-                pageImages[i].enabled = true; // Включаем изображение
-            }
-            else
-            {
-                pageImages[i].enabled = false; // Отключаем изображение, если его нет
-            }
+            //if (pageIndex < pageSprites.Length && pageSprites[pageIndex] != null)
+            //{
+            //    pageImages[i].sprite = pageSprites[pageIndex];
+            //    pageImages[i].enabled = true; // Включаем изображение
+            //}
+            //else
+            //{
+            //    pageImages[i].enabled = false; // Отключаем изображение, если его нет
+            //}
         }
     }
 
@@ -184,5 +184,13 @@ public class Book : MonoBehaviour
         BookOpen = false;
         currentPage = 0;
         BookUI.SetActive(false);
+    }
+
+    public void read()
+    {
+        if(RitualСircle.Instance != null)
+        {
+            RitualСircle.Instance.startritual();
+        }
     }
 }

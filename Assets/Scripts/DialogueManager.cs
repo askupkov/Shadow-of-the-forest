@@ -44,7 +44,9 @@ public class DialogueManager : MonoBehaviour
         characterSprites.Add("Волхв", Resources.Load<Sprite>("Characters/Volhv"));
         characterSprites.Add("Житель 1", Resources.Load<Sprite>("Characters/Villager1"));
         characterSprites.Add("Житель 2", Resources.Load<Sprite>("Characters/Villager2"));
+        characterSprites.Add("Домовой", Resources.Load<Sprite>("Characters/Domovoy"));
         characterSprites.Add("Водяной", Resources.Load<Sprite>("Characters/Vodyanoy"));
+        characterSprites.Add("Голос", Resources.Load<Sprite>("Characters/Voice"));
 
         // Проверяем, что все спрайты загружены
         foreach (var kvp in characterSprites)

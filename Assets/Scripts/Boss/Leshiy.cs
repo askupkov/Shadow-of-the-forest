@@ -129,7 +129,7 @@ public class Leshiy : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         string[] attackTypes = { "LeftMid", "MidRight", "LeftRight" };
-        waveLength = 20; // Количество атак в волне
+        waveLength = 1; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];
@@ -159,8 +159,14 @@ public class Leshiy : MonoBehaviour
             }
             yield return new WaitForSeconds(3f);
         }
+        LoadScene();
     }
 
+    private void LoadScene()
+    {
+        PlayerPrefs.SetInt("finalScene", 1);
+        SceneController.Instance.StartLoadScene(20);
+    }
 
     private void Startlight()
     {

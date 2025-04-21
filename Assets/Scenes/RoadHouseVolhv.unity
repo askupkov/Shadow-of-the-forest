@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630045744647086528, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9130664
+      value: -6.904767
       objectReference: {fileID: 0}
     - target: {fileID: 2630045744647086528, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3560,8 +3560,9 @@ PolygonCollider2D:
       - {x: -16.039026, y: 1.011028}
       - {x: -11.46566, y: 1.7715967}
       - {x: -7.6780224, y: 3.5403082}
-      - {x: -3.1490235, y: 5.8950233}
-      - {x: -0.14375949, y: 6.427641}
+      - {x: -2.8729208, y: 4.0129375}
+      - {x: -1.7718818, y: 4.551317}
+      - {x: 0.1344434, y: 4.9968896}
       - {x: 3.0083961, y: 5.736531}
       - {x: 5.0109777, y: 4.1127234}
       - {x: 9.514491, y: 1.9150748}
@@ -5885,6 +5886,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 699320377964935643, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: m_Size.x
+      value: 0.21444607
+      objectReference: {fileID: 0}
+    - target: {fileID: 699320377964935643, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: m_Size.y
+      value: 5.761785
+      objectReference: {fileID: 0}
+    - target: {fileID: 699320377964935643, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: m_Offset.x
+      value: 3.8094954
+      objectReference: {fileID: 0}
+    - target: {fileID: 699320377964935643, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: m_Offset.y
+      value: -5.3370485
+      objectReference: {fileID: 0}
     - target: {fileID: 2402999210655221571, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
       propertyPath: sceneToLoad
       value: 8
@@ -5937,6 +5954,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6368761525416390477, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.11
+      objectReference: {fileID: 0}
     - target: {fileID: 6598398883854501403, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
       propertyPath: animator
       value: 
@@ -5952,6 +5973,10 @@ PrefabInstance:
     - target: {fileID: 6598398883854501403, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
       propertyPath: sceneToLoad
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598398883854501403, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
+      propertyPath: destination4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6598398883854501403, guid: 53d569922c4cb2b49ac7e7a7b327f274, type: 3}
       propertyPath: playerStorage

@@ -8,6 +8,7 @@ public class WindmillFirstFloor : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
     [SerializeField] SceneController sceneController;
     private bool second;
+    private bool final;
 
     private void Start()
     {
@@ -15,25 +16,30 @@ public class WindmillFirstFloor : MonoBehaviour
         {
             second = true;
         }
+        if (PlayerPrefs.GetInt("finaldomovoy", 0) == 1)
+        {
+            final = true;
+        }
     }
 
     private void Update()
     {
-        if (playerInRange && !second)
+        if (playerInRange && !second && !final)
         {
             sceneController.StartLoadScene(15);
             PlayerPrefs.SetInt(gameObject.name, 1);
         }
-        else if (playerInRange && second)
+        else if (playerInRange && second && !final)
         {
             {
                 if (Inventory.Instance.HasItem(7) == true && Inventory.Instance.HasItem(9) == true)
                 {
                     sceneController.StartLoadScene(15);
+                    PlayerPrefs.SetInt("finaldomovoy", 1);
                 }
                 else
                 {
-                    DialogueManager.Instance.StartDialog(inkJSON, "domovoy2");
+                    DialogueManager.Instance.StartDialog(inkJSON, "domovoy4");
                     playerInRange = false;
                 }
             }
