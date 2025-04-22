@@ -81,6 +81,6 @@ public class PrologueManager : MonoBehaviour
         }
 
         Debug.Log("Пролог завершен");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(16);
     }
 }
