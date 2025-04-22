@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 public class PrologueManager : MonoBehaviour
 {
@@ -80,5 +81,6 @@ public class PrologueManager : MonoBehaviour
         }
 
         Debug.Log("Пролог завершен");
+        SceneManager.LoadScene(1);
     }
 }

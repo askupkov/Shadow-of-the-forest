@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class HouseVolhv : MonoBehaviour
 {
