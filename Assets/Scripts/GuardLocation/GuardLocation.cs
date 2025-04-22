@@ -24,18 +24,22 @@ public class GuardLocation : MonoBehaviour
 
     private IEnumerator StartGame()
     {
-        GameInput.Instance.OnDisable();
-        CameraController.changeFollowTargetEvent(Guards);
-        animator.SetTrigger("start");
-        yield return new WaitForSeconds(7f);
-        CameraController.changeFollowTargetEvent(GameObject.Find("Player").transform);
-        yield return new WaitForSeconds(0.5f);
-        DialogueManager.Instance.StartDialog(inkJSON, "guard");
-        while (DialogueManager.Instance.dialogPanelOpen)
+        if (PlayerPrefs.GetInt(gameObject.name, 0) != 1)
         {
-            yield return null;
+            GameInput.Instance.OnDisable();
+            CameraController.changeFollowTargetEvent(Guards);
+            animator.SetTrigger("start");
+            yield return new WaitForSeconds(7f);
+            CameraController.changeFollowTargetEvent(GameObject.Find("Player").transform);
+            yield return new WaitForSeconds(0.5f);
+            DialogueManager.Instance.StartDialog(inkJSON, "guard1");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            GameInput.Instance.OnEnabled();
         }
-        GameInput.Instance.OnEnabled();
+        PlayerPrefs.SetInt(gameObject.name, 1);
         Player.Instance.stealth = true;
         PlayerVisual.Instance.Stealth();
         Collider.enabled = false;

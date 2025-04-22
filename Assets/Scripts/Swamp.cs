@@ -28,6 +28,7 @@ public class Swamp : MonoBehaviour
     [SerializeField] Transform destination2;
     private bool second_ritual;
     private bool passed;
+    private bool flower;
 
     private void Awake()
     {
@@ -45,10 +46,10 @@ public class Swamp : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRange && !passed)
+        if(playerInRange && PlayerPrefs.GetInt("passed_swamp", 0) != 1)
         {
-            //DialogueManager.Instance.StartDialog(inkJSON, "");
-            passed = true;
+            DialogueManager.Instance.StartDialog(inkJSON, "swamp1");
+            PlayerPrefs.SetInt("passed_swamp", 1);
         }
     }
 
@@ -58,48 +59,58 @@ public class Swamp : MonoBehaviour
         PlayerPrefs.SetInt(gameObject.name, 1);
     }
 
+    public void startFlower()
+    {
+        flowerAnim.SetTrigger("flower");
+        flower = true;
+    }
+
     private IEnumerator ritual()
     {
-        GameInput.Instance.OnDisable();
-        flowerAnim.SetTrigger("ritual");
-        StartCoroutine(player());
-        yield return new WaitForSeconds(2f);
-        if (second_ritual)
+        if (flower)
         {
-            DialogueManager.Instance.StartDialog(inkJSON, "swampsecond");
-            while (DialogueManager.Instance.dialogPanelOpen)
+            GameInput.Instance.OnDisable();
+            flowerAnim.SetTrigger("ritual");
+            StartCoroutine(player());
+            yield return new WaitForSeconds(2f);
+            if (second_ritual)
             {
-                yield return null;
+                DialogueManager.Instance.StartDialog(inkJSON, "swampsecond");
+                while (DialogueManager.Instance.dialogPanelOpen)
+                {
+                    yield return null;
+                }
+                StartCoroutine(glass());
             }
-            StartCoroutine(glass());
+            else
+            {
+                DialogueManager.Instance.StartDialog(inkJSON, "swamp3");
+                while (DialogueManager.Instance.dialogPanelOpen)
+                {
+                    yield return null;
+                }
+                swampItem.SetActive(true);
+                coinAnim.SetTrigger("TriggerItem");
+                DialogueManager.Instance.StartDialog(inkJSON, "coin");
+                while (DialogueManager.Instance.dialogPanelOpen)
+                {
+                    yield return null;
+                }
+                oberegAnim.SetTrigger("TriggerItem");
+                DialogueManager.Instance.StartDialog(inkJSON, "obereg");
+                while (DialogueManager.Instance.dialogPanelOpen)
+                {
+                    yield return null;
+                }
+                stoneAnim.SetTrigger("TriggerItem");
+                DialogueManager.Instance.StartDialog(inkJSON, "stone");
+                while (DialogueManager.Instance.dialogPanelOpen)
+                {
+                    yield return null;
+                }
+            }
         }
-        else
-        {
-            DialogueManager.Instance.StartDialog(inkJSON, "swamp3");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-            swampItem.SetActive(true);
-            coinAnim.SetTrigger("TriggerItem");
-            DialogueManager.Instance.StartDialog(inkJSON, "coin");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-            oberegAnim.SetTrigger("TriggerItem");
-            DialogueManager.Instance.StartDialog(inkJSON, "obereg");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-            stoneAnim.SetTrigger("TriggerItem");
-            DialogueManager.Instance.StartDialog(inkJSON, "stone");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-        }
+        flower = false;
     }
     private IEnumerator player()
     {

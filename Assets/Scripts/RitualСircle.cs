@@ -14,6 +14,8 @@ public class RitualСircle : MonoBehaviour
     [SerializeField] GameObject victim;
     [SerializeField] GameObject leshiy;
     [SerializeField] TextAsset inkJSON;
+    [SerializeField] Transform destination;
+    [SerializeField] Transform destination2;
 
     [SerializeField] GameObject final_scene;
     private bool candlesRitual;
@@ -96,6 +98,16 @@ public class RitualСircle : MonoBehaviour
     {
         if(candlesRitual && victimRitual && dollRitual)
         {
+            Player.Instance.StartToMove(destination);
+            while (Player.Instance.isMovingToDestination)
+            {
+                yield return null;
+            }
+            Player.Instance.StartToMove(destination2);
+            while (Player.Instance.isMovingToDestination)
+            {
+                yield return null;
+            }
             DialogueManager.Instance.StartDialog(inkJSON, "leshiy1");
             while (DialogueManager.Instance.dialogPanelOpen)
             {
@@ -109,11 +121,17 @@ public class RitualСircle : MonoBehaviour
             animator.SetBool("Flash", false);
             yield return new WaitForSeconds(0.5f);
             DialogueManager.Instance.StartDialog(inkJSON, "leshiy2");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            SceneController.Instance.StartLoadScene(18);
         }
     }
     
     private IEnumerator final()
     {
+        Destroy(GameInitializer.Instance.persistentPrefab);
         GameInput.Instance.OnDisable();
         final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);

@@ -88,6 +88,9 @@ public class ItemUseManager : MonoBehaviour
                     Inventory.Instance.ConsumeItem(itemId);
                 }
                 break;
+            case 12: // Записка
+                Note.Instance.OnEnableNote();
+                break;
 
             default:
                 Debug.Log("Неизвестный предмет");
@@ -100,7 +103,7 @@ public class ItemUseManager : MonoBehaviour
         if (Swamp.Instance.playerInRange)
         {
             Inventory.Instance.ConsumeItem(5);
-            Swamp.Instance.start_ritual();
+            Swamp.Instance.startFlower();
         }
     }
 

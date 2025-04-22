@@ -1504,6 +1504,7 @@ GameObject:
   - component: {fileID: 200838401}
   - component: {fileID: 200838400}
   - component: {fileID: 200838402}
+  - component: {fileID: 200838403}
   m_Layer: 0
   m_Name: RoadGuard
   m_TagString: Untagged
@@ -1750,6 +1751,51 @@ PolygonCollider2D:
       - {x: 4.2851973, y: 5.9536247}
       - {x: 4.090007, y: 8.109926}
   m_UseDelaunayMesh: 0
+--- !u!61 &200838403
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200838395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.4101927, y: 5.8313074}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 42.46327, y: 16.161268}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8606868, y: 0.34833717}
+  m_EdgeRadius: 0
 --- !u!1001 &202714543
 PrefabInstance:
   m_ObjectHideFlags: 0

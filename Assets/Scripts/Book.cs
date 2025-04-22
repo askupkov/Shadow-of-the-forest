@@ -35,7 +35,7 @@ public class Book : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         CacheStoryLines();
         UpdatePageText();
-        OnDisableBook();
+        BookUI.SetActive(false);
     }
 
     private void Update()
@@ -177,10 +177,18 @@ public class Book : MonoBehaviour
     {
         BookOpen = true;
         BookUI.SetActive(true);
+        StartCoroutine(InputDisabled());
+    }
+
+    private IEnumerator InputDisabled()
+    {
+        yield return new WaitForSeconds(0.4f);
+        GameInput.Instance.OnDisable();
     }
 
     public void OnDisableBook()
     {
+        GameInput.Instance.OnEnabled();
         BookOpen = false;
         currentPage = 0;
         BookUI.SetActive(false);
@@ -188,9 +196,16 @@ public class Book : MonoBehaviour
 
     public void read()
     {
-        if(Ritual—ircle.Instance != null)
+        GameInput.Instance.OnEnabled();
+        if (Ritual—ircle.Instance != null)
         {
-            Ritual—ircle.Instance.startritual();
+            if (Ritual—ircle.Instance.playerInRange)
+            {
+                Ritual—ircle.Instance.startritual();
+            }
         }
+        BookOpen = false;
+        currentPage = 0;
+        BookUI.SetActive(false);
     }
 }

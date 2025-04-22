@@ -2355,7 +2355,8 @@ PrefabInstance:
       value: Pasture
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 931760590742924951, guid: 7b3cf17138e96ae41a40a42eac26c278, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3cf17138e96ae41a40a42eac26c278, type: 3}

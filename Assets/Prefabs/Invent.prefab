@@ -104,6 +104,9 @@ MonoBehaviour:
   - id: 11
     name: victim
     img: {fileID: 21300000, guid: c6e150eb263d0254aafb0c263af0458d, type: 3}
+  - id: 12
+    name: note_ritual
+    img: {fileID: 21300000, guid: 9898ca0bce4040248b7c2974807bfbbd, type: 3}
 --- !u!114 &1136633055786402608
 MonoBehaviour:
   m_ObjectHideFlags: 0
