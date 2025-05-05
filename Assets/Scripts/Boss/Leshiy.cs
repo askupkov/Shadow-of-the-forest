@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Leshiy : MonoBehaviour
@@ -48,7 +47,7 @@ public class Leshiy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         string[] attackTypes = { "RootsLeft", "RootsRight" };
         string[] spikesTypes = { "Spikes1", "Spikes", "Spikes2" };
-        waveLength = 1; // Количество атак в волне
+        waveLength = 15; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];
@@ -85,7 +84,12 @@ public class Leshiy : MonoBehaviour
                     }
                     break;
             }
-            yield return new WaitForSeconds(3f);
+            DialogueManager.Instance.StartDialog(inkJSON, "leshiy3");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            yield return new WaitForSeconds(7f);
         }
         StartCoroutine(SecondWave());
     }
@@ -95,7 +99,7 @@ public class Leshiy : MonoBehaviour
         yield return new WaitForSeconds(10f);
         string[] attackTypes = { "RootsLeft", "RootsRight" };
         string[] spikesTypes = { "Spikes1", "Spikes", "Spikes2" };
-        waveLength = 1; // Количество атак в волне
+        waveLength = 20; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];
@@ -117,7 +121,7 @@ public class Leshiy : MonoBehaviour
             {
                 Startlight();
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(7f);
         }
         StartCoroutine(ThirdWave());
     }
@@ -126,7 +130,7 @@ public class Leshiy : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         string[] attackTypes = { "LeftMid", "MidRight", "LeftRight" };
-        waveLength = 1; // Количество атак в волне
+        waveLength = 20; // Количество атак в волне
         for (int i = 0; i < waveLength; i++)
         {
             string attackType = attackTypes[Random.Range(0, attackTypes.Length)];
@@ -154,7 +158,12 @@ public class Leshiy : MonoBehaviour
             {
                 Startlight();
             }
-            yield return new WaitForSeconds(3f);
+            DialogueManager.Instance.StartDialog(inkJSON, "leshiy4");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            yield return new WaitForSeconds(1f);
         }
         LoadScene();
     }

@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Progress;
 using System.Collections;
-using static TMPro.Examples.ObjectSpin;
 
 public class Inventory : MonoBehaviour
 {
@@ -68,6 +66,7 @@ public class Inventory : MonoBehaviour
             AddItem(itemId);
         }
         ClearPickedItems();
+        resetScene = false;
     }
 
     private void Update()
@@ -121,6 +120,7 @@ public class Inventory : MonoBehaviour
     {
         if (!resetScene)
         {
+            AddToQueue(itemId, "Использовано");
             usedItems.Add(itemId);
             resetScene = false;
         }
@@ -136,7 +136,6 @@ public class Inventory : MonoBehaviour
 
     private void Consume(ItemInventory item)
     {
-        AddToQueue(item.id, "Использовано");
         item.count--;
         if (item.count <= 0)
         {
@@ -222,9 +221,9 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int itemId)
     {
-        AddToQueue(itemId, "Добавлено");
         if (!resetScene)
         {
+            AddToQueue(itemId, "Добавлено");
             pickedItems.Add(itemId);
             resetScene = false;
         }
