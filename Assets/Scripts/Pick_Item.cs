@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using static TMPro.Examples.ObjectSpin;
+using static UnityEditor.Progress;
 
 public class Pick_Item : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class Pick_Item : MonoBehaviour
     private BoxCollider2D Collider;
     public int itemID;
     public GameObject item;
-    public Sprite itemImage;
     public bool DestroyItem = false;
 
     private void Awake()
@@ -37,7 +38,8 @@ public class Pick_Item : MonoBehaviour
     {
         Collider.enabled = false;
         GameInput.Instance.OnDisable();
-        InspectItem.Instance.ShowItem(itemImage);
+        Item selectedItem = Inventory.Instance.data.items[itemID];
+        InspectItem.Instance.ShowItem(selectedItem.img_insp);
 
         yield return new WaitForSeconds(0.1f);
         while (!Input.GetKeyDown(KeyCode.E))

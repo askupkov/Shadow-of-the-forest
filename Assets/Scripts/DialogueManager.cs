@@ -192,6 +192,7 @@ public class DialogueManager : MonoBehaviour
             dialogPanel.SetActive(false); // Закрываем панель, если строки закончились
             dialogPanelOpen = false;
             GameInput.Instance.OnEnabled(); // Включаем управление
+            InspectItem.Instance.HideItem();
         }
     }
 }

@@ -8,8 +8,9 @@ public class InspectItem : MonoBehaviour
 {
     public static InspectItem Instance { get; private set; }
 
-    [SerializeField] private GameObject itemPanel; // Панель для отображения предмета
-    [SerializeField] private Image Image; // Изображение предмета
+    [SerializeField]  GameObject itemPanel; // Панель для отображения предмета
+    [SerializeField] Image Image; // Изображение предмета
+    public GameObject Background;
 
     private void Awake()
     {
@@ -26,5 +27,6 @@ public class InspectItem : MonoBehaviour
     public void HideItem()
     {
         itemPanel.SetActive(false); // Скрываем панель
+        Background.SetActive(true);
     }
 }

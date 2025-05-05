@@ -819,8 +819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5871817601170166285}
   - component: {fileID: 3871320432312306781}
-  - component: {fileID: 1978782463579930170}
-  - component: {fileID: 6755057669704657895}
+  - component: {fileID: 131526581746298564}
   m_Layer: 0
   m_Name: Pasture
   m_TagString: Untagged
@@ -863,8 +862,8 @@ MonoBehaviour:
   playerInRange: 0
   Pick_Item: {fileID: 6008438185594667803}
   inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
---- !u!61 &1978782463579930170
-BoxCollider2D:
+--- !u!60 &131526581746298564
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -895,52 +894,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.54901886, y: -3.7888665}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.05}
-    oldSize: {x: 1.1875, y: 1.25}
-    newSize: {x: 1.1875, y: 1.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4629269, y: 0.88471127}
-  m_EdgeRadius: 0
---- !u!61 &6755057669704657895
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595843243330985793}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -2.9285307, y: -4.712273}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -950,9 +904,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4165468, y: 0.87110615}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.18233585, y: -3.344726}
+      - {x: -1.285902, y: -3.3419626}
+      - {x: -1.2767968, y: -4.2367363}
+      - {x: 0.18670237, y: -4.2318172}
+    - - {x: -2.2207065, y: -4.2802534}
+      - {x: -3.637206, y: -4.275345}
+      - {x: -3.6313515, y: -5.150752}
+      - {x: -2.2195907, y: -5.1512294}
+  m_UseDelaunayMesh: 0
 --- !u!1 &9029126226376495650
 GameObject:
   m_ObjectHideFlags: 0

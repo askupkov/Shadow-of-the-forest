@@ -7,7 +7,7 @@ public class WindmillSecondFloor : MonoBehaviour
     private bool secondDialog;
     private void Start()
     {
-        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
+        if (PlayerPrefs.GetInt("firstDialogueDomovoy", 0) == 1)
         {
             secondDialog = true;
         }
@@ -29,7 +29,7 @@ public class WindmillSecondFloor : MonoBehaviour
         {
             yield return null;
         }
-        PlayerPrefs.SetInt(gameObject.name, 1);
+        PlayerPrefs.SetInt("firstDialogueDomovoy", 1);
         SceneController.Instance.StartLoadScene(14);
     }
     private IEnumerator secondDialogue()

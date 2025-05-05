@@ -19,15 +19,19 @@ public class Cows : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("cows", 0) != 1)
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("cows", 0) != 1 && PlayerPrefs.GetInt("firstDialogueDomovoy", 0) == 1)
         {
-            StartCoroutine(cows());
+            DialogueManager.Instance.StartDialog(inkJSON, "cows");
         }
+        else if (playerInRange && Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("cows", 0) != 1)
+        {
+            DialogueManager.Instance.StartDialog(inkJSON, "cows2");
+        }
+        StartCoroutine(cows());
     }
 
     private IEnumerator cows()
     {
-        DialogueManager.Instance.StartDialog(inkJSON, "cows");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             Collider.enabled = false;
