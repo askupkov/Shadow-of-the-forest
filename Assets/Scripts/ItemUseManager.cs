@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemUseManager : MonoBehaviour
 {
     public static ItemUseManager Instance { get; private set; }
-    public Door activeDoor; // —сылка на текущую дверь
-    private bool playerInRange;
+    public Door activeDoor;
     private void Awake()
     {
         if (Instance == null)
@@ -112,6 +108,7 @@ public class ItemUseManager : MonoBehaviour
         {
             Inventory.Instance.ConsumeItem(8);
             Inventory.Instance.AddItem(9);
+            PlayerPrefs.SetInt("cows", 1);
         }
     }
 

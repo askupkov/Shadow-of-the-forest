@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [SerializeField] GameObject Healthbar;
 
     void Awake()
     {
@@ -38,6 +39,12 @@ public class GameManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MenuManager");
+    }
+
+    public void OnDestroy()
+    {
+        Healthbar.SetActive(false);
+        Destroy(Inventory.Instance);
     }
 }
 

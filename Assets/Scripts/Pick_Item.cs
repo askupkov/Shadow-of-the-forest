@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Pick_Item : MonoBehaviour
@@ -28,15 +29,23 @@ public class Pick_Item : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            pick_item();
+            StartCoroutine(pick_item());
         }
     }
 
-    public void pick_item()
+    private IEnumerator pick_item()
     {
         Collider.enabled = false;
-        DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
+        GameInput.Instance.OnDisable();
         InspectItem.Instance.ShowItem(itemImage);
+
+        yield return new WaitForSeconds(0.1f);
+        while (!Input.GetKeyDown(KeyCode.E))
+        {
+            yield return null;
+        }
+        InspectItem.Instance.HideItem();
+        DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
         Inventory.Instance.AddItem(itemID);
         if (DestroyItem == true)
         {

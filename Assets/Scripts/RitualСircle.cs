@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RitualСircle : MonoBehaviour
@@ -131,7 +130,7 @@ public class RitualСircle : MonoBehaviour
     
     private IEnumerator final()
     {
-        Destroy(GameInitializer.Instance.persistentPrefab);
+        GameManager.Instance.OnDestroy();
         GameInput.Instance.OnDisable();
         final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);

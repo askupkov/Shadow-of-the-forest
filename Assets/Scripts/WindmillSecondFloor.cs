@@ -42,14 +42,14 @@ public class WindmillSecondFloor : MonoBehaviour
         {
             yield return null;
         }
+        for (int i = 0; i < 3; i++)
+        {
+            Inventory.Instance.AddItem(10);
+        }
         DialogueManager.Instance.StartDialog(inkJSON, "domovoy2");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            Inventory.Instance.AddItem(10);
         }
         SceneController.Instance.StartLoadScene(14);
     }

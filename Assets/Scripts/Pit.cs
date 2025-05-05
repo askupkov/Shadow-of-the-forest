@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pit : MonoBehaviour
@@ -58,7 +56,7 @@ public class Pit : MonoBehaviour
         {
             if (visitpit == false)
             {
-                SceneController.Instance.StartLoadScene(12);
+                sceneController.StartLoadScene(12);
                 visitpit = true;
                 PlayerPrefs.SetInt("VisitPit", 1);
                 PlayerPrefs.Save();

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cows : MonoBehaviour
@@ -9,18 +8,18 @@ public class Cows : MonoBehaviour
     public bool playerInRange;
     [SerializeField] Pick_Item Pick_Item;
     [SerializeField] TextAsset inkJSON;
-    BoxCollider2D Collider;
+    PolygonCollider2D Collider;
 
     private void Awake()
     {
         Instance = this;
-        Collider = GetComponent<BoxCollider2D>();
+        Collider = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && PlayerPrefs.GetInt("cows", 0) != 1)
         {
             StartCoroutine(cows());
         }

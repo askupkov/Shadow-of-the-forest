@@ -106,7 +106,7 @@ MonoBehaviour:
     img: {fileID: 21300000, guid: c6e150eb263d0254aafb0c263af0458d, type: 3}
   - id: 12
     name: note_ritual
-    img: {fileID: 21300000, guid: 9898ca0bce4040248b7c2974807bfbbd, type: 3}
+    img: {fileID: 21300000, guid: cd19c96b9edcd5742b1a30ab13a63bc4, type: 3}
 --- !u!114 &1136633055786402608
 MonoBehaviour:
   m_ObjectHideFlags: 0

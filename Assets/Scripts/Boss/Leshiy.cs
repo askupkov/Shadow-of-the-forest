@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Tilemaps;
 
 public class Leshiy : MonoBehaviour
 {
@@ -20,8 +17,8 @@ public class Leshiy : MonoBehaviour
     private float nextAttackTime = 0f;
     private float attackRate = 1f;
     private int waveLength;
-    private List<GameObject> activeSpikes = new List<GameObject>();
-    [SerializeField] private float minDistance = 2f;
+    //private List<GameObject> activeSpikes = new List<GameObject>();
+    //[SerializeField] private float minDistance = 2f;
 
     private void Start()
     {
@@ -165,6 +162,7 @@ public class Leshiy : MonoBehaviour
     private void LoadScene()
     {
         PlayerPrefs.SetInt("finalScene", 1);
+        PlayerPrefs.Save();
         SceneController.Instance.StartLoadScene(20);
     }
 

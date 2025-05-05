@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-
-
+using static UnityEditor.Progress;
+using System.Collections;
+using static TMPro.Examples.ObjectSpin;
 
 public class Inventory : MonoBehaviour
 {
@@ -20,6 +20,18 @@ public class Inventory : MonoBehaviour
     public List<int> usedItems = new List<int>(); // Список ID использованных предметов
     private bool resetScene = false;
 
+    [SerializeField] GameObject notificationPanel; // Панель уведомления
+    [SerializeField] TextMeshProUGUI notificationText; // Текст уведомления
+    [SerializeField] TextMeshProUGUI notificationCountText; // Текст уведомления
+    [SerializeField] Image itemIcon; // Изображение уведомления
+    [SerializeField] Animator notificationAnimator;
+    private Queue<(int itemId, string actionType)> notificationQueue = new Queue<(int, string)>(); // Очередь уведомлений
+    private bool isShowingNotification = false;
+    private int currentItemId = 0;
+    private string currentActionType = "";
+    private int notificationCount = 1;
+    private Coroutine hideCoroutine;
+
     private void Awake()
     {
         Instance = this;
@@ -27,9 +39,10 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        notificationCountText.text = "";
         backGround.SetActive(true);
         backGround.SetActive(false);
-        // Если инвентарь пуст, добавляем графику
+
         if (items.Count == 0)
         {
             AddGraphics();
@@ -106,12 +119,12 @@ public class Inventory : MonoBehaviour
 
     public void ConsumeItem(int itemId)
     {
-        if(!resetScene)
+        if (!resetScene)
         {
             usedItems.Add(itemId);
             resetScene = false;
         }
-        
+
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].id == itemId && items[i].count > 0)
@@ -123,6 +136,7 @@ public class Inventory : MonoBehaviour
 
     private void Consume(ItemInventory item)
     {
+        AddToQueue(item.id, "Использовано");
         item.count--;
         if (item.count <= 0)
         {
@@ -132,8 +146,83 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AddToQueue(int itemId, string actionType)
+    {
+        if (isShowingNotification && currentItemId == itemId && currentActionType == actionType)
+        {
+            notificationCount++;
+            ResetHideTimer();
+            return;
+        }
+        else
+        {
+            notificationCountText.text = "";
+            notificationCount = 1;
+            notificationQueue.Enqueue((itemId, actionType)); // Добавляем предмет и тип действия в очередь
+
+            // Если уведомления не показываются, начинаем показ
+            if (!isShowingNotification)
+            {
+                ShowNextNotification();
+            }
+        }
+        currentItemId = itemId;
+        currentActionType = actionType;
+    }
+
+    private void ShowNextNotification()
+    {
+        if (notificationQueue.Count == 0)
+        {
+            isShowingNotification = false;
+            return;
+        }
+
+        isShowingNotification = true;
+
+        // Берем следующий предмет и тип действия из очереди
+        var nextNotification = notificationQueue.Dequeue();
+        int itemId = nextNotification.itemId;
+        string actionType = nextNotification.actionType;
+
+        Item selectedItem = data.items[itemId];
+
+        // Показываем уведомление
+        notificationText.text = actionType;
+        itemIcon.sprite = selectedItem.img;
+        notificationAnimator.SetTrigger("On");
+
+        // Запускаем корутину для скрытия уведомления
+        hideCoroutine = StartCoroutine(HideAfterDelay());
+    }
+
+    private void ResetHideTimer()
+    {
+        if (notificationCount > 1)
+        {
+            notificationCountText.text = notificationCount.ToString();
+        }
+        if (hideCoroutine != null)
+        {
+            StopCoroutine(hideCoroutine);
+        }
+        hideCoroutine = StartCoroutine(HideAfterDelay());
+    }
+
+    private IEnumerator HideAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        notificationAnimator.SetTrigger("Off");
+        currentItemId = 0;
+        currentActionType = "";
+
+        yield return new WaitForSeconds(0.5f);
+        ShowNextNotification();
+    }
+
     public void AddItem(int itemId)
     {
+        AddToQueue(itemId, "Добавлено");
         if (!resetScene)
         {
             pickedItems.Add(itemId);
@@ -218,7 +307,7 @@ public class Inventory : MonoBehaviour
         {
             if (item.id == itemId)
             {
-                return item.count; 
+                return item.count;
             }
         }
         return 0;
