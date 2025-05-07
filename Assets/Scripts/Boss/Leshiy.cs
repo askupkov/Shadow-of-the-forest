@@ -16,8 +16,6 @@ public class Leshiy : MonoBehaviour
     private float nextAttackTime = 0f;
     private float attackRate = 1f;
     private int waveLength;
-    //private List<GameObject> activeSpikes = new List<GameObject>();
-    //[SerializeField] private float minDistance = 2f;
 
     private void Start()
     {
@@ -84,12 +82,13 @@ public class Leshiy : MonoBehaviour
                     }
                     break;
             }
-            DialogueManager.Instance.StartDialog(inkJSON, "leshiy3");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3f);
+        }
+        yield return new WaitForSeconds(2f);
+        DialogueManager.Instance.StartDialog(inkJSON, "leshiy3");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
         }
         StartCoroutine(SecondWave());
     }
@@ -121,7 +120,7 @@ public class Leshiy : MonoBehaviour
             {
                 Startlight();
             }
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3f);
         }
         StartCoroutine(ThirdWave());
     }
@@ -158,12 +157,13 @@ public class Leshiy : MonoBehaviour
             {
                 Startlight();
             }
-            DialogueManager.Instance.StartDialog(inkJSON, "leshiy4");
-            while (DialogueManager.Instance.dialogPanelOpen)
-            {
-                yield return null;
-            }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
+        }
+        yield return new WaitForSeconds(2f);
+        DialogueManager.Instance.StartDialog(inkJSON, "leshiy4");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
         }
         LoadScene();
     }

@@ -112,6 +112,7 @@ public class RitualСircle : MonoBehaviour
             {
                 yield return null;
             }
+            GameInput.Instance.OnDisable();
             Collider.enabled = false;
             animator.SetBool("Flash", true);
             yield return new WaitForSeconds(1.5f);
@@ -130,14 +131,13 @@ public class RitualСircle : MonoBehaviour
     
     private IEnumerator final()
     {
+        Destroy(items);
         GameManager.Instance.OnDestroy();
         GameInput.Instance.OnDisable();
         final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);
         yield return new WaitForSeconds(5f);
-        SceneFader.Instance.FadeToLevel();
-        yield return new WaitForSeconds(3);
-        GameManager.Instance.ReturnToMainMenu();
+        SceneController.Instance.StartLoadScene(1);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

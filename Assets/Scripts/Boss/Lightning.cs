@@ -25,9 +25,11 @@ public class Lightning : MonoBehaviour
 
     private IEnumerator LightningAttackRoutine()
     {
+        
         GameObject currentLightning = Instantiate(LightningPrefab, transform.position, Quaternion.identity);
         Rigidbody2D LightningRb = currentLightning.GetComponent<Rigidbody2D>();
         Animator animator = currentLightning.GetComponent <Animator>();
+        yield return new WaitForSeconds(0.7f);
 
         while (Vector2.Distance(currentLightning.transform.position, player.position) > 0.1f)
         {

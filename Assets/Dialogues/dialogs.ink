@@ -43,14 +43,14 @@ speaker: Святослав
 ->DONE
 
 === voice1 ===
-speaker: Голос
+speaker: Голоса
 Ты зря лезешь в это.
 ->DONE
 
 === voice2 ===
 speaker: Святослав
 Что происходит?
-speaker: Голос
+speaker: Голоса
 Уходи! Вам никто уже не поможет.
 ->DONE
 

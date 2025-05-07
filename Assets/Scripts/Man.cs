@@ -75,7 +75,9 @@ public class Man : MonoBehaviour
         {
             yield return null;
         }
+        GameInput.Instance.OnDisable();
         animator2.SetBool("ComeIn", true);
+        yield return new WaitForSeconds(2f);
         DialogueManager.Instance.StartDialog(inkJSON, "man2");
         while (DialogueManager.Instance.dialogPanelOpen)
         {

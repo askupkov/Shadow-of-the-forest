@@ -321,5 +321,4 @@ public class ItemInventory
     public string name;
     public GameObject itemGameObj;
     public int count; // Количество предметов
-
 }

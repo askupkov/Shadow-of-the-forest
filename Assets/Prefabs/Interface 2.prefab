@@ -241,9 +241,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c4e79d2f320e7b448b61bfdeb51ad7f0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -816,7 +816,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!114 &6376032465458200304
 MonoBehaviour:
@@ -1327,8 +1327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 196.35, y: 11.27}
+  m_AnchoredPosition: {x: -0.005, y: 0.0136}
+  m_SizeDelta: {x: 199.4791, y: 9.7653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4108520326083512948
 CanvasRenderer:
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 96a7c5e0be640594fbf6e5ae88ed8dd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd8e95de3e64466429c63f1d2d943872, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2300,6 +2300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8605590749979656968, guid: 4ffe2e600470a614daf1018425d695ed, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7230693474808870065, guid: 4ffe2e600470a614daf1018425d695ed, type: 3}
@@ -2548,6 +2552,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1961864380683246136, guid: 423e951f19c3efa4f834dcac6d8b1f1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441480200334381912, guid: 423e951f19c3efa4f834dcac6d8b1f1a, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441480200334381912, guid: 423e951f19c3efa4f834dcac6d8b1f1a, type: 3}
+      propertyPath: m_PreserveAspect
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482496520523462496, guid: 423e951f19c3efa4f834dcac6d8b1f1a, type: 3}

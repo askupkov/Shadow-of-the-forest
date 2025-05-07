@@ -20,8 +20,8 @@ public class GaugeGame : MonoBehaviour
 
     private bool isPlaying = false; // Игра активна
 
-    private float minTargetWidth = 0.09f; // Минимальная ширина целевой зоны (в процентах от ширины шкалы)
-    private float maxTargetWidth = 0.15f; // Максимальная ширина целевой зоны (в процентах от ширины шкалы)
+    private float minTargetWidth = 0.1f; // Минимальная ширина целевой зоны (в процентах от ширины шкалы)
+    private float maxTargetWidth = 0.18f; // Максимальная ширина целевой зоны (в процентах от ширины шкалы)
 
 
     private void Awake()
