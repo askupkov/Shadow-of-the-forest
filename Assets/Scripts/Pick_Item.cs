@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static TMPro.Examples.ObjectSpin;
-using static UnityEditor.Progress;
 
 public class Pick_Item : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class Pick_Item : MonoBehaviour
     public int itemID;
     public GameObject item;
     public bool DestroyItem = false;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -21,6 +20,7 @@ public class Pick_Item : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1 && DestroyItem)
         {
             Destroy(gameObject);
@@ -36,6 +36,7 @@ public class Pick_Item : MonoBehaviour
 
     private IEnumerator pick_item()
     {
+        audioSource.Play();
         Collider.enabled = false;
         GameInput.Instance.OnDisable();
         Item selectedItem = Inventory.Instance.data.items[itemID];

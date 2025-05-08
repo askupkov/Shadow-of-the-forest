@@ -1046,10 +1046,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
-  startingPoint: key
+  startingPoint: key2
   itemID: 2
   item: {fileID: 891570558}
-  itemImage: {fileID: 21300000, guid: 2e9ea8b4fc251b647af16d8af1342d37, type: 3}
   DestroyItem: 1
 --- !u!61 &417573159
 BoxCollider2D:
