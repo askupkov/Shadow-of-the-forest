@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 815207568582980442}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -3.8, z: -0.06168995}
+  m_LocalPosition: {x: -0.09, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91,5 +91,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 2
-  position: {x: 2.3, y: 2.3, z: 0}
+  position: {x: 2.3, y: 2.3}
   playerStorage: {fileID: 11400000, guid: 2761d26dc47118446b7b7e80ef7c5b85, type: 2}

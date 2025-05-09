@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,9 +8,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float movingSpeed = 10f;
     [SerializeField] private float runSpeed = 20f;
-    public CapsuleCollider2D originalCollider; // Исходный коллайдер
-    public CapsuleCollider2D shiftCollider; // Новый коллайдер при нажатии Shift
-    public CapsuleCollider2D standCollider;
+    //public CapsuleCollider2D originalCollider; // Исходный коллайдер
+    //public CapsuleCollider2D shiftCollider; // Новый коллайдер при нажатии Shift
+    //public CapsuleCollider2D standCollider;
     public GameObject shadow;
     public GameObject newshadow;
     public VectorValue pos;
@@ -41,6 +38,14 @@ public class Player : MonoBehaviour
     private void Start()
     {
         transform.position = pos.initialValue;
+    }
+
+    private void Update()
+    {
+        if (Inventory.Instance.HasItem(10) && Input.GetKeyDown(KeyCode.F))
+        {
+            Candle();
+        } 
     }
 
     private void Awake()
@@ -109,6 +114,7 @@ public class Player : MonoBehaviour
 
         if (isMovingToDestination)
         {
+            speed = movingSpeed;
             navMeshAgent.SetDestination(targetDestination.position);
             inputVector = ((Vector2)targetDestination.position - rb.position).normalized;
         }
@@ -122,25 +128,25 @@ public class Player : MonoBehaviour
 
         if (speed == runSpeed && inputVector.x != 0)
         {
-            shiftCollider.enabled = true;
-            originalCollider.enabled = true;
-            standCollider.enabled = true;
+            //shiftCollider.enabled = true;
+            //originalCollider.enabled = true;
+            //standCollider.enabled = true;
             shadow.SetActive(false);
             newshadow.SetActive(true);
         }
         else if (speed == movingSpeed && inputVector.x != 0)
         {
-            originalCollider.enabled = true;
-            shiftCollider.enabled = false;
-            standCollider.enabled = false;
+            //originalCollider.enabled = true;
+            //shiftCollider.enabled = false;
+            //standCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
         else
         {
-            standCollider.enabled = true;
-            originalCollider.enabled = false;
-            shiftCollider.enabled = false;
+            //standCollider.enabled = true;
+            //originalCollider.enabled = false;
+            //shiftCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
@@ -194,9 +200,9 @@ public class Player : MonoBehaviour
         inputVector = GameInput.Instance.GetMovementVector();
         speed = movingSpeed;
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
-        shiftCollider.enabled = false;
-        standCollider.enabled = false;
-        originalCollider.enabled = true;
+        //shiftCollider.enabled = false;
+        //standCollider.enabled = false;
+        //originalCollider.enabled = true;
         if (inputVector.x < 0)
         {
             isWalking = 3;
@@ -225,8 +231,6 @@ public class Player : MonoBehaviour
     private IEnumerator MoveToDestination(Transform destination)
     {
         GameInput.Instance.OnDisable();
-
-        
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
         isMovingToDestination = true;

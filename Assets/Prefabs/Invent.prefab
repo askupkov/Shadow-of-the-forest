@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f72a0d113981ef4cafb0a34ef973507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 4962601279769965981}
+  data: {fileID: 0}
   items: []
   gameObjShow: {fileID: 4339035437425645115, guid: ad15d5a31f49e8c4282df23d4bcc211e, type: 3}
   InventoryMainObject: {fileID: 0}
@@ -55,6 +55,11 @@ MonoBehaviour:
   InventoryOpen: 0
   pickedItems: 
   usedItems: 
+  notificationPanel: {fileID: 0}
+  notificationText: {fileID: 0}
+  notificationCountText: {fileID: 0}
+  itemIcon: {fileID: 0}
+  notificationAnimator: {fileID: 0}
 --- !u!114 &4962601279769965981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,39 +76,55 @@ MonoBehaviour:
   - id: 0
     name: Empty
     img: {fileID: 21300000, guid: bffef3689b0ae554fb345dfa9fbf82e5, type: 3}
+    img_insp: {fileID: 0}
   - id: 1
     name: doll
     img: {fileID: 21300000, guid: cca84f1cf36c7dc4abddfe140caf9869, type: 3}
+    img_insp: {fileID: 21300000, guid: 47d4c3dd21574cd4bb82de01fd3e2061, type: 3}
   - id: 2
     name: key
     img: {fileID: 21300000, guid: 2e9ea8b4fc251b647af16d8af1342d37, type: 3}
+    img_insp: {fileID: 21300000, guid: e7b5dd1c4ede768419f4fbda49830345, type: 3}
   - id: 3
     name: berries
     img: {fileID: 21300000, guid: bc5e5ba8beb4de5479f5bdbd9e64f666, type: 3}
+    img_insp: {fileID: 21300000, guid: d5ee447013144d74f98a7b1a43e8f268, type: 3}
   - id: 4
     name: spellbook
-    img: {fileID: 21300000, guid: 1967b9ea6866c9b4b9ab5f0f522faf74, type: 3}
+    img: {fileID: 21300000, guid: 36d31ac98716b6a4d9513018c7aa68b0, type: 3}
+    img_insp: {fileID: 21300000, guid: 476eaa506b9cf1a4b9de0f5b4573116a, type: 3}
   - id: 5
     name: flower
-    img: {fileID: 21300000, guid: 7811fa2d647a90544bf4dd730fc92232, type: 3}
+    img: {fileID: 21300000, guid: d0b94603a62d4ca45ac52efa152fe0e9, type: 3}
+    img_insp: {fileID: 21300000, guid: 7ce808183c2d04f42b52c9c45ca182e0, type: 3}
   - id: 6
     name: rope
     img: {fileID: 21300000, guid: d1518d2908cc2ae4bb198496ef0c973b, type: 3}
+    img_insp: {fileID: 21300000, guid: 2911812f094b34c4d80f246c70b59ef0, type: 3}
   - id: 7
     name: bread
-    img: {fileID: 21300000, guid: 9ad3a56ea2f79124ea531d77c5385b98, type: 3}
+    img: {fileID: 21300000, guid: 2a89d993bd7ccc44e93a0dc76833cd07, type: 3}
+    img_insp: {fileID: 21300000, guid: babda11eba3c7ab498b1f679096da175, type: 3}
   - id: 8
     name: bucket
     img: {fileID: 21300000, guid: 8ae2bbfb5913340499e752c9f22bb568, type: 3}
+    img_insp: {fileID: 21300000, guid: 21f7865dc28b0eb42ba69ab403864cd1, type: 3}
   - id: 9
     name: milk
-    img: {fileID: 21300000, guid: b2b91711c34527441985d90d8f3b0f8c, type: 3}
+    img: {fileID: 21300000, guid: 033d5880c1a915b40b73150d19f22e28, type: 3}
+    img_insp: {fileID: 21300000, guid: 26c795f02372e9d43aebe257e738d802, type: 3}
   - id: 10
     name: candle
     img: {fileID: 21300000, guid: 50e445f509f0f784f9f69c325dc18f2d, type: 3}
+    img_insp: {fileID: 21300000, guid: 178d89e84a6c9cb4583d5eea3a5c3048, type: 3}
   - id: 11
     name: victim
     img: {fileID: 21300000, guid: c6e150eb263d0254aafb0c263af0458d, type: 3}
+    img_insp: {fileID: 21300000, guid: e239153ca6d0a0146b3de616b9fd5f39, type: 3}
+  - id: 12
+    name: note_ritual
+    img: {fileID: 21300000, guid: 9898ca0bce4040248b7c2974807bfbbd, type: 3}
+    img_insp: {fileID: 21300000, guid: f3bdfc62c829f4a4fa784c57193ffd48, type: 3}
 --- !u!114 &1136633055786402608
 MonoBehaviour:
   m_ObjectHideFlags: 0

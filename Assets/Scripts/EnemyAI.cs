@@ -1,12 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using Ink;
 using UnityEngine;
 using UnityEngine.AI;
 using KnightAdventure.Utils;
-using UnityEngine.EventSystems;
 using System;
-using UnityEngine.InputSystem.LowLevel;
 
 public class EnemyAI : MonoBehaviour
 {

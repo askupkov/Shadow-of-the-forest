@@ -102,7 +102,7 @@ MonoBehaviour:
   startingPoint: rope
   itemID: 6
   item: {fileID: 902694690986209427}
-  itemImage: {fileID: 21300000, guid: 1f04e044b5fcf784a9da52cb0b33da18, type: 3}
+  itemImage: {fileID: 21300000, guid: 2911812f094b34c4d80f246c70b59ef0, type: 3}
   DestroyItem: 1
 --- !u!61 &4615187431123004615
 BoxCollider2D:

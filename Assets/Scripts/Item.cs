@@ -1,15 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
+
 
 public class Item_script : MonoBehaviour
 {
     public static Item_script Instance { get; private set; }
-    public TextAsset inkJSON;
+    [SerializeField] TextAsset inkJSON;
     public int itemID;
     public string itemName;
     public Canvas interactionButtons;
@@ -34,12 +29,15 @@ public class Item_script : MonoBehaviour
         Inventory.Instance.UseItem(itemID);
     }
 
-    public void InspectItem()
+    public void inspectItem()
     {
         Item_script.Instance.CloseMenu();
         Inventory.Instance.backGround.SetActive(false);
         Inventory.Instance.InventoryOpen = false;
         DialogueManager.Instance.StartDialog(inkJSON, itemName);
+        Item selectedItem = Inventory.Instance.data.items[itemID];
+        InspectItem.Instance.ShowItem(selectedItem.img_insp);
+        InspectItem.Instance.Background.SetActive(false);
     }
 
     public void Initialize(int id)

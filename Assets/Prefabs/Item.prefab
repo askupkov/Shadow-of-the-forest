@@ -391,7 +391,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3888985569791529300}
         m_TargetAssemblyTypeName: Item_script, Assembly-CSharp
-        m_MethodName: InspectItem
+        m_MethodName: inspectItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

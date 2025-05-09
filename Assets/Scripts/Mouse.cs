@@ -16,6 +16,10 @@ public class Mouse : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        if(PlayerPrefs.GetInt("HouseGrigoriy", 0) == 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()

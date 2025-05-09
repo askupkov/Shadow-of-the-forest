@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5214673052050473904}
   - component: {fileID: 4924722127227342748}
   - component: {fileID: 860132991445914728}
-  - component: {fileID: 243855465864920606}
   - component: {fileID: 7386781811475357511}
   m_Layer: 0
   m_Name: bush_medium_berries
@@ -190,24 +189,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8430341, y: 1.7122307}
   m_EdgeRadius: 0
---- !u!114 &243855465864920606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2219992518418384121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869e24a20f832a54a998b541e42c708f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 0eebf1724c937354a922f83986355925, type: 3}
-  startingPoint: berries
-  itemID: 3
-  item: {fileID: 2219992518418384121}
-  itemImage: {fileID: 0}
-  DestroyItem: 0
 --- !u!114 &7386781811475357511
 MonoBehaviour:
   m_ObjectHideFlags: 0

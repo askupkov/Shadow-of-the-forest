@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HouseGrigoriy : MonoBehaviour
@@ -10,29 +9,30 @@ public class HouseGrigoriy : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
 
 
-    private void Update()
+    private void Start()
     {
-        if (playerInRange && Player.Instance.lighting == false)
-        {
-            StartCoroutine(lighting());
-        }
-        if (Player.Instance.lighting == true)
+        if (PlayerPrefs.GetInt("HouseGrigoriy", 0) == 1)
         {
             Collider.enabled = false;
             Collider2.enabled = false;
         }
     }
 
-    private IEnumerator lighting()
+    private void Update()
     {
-        DialogueManager.Instance.StartDialog(inkJSON, "temno");
-        while (DialogueManager.Instance.dialogPanelOpen)
+        if (playerInRange && Player.Instance.lighting == false)
+        {
+            DialogueManager.Instance.StartDialog(inkJSON, "temno");
+            playerInRange = false;
+        }
+        if (Player.Instance.lighting == true)
         {
             Collider.enabled = false;
-            yield return null;
+            Collider2.enabled = false;
+            PlayerPrefs.SetInt("HouseGrigoriy", 1);
         }
-        Collider.enabled = true;
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

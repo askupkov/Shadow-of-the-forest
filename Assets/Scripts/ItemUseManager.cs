@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ItemUseManager : MonoBehaviour
 {
     public static ItemUseManager Instance { get; private set; }
-    public Door activeDoor; // Ссылка на текущую дверь
-    private bool playerInRange;
+    public Door activeDoor;
     private void Awake()
     {
         if (Instance == null)
@@ -88,6 +83,9 @@ public class ItemUseManager : MonoBehaviour
                     Inventory.Instance.ConsumeItem(itemId);
                 }
                 break;
+            case 12: // Записка
+                Note.Instance.OnEnableNote();
+                break;
 
             default:
                 Debug.Log("Неизвестный предмет");
@@ -100,7 +98,7 @@ public class ItemUseManager : MonoBehaviour
         if (Swamp.Instance.playerInRange)
         {
             Inventory.Instance.ConsumeItem(5);
-            Swamp.Instance.start_ritual();
+            Swamp.Instance.startFlower();
         }
     }
 
@@ -110,6 +108,7 @@ public class ItemUseManager : MonoBehaviour
         {
             Inventory.Instance.ConsumeItem(8);
             Inventory.Instance.AddItem(9);
+            PlayerPrefs.SetInt("cows", 1);
         }
     }
 

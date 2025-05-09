@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Dialog_starushka : MonoBehaviour
 {
@@ -15,7 +13,6 @@ public class Dialog_starushka : MonoBehaviour
     [SerializeField] BoxCollider2D Collider2;
     [SerializeField] Transform destination;
 
-    private string PlayerPrefs => $"{gameObject.name}";
 
     private void Awake()
     {
@@ -26,7 +23,11 @@ public class Dialog_starushka : MonoBehaviour
     {
         Collider = GetComponent<BoxCollider2D>();
         LoadState();
-        DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
+        if(PlayerPrefs.GetInt("startVilage", 0) != 1)
+        {
+            DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
+        }
+        PlayerPrefs.SetInt("startVilage", 1);
     }
 
     private IEnumerator StartInitialDialog()
@@ -57,8 +58,7 @@ public class Dialog_starushka : MonoBehaviour
             StartCoroutine(StartInitialDialog());
             Collider2.enabled = false;
             playerInCollider2Range = false;
-            UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefs}_Collider2Enabled", 0);
-            UnityEngine.PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Dialog_starushka", 1);
         }
 
         if (!DialogueManager.Instance.dialogPanelOpen && isThirdDialogStarted)
@@ -99,14 +99,9 @@ public class Dialog_starushka : MonoBehaviour
 
     private void LoadState()
     {
-        if (UnityEngine.PlayerPrefs.HasKey($"{PlayerPrefs}_Collider2Enabled"))
+        if (PlayerPrefs.GetInt("Dialog_starushka", 0) == 1)
         {
-            Collider2.enabled = UnityEngine.PlayerPrefs.GetInt($"{PlayerPrefs}_Collider2Enabled") == 1;
-        }
-        else
-        {
-            UnityEngine.PlayerPrefs.SetInt(PlayerPrefs, Collider2.enabled ? 1 : 0);
-            UnityEngine.PlayerPrefs.Save();
+            Collider2.enabled = false;
         }
     }
 }

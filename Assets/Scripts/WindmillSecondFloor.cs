@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class WindmillSecondFloor : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class WindmillSecondFloor : MonoBehaviour
     private bool secondDialog;
     private void Start()
     {
-        if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
+        if (PlayerPrefs.GetInt("firstDialogueDomovoy", 0) == 1)
         {
             secondDialog = true;
         }
@@ -31,7 +29,7 @@ public class WindmillSecondFloor : MonoBehaviour
         {
             yield return null;
         }
-        PlayerPrefs.SetInt(gameObject.name, 1);
+        PlayerPrefs.SetInt("firstDialogueDomovoy", 1);
         SceneController.Instance.StartLoadScene(14);
     }
     private IEnumerator secondDialogue()
@@ -44,14 +42,14 @@ public class WindmillSecondFloor : MonoBehaviour
         {
             yield return null;
         }
+        for (int i = 0; i < 3; i++)
+        {
+            Inventory.Instance.AddItem(10);
+        }
         DialogueManager.Instance.StartDialog(inkJSON, "domovoy2");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            Inventory.Instance.AddItem(10);
         }
         SceneController.Instance.StartLoadScene(14);
     }

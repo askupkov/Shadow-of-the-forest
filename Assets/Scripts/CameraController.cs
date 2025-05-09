@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-using Unity.VisualScripting;
-using System.Runtime.CompilerServices;
 
 public class CameraController : MonoBehaviour
 {

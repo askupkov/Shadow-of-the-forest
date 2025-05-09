@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RitualСircle : MonoBehaviour
@@ -14,6 +13,8 @@ public class RitualСircle : MonoBehaviour
     [SerializeField] GameObject victim;
     [SerializeField] GameObject leshiy;
     [SerializeField] TextAsset inkJSON;
+    [SerializeField] Transform destination;
+    [SerializeField] Transform destination2;
 
     [SerializeField] GameObject final_scene;
     private bool candlesRitual;
@@ -96,11 +97,22 @@ public class RitualСircle : MonoBehaviour
     {
         if(candlesRitual && victimRitual && dollRitual)
         {
+            Player.Instance.StartToMove(destination);
+            while (Player.Instance.isMovingToDestination)
+            {
+                yield return null;
+            }
+            Player.Instance.StartToMove(destination2);
+            while (Player.Instance.isMovingToDestination)
+            {
+                yield return null;
+            }
             DialogueManager.Instance.StartDialog(inkJSON, "leshiy1");
             while (DialogueManager.Instance.dialogPanelOpen)
             {
                 yield return null;
             }
+            GameInput.Instance.OnDisable();
             Collider.enabled = false;
             animator.SetBool("Flash", true);
             yield return new WaitForSeconds(1.5f);
@@ -109,18 +121,23 @@ public class RitualСircle : MonoBehaviour
             animator.SetBool("Flash", false);
             yield return new WaitForSeconds(0.5f);
             DialogueManager.Instance.StartDialog(inkJSON, "leshiy2");
+            while (DialogueManager.Instance.dialogPanelOpen)
+            {
+                yield return null;
+            }
+            SceneController.Instance.StartLoadScene(18);
         }
     }
     
     private IEnumerator final()
     {
+        Destroy(items);
+        GameManager.Instance.OnDestroy();
         GameInput.Instance.OnDisable();
         final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);
         yield return new WaitForSeconds(5f);
-        SceneFader.Instance.FadeToLevel();
-        yield return new WaitForSeconds(3);
-        GameManager.Instance.ReturnToMainMenu();
+        SceneController.Instance.StartLoadScene(1);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

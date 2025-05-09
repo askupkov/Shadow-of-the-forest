@@ -18,7 +18,6 @@ public class Watch : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
-
         }
         if (DialogueManager.Instance.dialogPanelOpen == true)
         {

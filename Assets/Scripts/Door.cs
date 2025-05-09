@@ -13,6 +13,8 @@ public class Door : MonoBehaviour
     private bool playerInRange = false;
     public bool locked;
     public int key;
+    private BoxCollider2D Collider;
+    [SerializeField] TextAsset inkJSON;
     private string PlayerPrefsKey => $"{gameObject.name}";
 
     public Vector2 position;
@@ -26,6 +28,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
+        Collider = GetComponent<BoxCollider2D>();
         if (PlayerPrefs.HasKey(PlayerPrefsKey))
         {
             locked = PlayerPrefs.GetInt(PlayerPrefsKey) == 1;
@@ -45,6 +48,18 @@ public class Door : MonoBehaviour
             {
                 StartCoroutine(OpenDoorCoroutine());
             }
+            else
+            {
+                DialogueManager.Instance.StartDialog(inkJSON, "door");
+            }
+        }
+        if (DialogueManager.Instance.dialogPanelOpen == true)
+        {
+            Collider.enabled = false;
+        }
+        else
+        {
+            Collider.enabled = true;
         }
     }
 
@@ -62,9 +77,6 @@ public class Door : MonoBehaviour
     public void UnlockDoor()
     {
         locked = false;
-        Debug.Log("Дверь разблокирована!");
-
-        // Сохраняем состояние двери в PlayerPrefs
         PlayerPrefs.SetInt(PlayerPrefsKey, 0);
         PlayerPrefs.Save();
 

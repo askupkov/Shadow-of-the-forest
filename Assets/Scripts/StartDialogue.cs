@@ -13,6 +13,10 @@ public class StartDialogue : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        if(PlayerPrefs.GetInt("dialogVolvh") == 1)
+        {
+            Collider.enabled = false;
+        }
     }
 
     private void Update()
@@ -22,6 +26,7 @@ public class StartDialogue : MonoBehaviour
             DialogueManager.Instance.StartDialog(inkJSON, Tag);
             Collider.enabled = false;
             playerInRange = false;
+            PlayerPrefs.SetInt("dialogVolvh", 1);
         }
     }
 

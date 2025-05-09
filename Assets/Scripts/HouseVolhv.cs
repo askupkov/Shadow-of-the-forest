@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class HouseVolhv : MonoBehaviour
 {
@@ -14,12 +10,11 @@ public class HouseVolhv : MonoBehaviour
     [SerializeField] Transform destination2;
     [SerializeField] Transform destination3;
     private BoxCollider2D Collider;
-    [SerializeField] Animator animator; // —сылка на Animator
+    [SerializeField] Animator animator;
     [SerializeField] int sceneToLoad;
     [SerializeField] TextAsset inkJSON;
     [SerializeField] GameObject volhv;
     [SerializeField] BoxCollider2D Collider2;
-    private string PlayerPrefsVolhv => $"{gameObject.name}";
 
 
     private void Start()
@@ -37,16 +32,17 @@ public class HouseVolhv : MonoBehaviour
         if (playerInColliderRange)
         {
             Collider.enabled = false;
-            UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefsVolhv}_ColliderEnabled", 0);
-            UnityEngine.PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Volhv_ColliderEnabled", 1);
+            PlayerPrefs.Save();
             StartCoroutine(VolhvDialogue());
             playerInColliderRange = false;
         }
         if (playerInCollider2Range)
         {
             Collider2.enabled = false;
-            UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefsVolhv}_Collider2Enabled", 0);
-            UnityEngine.PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Volhv_Collider2Enabled", 0);
+            PlayerPrefs.SetInt("loadHouseVolvh", 1);
+            PlayerPrefs.Save();
             StartCoroutine(Dialogue());
             playerInCollider2Range = false;
         }
@@ -89,8 +85,8 @@ public class HouseVolhv : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         sceneController.StartLoadScene(sceneToLoad);
         Collider2.enabled = true;
-        UnityEngine.PlayerPrefs.SetInt($"{PlayerPrefsVolhv}_Collider2Enabled", 1);
-        UnityEngine.PlayerPrefs.Save();
+        PlayerPrefs.SetInt("Volhv_Collider2Enabled", 1);
+        PlayerPrefs.Save();
     }
 
     private IEnumerator Dialogue()
@@ -136,23 +132,21 @@ public class HouseVolhv : MonoBehaviour
 
     private void LoadState()
     {
-        if (UnityEngine.PlayerPrefs.HasKey($"{PlayerPrefsVolhv}_ColliderEnabled"))
+        //if (PlayerPrefs.HasKey("Volhv_ColliderEnabled"))
+        //{
+        //    Collider.enabled = PlayerPrefs.GetInt("Volhv_ColliderEnabled") == 1;
+        //}
+        //if (PlayerPrefs.HasKey("Volhv_Collider2Enabled"))
+        //{
+        //    Collider2.enabled = PlayerPrefs.GetInt("Volhv_Collider2Enabled") == 1;
+        //}
+        if (PlayerPrefs.GetInt("Volhv_ColliderEnabled", 0) == 1)
         {
-            Collider.enabled = UnityEngine.PlayerPrefs.GetInt($"{PlayerPrefsVolhv}_ColliderEnabled") == 1;
+            Collider.enabled = false;
         }
-        else
+        if (PlayerPrefs.GetInt("Volhv_Collider2Enabled", 0) == 1)
         {
-            UnityEngine.PlayerPrefs.SetInt(PlayerPrefsVolhv, Collider.enabled ? 1 : 0);
-            UnityEngine.PlayerPrefs.Save();
-        }
-        if (UnityEngine.PlayerPrefs.HasKey($"{PlayerPrefsVolhv}_Collider2Enabled"))
-        {
-            Collider2.enabled = UnityEngine.PlayerPrefs.GetInt($"{PlayerPrefsVolhv}_Collider2Enabled") == 1;
-        }
-        else
-        {
-            UnityEngine.PlayerPrefs.SetInt(PlayerPrefsVolhv, Collider2.enabled ? 1 : 0);
-            UnityEngine.PlayerPrefs.Save();
+            Collider2.enabled = true;
         }
     }
 }

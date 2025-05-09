@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780891896674779228, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 7780891896674779228, guid: de78adf9529408f46b35e6037b9a5870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1197,14 +1197,13 @@ MonoBehaviour:
   animatorLeshiy: {fileID: 816254727}
   RootsLeft: {fileID: 783233781}
   RootsRight: {fileID: 106449468}
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 8280df4c58a510a42a0c13282432af13, type: 3}
   spikePrefab: {fileID: 310910917217200909, guid: a6975510c4d0e4f41a9fe3288ba5f682, type: 3}
   spawnAreas:
   - {fileID: 715451399}
   - {fileID: 715451402}
   - {fileID: 715451401}
   spikeLifetime: 1.583
-  minDistance: 2
 --- !u!50 &816254732
 Rigidbody2D:
   serializedVersion: 4
@@ -1597,11 +1596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.01
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8691681160313746387, guid: a47bf8b87098a1d46a49bb1b71979e85, type: 3}
       propertyPath: m_LocalPosition.z

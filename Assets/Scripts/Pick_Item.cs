@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
-using static UnityEditor.Progress;
 
 public class Pick_Item : MonoBehaviour
 {
@@ -13,8 +10,8 @@ public class Pick_Item : MonoBehaviour
     private BoxCollider2D Collider;
     public int itemID;
     public GameObject item;
-    public Sprite itemImage;
     public bool DestroyItem = false;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -23,6 +20,7 @@ public class Pick_Item : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1 && DestroyItem)
         {
             Destroy(gameObject);
@@ -32,15 +30,25 @@ public class Pick_Item : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            pick_item();
+            StartCoroutine(pick_item());
         }
     }
 
-    public void pick_item()
+    private IEnumerator pick_item()
     {
+        audioSource.Play();
         Collider.enabled = false;
+        GameInput.Instance.OnDisable();
+        Item selectedItem = Inventory.Instance.data.items[itemID];
+        InspectItem.Instance.ShowItem(selectedItem.img_insp);
+
+        yield return new WaitForSeconds(0.1f);
+        while (!Input.GetKeyDown(KeyCode.E))
+        {
+            yield return null;
+        }
+        InspectItem.Instance.HideItem();
         DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
-        InspectItem.Instance.ShowItem(itemImage);
         Inventory.Instance.AddItem(itemID);
         if (DestroyItem == true)
         {

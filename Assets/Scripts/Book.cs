@@ -14,13 +14,12 @@ public class Book : MonoBehaviour
 
     public GameObject BookUI; // UI-панель с книгой
     public TextMeshProUGUI[] pageTexts; // Массив текстовых полей для страниц
-    [SerializeField] Image[] pageImages; // Массив изображений для страниц
+    [SerializeField] Image pageImages; // Массив изображений для страниц
     [SerializeField] Sprite[] pageSprites;
+    [SerializeField] GameObject button;
     public bool BookOpen;
 
-    float fadeDuration = 0.15f;
-
-    private int countPage = 5; // Количество страниц
+    private int countPage = 3; // Количество страниц
     private int currentPage = 0; // Текущая страница
     private Story currentStory;
     private List<string> storyLines = new List<string>();
@@ -35,7 +34,7 @@ public class Book : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         CacheStoryLines();
         UpdatePageText();
-        OnDisableBook();
+        BookUI.SetActive(false);
     }
 
     private void Update()
@@ -93,37 +92,36 @@ public class Book : MonoBehaviour
         {
             text.text = "";
         }
-        foreach (var image in pageImages)
-        {
-            image.sprite = null;
-            image.enabled = false;
-        }
+        pageImages.enabled = false;
+        button.SetActive(false);
     }
 
     private void UpdatePageText()
     {
+        // Очищаем текстовые поля перед обновлением
+        foreach (var text in pageTexts)
+        {
+            text.text = "";
+        }
+
+        // Распределяем строки истории по текстовым полям
         for (int i = 0; i < pageTexts.Length; i++)
         {
-            pageTexts[i].text = "";
             int pageIndex = currentPage * pageTexts.Length + i;
+
             if (pageIndex < storyLines.Count)
             {
-                pageTexts[i].text += storyLines[pageIndex];
+                pageTexts[i].text = storyLines[pageIndex];
             }
             else
             {
                 pageTexts[i].text = ""; // Очищаем текст, если больше нет контента
             }
+
             // Обновляем изображения
-            //if (pageIndex < pageSprites.Length && pageSprites[pageIndex] != null)
-            //{
-            //    pageImages[i].sprite = pageSprites[pageIndex];
-            //    pageImages[i].enabled = true; // Включаем изображение
-            //}
-            //else
-            //{
-            //    pageImages[i].enabled = false; // Отключаем изображение, если его нет
-            //}
+            pageImages.enabled = true;
+            button.SetActive(true);
+            pageImages.sprite = pageSprites[currentPage];
         }
     }
 
@@ -138,59 +136,55 @@ public class Book : MonoBehaviour
 
     private void FadeInText()
     {
-        StartCoroutine(FadeIn());
+        UpdatePageText();
     }
 
-    private IEnumerator FadeIn()
-    {
-        UpdatePageText(); // Установка текста на страницах
-
-        // Установка начальной прозрачности текста
-        foreach (var text in pageTexts)
-        {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, 0f);
-        }
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-
-            foreach (var text in pageTexts)
-            {
-                text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-            }
-
-            yield return null;
-        }
-
-        // Убедимся, что текст полностью виден в конце
-        foreach (var text in pageTexts)
-        {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, 1f);
-        }
-    }
 
     public void OnEnableBook()
     {
         BookOpen = true;
         BookUI.SetActive(true);
+        StartCoroutine(InputDisabled());
+    }
+
+    private IEnumerator InputDisabled()
+    {
+        yield return new WaitForSeconds(0.4f);
+        GameInput.Instance.OnDisable();
     }
 
     public void OnDisableBook()
     {
+        GameInput.Instance.OnEnabled();
         BookOpen = false;
         currentPage = 0;
+        UpdatePageText();
         BookUI.SetActive(false);
     }
 
     public void read()
     {
-        if(RitualСircle.Instance != null)
+        switch (currentPage)
         {
-            RitualСircle.Instance.startritual();
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                GameInput.Instance.OnEnabled();
+                if (RitualСircle.Instance != null)
+                {
+                    if (RitualСircle.Instance.playerInRange)
+                    {
+                        RitualСircle.Instance.startritual();
+                    }
+                }
+                break;
         }
+        BookOpen = false;
+        currentPage = 0;
+        BookUI.SetActive(false);
     }
 }
