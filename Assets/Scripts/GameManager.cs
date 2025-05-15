@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        PlayerPrefs.DeleteAll();
         if (Instance == null)
         {
             Instance = this;

@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.IO;
+using static SceneController;
 
 public class Door : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class Door : MonoBehaviour
     private BoxCollider2D Collider;
     [SerializeField] TextAsset inkJSON;
     private string PlayerPrefsKey => $"{gameObject.name}";
+    private string SavePath => Path.Combine(Application.persistentDataPath, "VectorValue.json");
 
     public Vector2 position;
     public VectorValue playerStorage;
@@ -65,9 +65,12 @@ public class Door : MonoBehaviour
 
     private IEnumerator OpenDoorCoroutine()
     {
+        PlayerPrefs.SetInt("LoadScene", sceneToLoad);
+        PlayerPrefs.Save();
         Animator.SetBool("Open", true);
         GameInput.Instance.OnDisable();
         playerStorage.initialValue = position;
+        SaverPosition.Instance.Save(position);
         SceneFader.Instance.FadeToLevel();
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(sceneToLoad);
