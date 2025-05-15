@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.IO;
 
 public class Inventory : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (items.Count == 0)
+        {
+            AddGraphics();
+        }
     }
 
     private void Start()
@@ -41,16 +46,15 @@ public class Inventory : MonoBehaviour
         backGround.SetActive(true);
         backGround.SetActive(false);
 
-        if (items.Count == 0)
-        {
-            AddGraphics();
-        }
+
+        LoadData();
     }
 
     public void ClearPickedItems()
     {
         pickedItems.Clear();
         usedItems.Clear();
+        SaveData();
     }
 
     public void ResetScene()
@@ -311,8 +315,70 @@ public class Inventory : MonoBehaviour
         }
         return 0;
     }
-}
 
+    // Вспомогательный класс для сохранения
+    [System.Serializable]
+    public class SavedItem
+    {
+        public int id;
+        public string name;
+        public int count;
+    }
+
+
+    [System.Serializable]
+    public class InventorySaveData
+    {
+        public List<SavedItem> items = new List<SavedItem>();
+    }
+
+    private string SavePath => Path.Combine(Application.persistentDataPath, "inventory.json");
+
+    // Сохранить данные
+    public void SaveData()
+    {
+        InventorySaveData saveData = new InventorySaveData();
+
+        foreach (var item in items)
+        {
+            saveData.items.Add(new SavedItem
+            {
+                id = item.id,
+                name = item.name,
+                count = item.count
+            });
+        }
+
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(SavePath, json);
+        Debug.Log("Инвентарь сохранён: " + SavePath);
+    }
+
+    // Загрузить данные
+    public void LoadData()
+    {
+        if (File.Exists(SavePath))
+        {
+            string json = File.ReadAllText(SavePath);
+            InventorySaveData saveData = JsonUtility.FromJson<InventorySaveData>(json);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var savedItem = saveData.items[i];
+
+                items[i].id = savedItem.id;
+                items[i].name = savedItem.name;
+                items[i].count = savedItem.count;
+            }
+
+            Debug.Log("Инвентарь загружен");
+        }
+        else
+        {
+            Debug.Log("Файл инвентаря не найден.");
+        }
+    }
+}
 // Класс для представления предмета в инвентаре
 [System.Serializable]
 public class ItemInventory
@@ -322,3 +388,4 @@ public class ItemInventory
     public GameObject itemGameObj;
     public int count; // Количество предметов
 }
+

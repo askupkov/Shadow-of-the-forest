@@ -20,7 +20,7 @@ public class Pick_Item : MonoBehaviour
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1 && DestroyItem)
         {
             Destroy(gameObject);
@@ -36,7 +36,7 @@ public class Pick_Item : MonoBehaviour
 
     private IEnumerator pick_item()
     {
-        audioSource.Play();
+        //audioSource.Play();
         Collider.enabled = false;
         GameInput.Instance.OnDisable();
         Item selectedItem = Inventory.Instance.data.items[itemID];

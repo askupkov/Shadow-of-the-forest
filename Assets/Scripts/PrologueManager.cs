@@ -34,7 +34,7 @@ public class PrologueManager : MonoBehaviour
 
             if (!string.IsNullOrEmpty(line))
             {
-                if (line.StartsWith("Chapter:") )
+                if (line.StartsWith("Chapter:"))
                 {
                     if (!isFirstLine && currentChapter.Count > 0)
                     {
@@ -79,7 +79,8 @@ public class PrologueManager : MonoBehaviour
             SceneFader.Instance.FadeToLevel();
             yield return new WaitForSeconds(1f);
         }
-
+        PlayerPrefs.SetInt("PrologueEnd", 1);
+        PlayerPrefs.Save();
         Debug.Log("Пролог завершен");
         SceneManager.LoadScene(16);
     }

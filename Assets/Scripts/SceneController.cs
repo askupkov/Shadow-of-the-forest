@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class SceneController : MonoBehaviour
 {
@@ -14,6 +12,8 @@ public class SceneController : MonoBehaviour
 
     public Vector2 position;
     public VectorValue playerStorage;
+
+    private string SavePath => Path.Combine(Application.persistentDataPath, "VectorValue.json");
 
     private void Awake()
     {
@@ -35,8 +35,11 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadScene(int sceneToLoad)
     {
+        PlayerPrefs.SetInt("LoadScene", sceneToLoad);
+        PlayerPrefs.Save();
         GameInput.Instance.OnDisable(); // Отключаем ввод перед загрузкой новой сцены
         playerStorage.initialValue = position;
+        SaverPosition.Instance.Save(position);
         SceneFader.Instance.FadeToLevel();
         yield return new WaitForSeconds(1f);
 
@@ -46,6 +49,12 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
         SceneFader.Instance.FadeFromLevel();
 
+    }
+
+    [System.Serializable]
+    public class VectorData
+    {
+        public float x, y, z;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
