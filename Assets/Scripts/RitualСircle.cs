@@ -137,7 +137,7 @@ public class RitualСircle : MonoBehaviour
         final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);
         yield return new WaitForSeconds(5f);
-        SceneController.Instance.StartLoadScene(1);
+        SceneController.Instance.StartLoadScene(0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

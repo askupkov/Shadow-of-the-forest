@@ -5,7 +5,7 @@ public class GameInitializer : MonoBehaviour
 {
     public static GameInitializer Instance { get; private set; } 
     public GameObject persistentPrefab;
-    private int scene;
+    [SerializeField] int scene;
 
     void Start()
     {

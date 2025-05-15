@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 8419367319095119162}
   - component: {fileID: 8063457870054511586}
   - component: {fileID: 7332155769999970460}
+  - component: {fileID: 5476738960761620137}
   m_Layer: 0
   m_Name: Interface 2
   m_TagString: Untagged
@@ -1142,6 +1143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedItems: []
+--- !u!114 &5476738960761620137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352155989873434205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f3fe3a4a619ce4e95b50ce275f7ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStorage: {fileID: 11400000, guid: 2761d26dc47118446b7b7e80ef7c5b85, type: 2}
 --- !u!1 &5535907296234894488
 GameObject:
   m_ObjectHideFlags: 0
