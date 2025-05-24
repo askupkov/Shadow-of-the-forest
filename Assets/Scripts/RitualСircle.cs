@@ -15,11 +15,13 @@ public class RitualСircle : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
     [SerializeField] Transform destination;
     [SerializeField] Transform destination2;
+    [SerializeField] AudioClip[] sounds;
 
     [SerializeField] GameObject final_scene;
     private bool candlesRitual;
     private bool dollRitual;
     private bool victimRitual;
+    private AudioSource audioSource;
 
     private bool startdialog = true;
 
@@ -30,6 +32,8 @@ public class RitualСircle : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         Collider = GetComponent<BoxCollider2D>();
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
         {
@@ -69,6 +73,7 @@ public class RitualСircle : MonoBehaviour
 
     public void addCandles()
     {
+        audioSource.PlayOneShot(sounds[0]);
         candles.SetActive(true);
         PlayerPrefs.SetInt("candlesRitual", 1);
         candlesRitual = true;
@@ -76,6 +81,7 @@ public class RitualСircle : MonoBehaviour
 
     public void addDoll()
     {
+        audioSource.PlayOneShot(sounds[0]);
         doll.SetActive(true);
         dollRitual = true;
         PlayerPrefs.SetInt("dollRitual", 1);
@@ -83,6 +89,7 @@ public class RitualСircle : MonoBehaviour
 
     public void addvictim()
     {
+        audioSource.PlayOneShot(sounds[0]);
         victim.SetActive(true);
         PlayerPrefs.SetInt("victimRitual", 1);
         victimRitual = true;
@@ -114,6 +121,7 @@ public class RitualСircle : MonoBehaviour
             }
             GameInput.Instance.OnDisable();
             Collider.enabled = false;
+            audioSource.PlayOneShot(sounds[1]);
             animator.SetBool("Flash", true);
             yield return new WaitForSeconds(1.5f);
             leshiy.SetActive(true);

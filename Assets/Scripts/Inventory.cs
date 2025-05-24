@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
     private string currentActionType = "";
     private int notificationCount = 1;
     private Coroutine hideCoroutine;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -42,10 +43,11 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         notificationCountText.text = "";
         backGround.SetActive(true);
         backGround.SetActive(false);
-
 
         LoadData();
     }
@@ -75,7 +77,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) && DialogueManager.Instance.dialogPanelOpen == false)
+        if (Input.GetKeyDown(KeyCode.I) && !DialogueManager.Instance.dialogPanelOpen && !Pause.Instance.pauseOpen && !Book.Instance.BookOpen && !GameInput.Instance.panelOpen)
         {
             backGround.SetActive(!backGround.activeSelf);
             GameInput.Instance.OnEnabled();
@@ -89,14 +91,9 @@ public class Inventory : MonoBehaviour
                 InventoryOpen = true;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen)
-        {
-            CloseInventory();
-        }
     }
 
-    private void CloseInventory()
+    public void CloseInventory()
     {
         Item_script.Instance.CloseMenu();
         backGround.SetActive(false);
@@ -188,6 +185,10 @@ public class Inventory : MonoBehaviour
         int itemId = nextNotification.itemId;
         string actionType = nextNotification.actionType;
 
+        if (actionType == "Добавлено" && itemId != 3 && itemId != 9)
+        {
+            audioSource.Play();
+        }
         Item selectedItem = data.items[itemId];
 
         // Показываем уведомление
@@ -245,10 +246,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             Item itemData = data.items.Find(item => item.id == itemId);
-            items[i].name = itemData.name;
             if (items[i].id == 0) // Если ячейка пуста
             {
                 items[i].id = itemId; // Устанавливаем ID предмета
+                items[i].name = itemData.name;
                 items[i].count = 1; // Устанавливаем количество 1
                 Item_script itemScript = items[i].itemGameObj.GetComponent<Item_script>();
                 itemScript.Initialize(itemId); // Передаем ID в скрипт
@@ -369,8 +370,10 @@ public class Inventory : MonoBehaviour
                 items[i].id = savedItem.id;
                 items[i].name = savedItem.name;
                 items[i].count = savedItem.count;
+                Item_script itemScript = items[i].itemGameObj.GetComponent<Item_script>();
+                itemScript.Initialize(savedItem.id); // Передаем ID в скрипт
+                itemScript.InitializeName(savedItem.name);
             }
-
             Debug.Log("Инвентарь загружен");
         }
         else
@@ -388,4 +391,3 @@ public class ItemInventory
     public GameObject itemGameObj;
     public int count; // Количество предметов
 }
-

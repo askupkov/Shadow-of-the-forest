@@ -13,16 +13,18 @@ public class Man : MonoBehaviour
     public Animator animator2;
     public BoxCollider2D Collider;
     public TextAsset inkJSON;
+    private AudioSource audioSource;
 
     private bool playerInRange = false;
 
     void Start()
     { 
         Collider = GetComponent<BoxCollider2D>();
-        if (animator == null)
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
+        if (PlayerPrefs.GetInt("Man", 0) == 1)
         {
-            animator = GetComponent<Animator>();
-            animator2 = GetComponent<Animator>();
+            animator2.SetTrigger("Close");
         }
     }
 
@@ -38,6 +40,7 @@ public class Man : MonoBehaviour
 
     private IEnumerator MoveToDestination()
     {
+        GameInput.Instance.panelOpen = true;
         Player.Instance.StartToMove(destination3);
         while (Player.Instance.isMovingToDestination)
         {
@@ -77,12 +80,16 @@ public class Man : MonoBehaviour
         }
         GameInput.Instance.OnDisable();
         animator2.SetBool("ComeIn", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.8f);
+        audioSource.Play();
+        PlayerPrefs.SetInt("Man", 1);
         DialogueManager.Instance.StartDialog(inkJSON, "man2");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
         }
+        GameInput.Instance.panelOpen = false;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

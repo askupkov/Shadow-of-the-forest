@@ -48,7 +48,7 @@ public class ItemUseManager : MonoBehaviour
 
                 break;
             case 8: // Ведро
-                bucket();
+                Cows.Instance.bucket();
                 break;
 
             case 9: // Молоко
@@ -102,15 +102,7 @@ public class ItemUseManager : MonoBehaviour
         }
     }
 
-    private void bucket()
-    {
-        if (Cows.Instance.playerInRange)
-        {
-            Inventory.Instance.ConsumeItem(8);
-            Inventory.Instance.AddItem(9);
-            PlayerPrefs.SetInt("cows", 1);
-        }
-    }
+
 
     private void door(int itemId)
     {

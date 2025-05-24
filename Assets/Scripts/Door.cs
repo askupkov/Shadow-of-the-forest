@@ -13,9 +13,10 @@ public class Door : MonoBehaviour
     public bool locked;
     public int key;
     private BoxCollider2D Collider;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip[] sounds;
     [SerializeField] TextAsset inkJSON;
     private string PlayerPrefsKey => $"{gameObject.name}";
-    private string SavePath => Path.Combine(Application.persistentDataPath, "VectorValue.json");
 
     public Vector2 position;
     public VectorValue playerStorage;
@@ -24,6 +25,8 @@ public class Door : MonoBehaviour
     {
         Instance = this;
         Animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
 
     private void Start()
@@ -65,6 +68,8 @@ public class Door : MonoBehaviour
 
     private IEnumerator OpenDoorCoroutine()
     {
+        audioSource.pitch = 1;
+        audioSource.PlayOneShot(sounds[0]);
         PlayerPrefs.SetInt("LoadScene", sceneToLoad);
         PlayerPrefs.Save();
         Animator.SetBool("Open", true);
@@ -73,6 +78,9 @@ public class Door : MonoBehaviour
         SaverPosition.Instance.Save(position);
         SceneFader.Instance.FadeToLevel();
         yield return new WaitForSeconds(1f);
+        Inventory.Instance.ClearPickedItems();
+        Healthbar.Instance.SaveHealth();
+        ItemController.Instance.SaveScene();
         SceneManager.LoadScene(sceneToLoad);
         SceneFader.Instance.FadeFromLevel();
     }
@@ -82,7 +90,8 @@ public class Door : MonoBehaviour
         locked = false;
         PlayerPrefs.SetInt(PlayerPrefsKey, 0);
         PlayerPrefs.Save();
-
+        audioSource.pitch = 2;
+        audioSource.PlayOneShot(sounds[1]);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

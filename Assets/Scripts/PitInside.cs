@@ -38,6 +38,8 @@ public class PitInside : MonoBehaviour
 
     private IEnumerator StartDown()
     {
+        GameInput.Instance.panelOpen = true;
+        Player.Instance.audioSource.mute = true;
         animator.SetBool("DownRope", true);
         Player.Instance.StartToMove(destination);
         while (Player.Instance.isMovingToDestination)
@@ -47,11 +49,15 @@ public class PitInside : MonoBehaviour
         }
         polygonCollider.enabled = true;
         animator.SetBool("DownRope", false);
+        Player.Instance.audioSource.mute = false;
+        GameInput.Instance.panelOpen = false;
     }
     private IEnumerator StartUp()
     {
         if (Inventory.Instance.HasItem(5) == true)
         {
+            GameInput.Instance.panelOpen = true;
+            Player.Instance.audioSource.mute = true;
             polygonCollider.enabled = false;
             player.transform.position = position.position;
             animator.SetTrigger("UpRope");
@@ -140,7 +146,7 @@ public class PitInside : MonoBehaviour
         j++;
         animator.SetTrigger("UpRope");
         scrollSpeed = 0.1f;
-        if (j == 5)
+        if (j == 4)
         {
             CameraController.Instance.FollowNull();
             rb.gravityScale = -20f;

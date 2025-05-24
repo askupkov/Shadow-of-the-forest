@@ -1,19 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameInput : MonoBehaviour
 {
-    public bool shift = false;
     public static GameInput Instance { get; private set; }
-
     private PlayerInputActions playerInputActions;
+    public bool panelOpen;
+
     private void Awake()
     {
         Instance = this;
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Book.Instance.BookOpen)
+            {
+                Book.Instance.OnDisableBook();
+            }
+            else if (Inventory.Instance.InventoryOpen)
+            {
+                Inventory.Instance.CloseInventory();
+            }
+            else if (AudioSetting.Instance.settingOpen)
+            {
+                AudioSetting.Instance.closeAudioSetting();
+            }
+            else if(!DialogueManager.Instance.dialogPanelOpen && !panelOpen)
+            {
+                Pause.Instance.managePause();
+            }
+        }
     }
 
     public void OnEnabled()

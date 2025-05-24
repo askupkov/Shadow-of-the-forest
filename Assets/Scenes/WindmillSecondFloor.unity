@@ -592,7 +592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630045744647086528, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.33111814
+      value: 0.33055013
       objectReference: {fileID: 0}
     - target: {fileID: 2630045744647086528, guid: 2347926d43b284b4ab1917914e3fa47a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -671,6 +671,7 @@ GameObject:
   - component: {fileID: 959787522}
   - component: {fileID: 959787524}
   - component: {fileID: 959787525}
+  - component: {fileID: 959787526}
   m_Layer: 0
   m_Name: komnata
   m_TagString: Untagged
@@ -839,6 +840,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 8280df4c58a510a42a0c13282432af13, type: 3}
+--- !u!114 &959787526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959787521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f8d4e0a92ff0944b19444fecbd0cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surface: 
 --- !u!1 &1241108016
 GameObject:
   m_ObjectHideFlags: 0

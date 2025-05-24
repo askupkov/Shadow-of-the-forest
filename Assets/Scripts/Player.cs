@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float movingSpeed = 10f;
     [SerializeField] private float runSpeed = 20f;
-    //public CapsuleCollider2D originalCollider; // Исходный коллайдер
-    //public CapsuleCollider2D shiftCollider; // Новый коллайдер при нажатии Shift
-    //public CapsuleCollider2D standCollider;
+    [SerializeField] AudioClip[] sounds;
+
     public GameObject shadow;
     public GameObject newshadow;
     public VectorValue pos;
@@ -24,7 +23,14 @@ public class Player : MonoBehaviour
     private int lastHorizontalDirection = 1;
 
     private NavMeshAgent navMeshAgent;
+    public AudioSource audioSource;
 
+    private float walkStepInterval = 0.8f;
+    private float runStepInterval = 0.4f;
+
+    private bool canPlayFootstep = true;
+    private Coroutine footstepCoroutine = null;
+    private bool isRunningState = false;
 
 
     public float speed;
@@ -38,14 +44,28 @@ public class Player : MonoBehaviour
     private void Start()
     {
         transform.position = pos.initialValue;
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
+        if(SurfaceZone.Instance.surface == "grass")
+        {
+            audioSource.clip = sounds[0];
+        }
+        else
+        {
+            audioSource.clip = sounds[1];
+        }
     }
 
     private void Update()
     {
-        if (Inventory.Instance.HasItem(10) && Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Candle();
-        } 
+            if (Inventory.Instance.HasItem(10))
+            {
+                Candle();
+            }
+        }
+
     }
 
     private void Awake()
@@ -89,6 +109,7 @@ public class Player : MonoBehaviour
     public void Candle()
     {
         lighting = !lighting;
+        audioSource.PlayOneShot(sounds[2]);
     }
 
     public void StartDie()
@@ -108,10 +129,9 @@ public class Player : MonoBehaviour
         GameInput.Instance.OnDisable();
     }
 
-
     private void HandleMovent()
     {
-
+        bool wasRunning = isRunningState;
         if (isMovingToDestination)
         {
             speed = movingSpeed;
@@ -125,28 +145,23 @@ public class Player : MonoBehaviour
             rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
         }
 
+        isRunningState = (speed == runSpeed);
+        if (wasRunning != isRunningState)
+        {
+            if (footstepCoroutine != null)
+            {
+                StopCoroutine(footstepCoroutine);
+            }
+            canPlayFootstep = true;
+        }
 
         if (speed == runSpeed && inputVector.x != 0)
         {
-            //shiftCollider.enabled = true;
-            //originalCollider.enabled = true;
-            //standCollider.enabled = true;
             shadow.SetActive(false);
             newshadow.SetActive(true);
         }
-        else if (speed == movingSpeed && inputVector.x != 0)
-        {
-            //originalCollider.enabled = true;
-            //shiftCollider.enabled = false;
-            //standCollider.enabled = false;
-            shadow.SetActive(true);
-            newshadow.SetActive(false);
-        }
         else
         {
-            //standCollider.enabled = true;
-            //originalCollider.enabled = false;
-            //shiftCollider.enabled = false;
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
@@ -192,17 +207,42 @@ public class Player : MonoBehaviour
         {
             isRunning = 0;
         }
+        if (inputVector != Vector2.zero)
+        {
+            PlayFootsteps();
+        }
     }
 
+    private void PlayFootsteps()
+    {
+        if (!canPlayFootstep) return;
+
+        if (footstepCoroutine != null)
+        {
+            StopCoroutine(footstepCoroutine);
+        }
+        footstepCoroutine = StartCoroutine(PlayFootstepCoroutine());
+    }
+
+    private IEnumerator PlayFootstepCoroutine()
+    {
+        canPlayFootstep = false;
+
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.Play();
+
+        float stepInterval = (speed == runSpeed) ? runStepInterval : walkStepInterval;
+
+        yield return new WaitForSeconds(stepInterval);
+
+        canPlayFootstep = true;
+    }
 
     private void HandleMoventStealth()
     {
         inputVector = GameInput.Instance.GetMovementVector();
         speed = movingSpeed;
         rb.MovePosition(rb.position + inputVector * (speed * Time.fixedDeltaTime));
-        //shiftCollider.enabled = false;
-        //standCollider.enabled = false;
-        //originalCollider.enabled = true;
         if (inputVector.x < 0)
         {
             isWalking = 3;
@@ -252,7 +292,6 @@ public class Player : MonoBehaviour
         GameInput.Instance.OnEnabled();
     }
 
-
     public bool IsLighting()
     {
         return lighting;
@@ -265,5 +304,4 @@ public class Player : MonoBehaviour
     {
         return isRunning;
     }
-
 }

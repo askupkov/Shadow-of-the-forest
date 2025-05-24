@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject); // Уничтожаем дубликат
         }
     }
+
     public void DestroyPersistentObject()
     {
         if (Instance != null)
@@ -32,12 +33,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
+        AudioSetting.Instance.UnMute();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Перезагрузка текущей сцены
-    }
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("MenuManager");
     }
 
     public void OnDestroy()

@@ -23,17 +23,22 @@ public class Swamp : MonoBehaviour
 
     [SerializeField] Transform destination1;
     [SerializeField] Transform destination2;
+
+    [SerializeField] AudioClip[] sounds;
     private bool second_ritual;
-    private bool passed;
     private bool flower;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         Instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
         {
             liliesAnim.SetTrigger("lilies");
@@ -88,18 +93,21 @@ public class Swamp : MonoBehaviour
                 }
                 swampItem.SetActive(true);
                 coinAnim.SetTrigger("TriggerItem");
+                audioSource.PlayOneShot(sounds[0]);
                 DialogueManager.Instance.StartDialog(inkJSON, "coin");
                 while (DialogueManager.Instance.dialogPanelOpen)
                 {
                     yield return null;
                 }
                 oberegAnim.SetTrigger("TriggerItem");
+                audioSource.PlayOneShot(sounds[0]);
                 DialogueManager.Instance.StartDialog(inkJSON, "obereg");
                 while (DialogueManager.Instance.dialogPanelOpen)
                 {
                     yield return null;
                 }
                 stoneAnim.SetTrigger("TriggerItem");
+                audioSource.PlayOneShot(sounds[0]);
                 DialogueManager.Instance.StartDialog(inkJSON, "stone");
                 while (DialogueManager.Instance.dialogPanelOpen)
                 {
@@ -121,6 +129,7 @@ public class Swamp : MonoBehaviour
         {
             yield return null;
         }
+        GameInput.Instance.OnDisable();
     }
 
     private IEnumerator glass()
@@ -132,18 +141,21 @@ public class Swamp : MonoBehaviour
             yield return null;
         }
         loveAnim.SetTrigger("TriggerItem");
+        audioSource.PlayOneShot(sounds[0]);
         DialogueManager.Instance.StartDialog(inkJSON, "love");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
         }
         strahAnim.SetTrigger("TriggerItem");
+        audioSource.PlayOneShot(sounds[0]);
         DialogueManager.Instance.StartDialog(inkJSON, "strah");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
             yield return null;
         }
         vlastAnim.SetTrigger("TriggerItem");
+        audioSource.PlayOneShot(sounds[0]);
         DialogueManager.Instance.StartDialog(inkJSON, "vlast");
         while (DialogueManager.Instance.dialogPanelOpen)
         {
@@ -219,8 +231,10 @@ public class Swamp : MonoBehaviour
 
     private IEnumerator final()
     {
+        GameInput.Instance.OnDisable();
         swampGlass.SetActive(false);
         vodyanoyAnim.SetTrigger("poyavlenie");
+        audioSource.PlayOneShot(sounds[1]);
         yield return new WaitForSeconds(2f);
         DialogueManager.Instance.StartDialog(inkJSON, "final");
         while (DialogueManager.Instance.dialogPanelOpen)
@@ -228,6 +242,7 @@ public class Swamp : MonoBehaviour
             yield return null;
         }
         vodyanoyAnim.SetTrigger("ischeznovenie");
+        audioSource.PlayOneShot(sounds[1]);
         yield return new WaitForSeconds(1f);
         liliesAnim.SetTrigger("lilies");
         lilies.enabled = false;

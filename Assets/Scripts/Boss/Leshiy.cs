@@ -9,17 +9,21 @@ public class Leshiy : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
     private bool playerInRange;
 
-    [SerializeField] private GameObject spikePrefab;
-    [SerializeField] private Collider2D[] spawnAreas;
+    [SerializeField] GameObject spikePrefab;
+    [SerializeField] Collider2D[] spawnAreas;
+    [SerializeField] AudioClip[] sounds;
     private int spikesCount = 15; // Количество шипов за атаку
     [SerializeField] private float spikeLifetime; // Время жизни шипов
     private float nextAttackTime = 0f;
     private float attackRate = 1f;
     private int waveLength;
+    private AudioSource audioSource;
 
     private void Start()
     {
         StartCoroutine(FirstWave());
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
 
     private void Update()
@@ -53,6 +57,8 @@ public class Leshiy : MonoBehaviour
             {
                 case "RootsLeft":
                     animatorLeshiy.SetTrigger("Left");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     string spikesType = spikesTypes[Random.Range(0, 2)];
                     switch (spikesType)
                     {
@@ -69,6 +75,8 @@ public class Leshiy : MonoBehaviour
 
                 case "RootsRight":
                     animatorLeshiy.SetTrigger("Right");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     spikesType = spikesTypes[Random.Range(1, 3)];
                     switch (spikesType)
                     {
@@ -106,12 +114,16 @@ public class Leshiy : MonoBehaviour
             {
                 case "RootsLeft":
                     animatorLeshiy.SetTrigger("Left");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     TriggerSpikesAttack(0);
                     TriggerSpikesAttack(1);
                     break;
 
                 case "RootsRight":
                     animatorLeshiy.SetTrigger("Right");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     TriggerSpikesAttack(0);
                     TriggerSpikesAttack(2);
                     break;
@@ -137,18 +149,24 @@ public class Leshiy : MonoBehaviour
             {
                 case "LeftMid":
                     animatorLeshiy.SetTrigger("Hit");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     TriggerSpikesAttack(0);
                     TriggerSpikesAttack(1);
                     break;
 
                 case "MidRight":
                     animatorLeshiy.SetTrigger("Hit");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     TriggerSpikesAttack(0);
                     TriggerSpikesAttack(2);
                     break;
 
                 case "LeftRight":
                     animatorLeshiy.SetTrigger("Hit");
+                    yield return new WaitForSeconds(0.3f);
+                    audioSource.PlayOneShot(sounds[0]);
                     TriggerSpikesAttack(1);
                     TriggerSpikesAttack(2);
                     break;
@@ -207,7 +225,6 @@ public class Leshiy : MonoBehaviour
         }
     }
 
-
     public void TriggerSpikesAttack(int spawn)
     {
         StartCoroutine(SpawnSpikes(spawn));
@@ -228,6 +245,8 @@ public class Leshiy : MonoBehaviour
             Collider2D randomCollider = spawnAreas[spawn];
             Bounds bounds = randomCollider.bounds;
 
+            audioSource.PlayOneShot(sounds[1]);
+
             float x = Random.Range(bounds.min.x, bounds.max.x);
             float y = Random.Range(bounds.min.y, bounds.max.y);
             Vector2 randomPosition = new Vector2(x, y);
@@ -236,25 +255,6 @@ public class Leshiy : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
-
-    //private void SpawnSingleSpike(int spawn)
-    //{
-    //    Vector2 randomPosition = GetRandomPointInZone(spawn);
-    //    GameObject spike = Instantiate(spikePrefab, randomPosition, Quaternion.identity);
-    //    Destroy(spike, spikeLifetime);
-    //}
-
-    //public Vector2 GetRandomPointInZone(int spawn)
-    //{
-    //    //Collider2D randomCollider = spawnAreas[Random.Range(0, spawnAreas.Length)];
-    //    Collider2D randomCollider = spawnAreas[spawn];
-    //    Bounds bounds = randomCollider.bounds;
-
-    //    float x = Random.Range(bounds.min.x, bounds.max.x);
-    //    float y = Random.Range(bounds.min.y, bounds.max.y);
-
-    //    return new Vector2(x, y);
-    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {

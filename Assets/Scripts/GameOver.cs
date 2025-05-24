@@ -20,6 +20,8 @@ public class GameOver : MonoBehaviour
     public void ShowGameOverScreen()
     {
         gameOverPanel.SetActive(true); // Показываем панель при смерти
+        Time.timeScale = 0f;
+        AudioSetting.Instance.Mute();
     }
 
     public void OnRestartButton()
@@ -34,9 +36,8 @@ public class GameOver : MonoBehaviour
         gameOverPanel.SetActive(false);
     }
 
-    public void OnMainMenuButton()
+    public void Exit()
     {
-        GameManager.Instance.ReturnToMainMenu();
-        gameOverPanel.SetActive(false);
+        Application.Quit();
     }
 }

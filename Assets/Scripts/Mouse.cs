@@ -12,9 +12,12 @@ public class Mouse : MonoBehaviour
     [SerializeField] GameObject mouse;
     [SerializeField] TextAsset inkJSON;
     [SerializeField] Animator animator;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         Collider = GetComponent<BoxCollider2D>();
         if(PlayerPrefs.GetInt("HouseGrigoriy", 0) == 1)
         {
@@ -35,6 +38,7 @@ public class Mouse : MonoBehaviour
     {
         GameInput.Instance.OnDisable();
         yield return new WaitForSeconds(1f);
+        audioSource.Play();
         NPC.Instance.StartToMove(destination1);
         while (NPC.Instance.isMovingToDestination)
         {

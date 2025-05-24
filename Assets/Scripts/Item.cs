@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -9,7 +10,7 @@ public class Item_script : MonoBehaviour
     public string itemName;
     public Canvas interactionButtons;
     private static Item_script currentActiveItem;
-  
+
     private void Awake()
     {
         Instance = this;
@@ -25,13 +26,25 @@ public class Item_script : MonoBehaviour
 
     public void UseItem()
     {
-        Item_script.Instance.CloseMenu();
+        StartCoroutine(Use());
+    }
+
+    private IEnumerator Use()
+    {
+        yield return new WaitForSeconds(0.1f);
+        CloseMenu();
         Inventory.Instance.UseItem(itemID);
     }
 
     public void inspectItem()
     {
-        Item_script.Instance.CloseMenu();
+        StartCoroutine(Inspect());
+    }
+
+    private IEnumerator Inspect()
+    {
+        yield return new WaitForSeconds(0.1f);
+        CloseMenu();
         Inventory.Instance.backGround.SetActive(false);
         Inventory.Instance.InventoryOpen = false;
         DialogueManager.Instance.StartDialog(inkJSON, itemName);

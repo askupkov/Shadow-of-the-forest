@@ -25,6 +25,7 @@ public class SceneController : MonoBehaviour
         if (playerInRange)
         {
             StartCoroutine(LoadScene(sceneToLoad));
+            playerInRange = false;
         }
     }
 

@@ -30,6 +30,7 @@ public class Mushroom : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] bool damage;
     private bool isDamageTriggered = false;
+    private AudioSource audioSource;
 
     private enum State
     {
@@ -48,7 +49,12 @@ public class Mushroom : MonoBehaviour
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
         state = startingState;
+    }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
 
     private void Update()
@@ -116,6 +122,7 @@ public class Mushroom : MonoBehaviour
 
             nextAttackTime = Time.time + attackRate;
             Healthbar.Instance.TakeDamage(10);
+            audioSource.Play();
         }
     }
 

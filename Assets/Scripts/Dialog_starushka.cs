@@ -12,6 +12,7 @@ public class Dialog_starushka : MonoBehaviour
     private BoxCollider2D Collider;
     [SerializeField] BoxCollider2D Collider2;
     [SerializeField] Transform destination;
+    private AudioSource audioSource;
 
 
     private void Awake()
@@ -21,9 +22,11 @@ public class Dialog_starushka : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         Collider = GetComponent<BoxCollider2D>();
         LoadState();
-        if(PlayerPrefs.GetInt("startVilage", 0) != 1)
+        if (PlayerPrefs.GetInt("startVilage", 0) != 1)
         {
             DialogueManager.Instance.StartDialog(inkJSON, "starushka0");
         }
@@ -41,6 +44,7 @@ public class Dialog_starushka : MonoBehaviour
         DialogueManager.Instance.StartDialog(inkJSON, "starushka1");
         isSecondDialogStarted = true;
         Animator.SetBool("Dialog_starushka", true);
+        audioSource.Play();
     }
 
     private void Update()
@@ -63,8 +67,16 @@ public class Dialog_starushka : MonoBehaviour
 
         if (!DialogueManager.Instance.dialogPanelOpen && isThirdDialogStarted)
         {
+            isThirdDialogStarted = false;
+            StartCoroutine(playAudio());
             Animator.SetBool("Dialog_starushka", false);
         }
+    }
+
+    private IEnumerator playAudio()
+    {
+        yield return new WaitForSeconds(0.4f);
+        audioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

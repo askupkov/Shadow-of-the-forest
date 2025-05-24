@@ -8,25 +8,31 @@ public class Watch : MonoBehaviour
     public string startingPoint;
     private bool playerInRange = false;
     private BoxCollider2D Collider;
+    private AudioSource audioSource;
 
     private void Start()
     {
         Collider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !Pause.Instance.pauseOpen)
         {
-            DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
+            StartCoroutine(watchCoroutine());
         }
-        if (DialogueManager.Instance.dialogPanelOpen == true)
+    }
+
+    private IEnumerator watchCoroutine()
+    {
+        DialogueManager.Instance.StartDialog(inkJSON, startingPoint);
+        while (DialogueManager.Instance.dialogPanelOpen == true)
         {
             Collider.enabled = false;
+            yield return null;
         }
-        else
-        {
-            Collider.enabled = true;
-        }
+        Collider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

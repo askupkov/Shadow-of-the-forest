@@ -14,12 +14,30 @@ public class PrologueManager : MonoBehaviour
     [SerializeField] TextAsset inkJSON;
 
     private List<string[]> chapters = new List<string[]>();
-    private float textDelay = 3f;
+    private float textDelay = 4f;
+    private AudioSource audioSource;
 
     private void Start()
     {
         LoadInkData();
         StartCoroutine(ShowPrologue());
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterMusic(audioSource);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (AudioSetting.Instance.settingOpen)
+            {
+                AudioSetting.Instance.closeAudioSetting();
+            }
+            else
+            {
+                Pause.Instance.managePause();
+            }
+        }
     }
 
     private void LoadInkData()

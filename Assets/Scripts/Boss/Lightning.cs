@@ -6,6 +6,7 @@ public class Lightning : MonoBehaviour
     public static Lightning Instance { get; private set; }
     [SerializeField] private GameObject LightningPrefab;
     private float shadowSpeed = 3f;
+    private AudioSource audioSource;
 
     private Transform player;
 
@@ -16,6 +17,8 @@ public class Lightning : MonoBehaviour
     private void Start()
     {
         player = Player.Instance.transform;
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
 
     public void TriggerLightningAttack()
@@ -25,7 +28,6 @@ public class Lightning : MonoBehaviour
 
     private IEnumerator LightningAttackRoutine()
     {
-        
         GameObject currentLightning = Instantiate(LightningPrefab, transform.position, Quaternion.identity);
         Rigidbody2D LightningRb = currentLightning.GetComponent<Rigidbody2D>();
         Animator animator = currentLightning.GetComponent <Animator>();
@@ -41,6 +43,7 @@ public class Lightning : MonoBehaviour
         LightningRb.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.3f);
         animator.SetTrigger("Hit");
+        audioSource.Play();
         if (Vector2.Distance(player.position, currentLightning.transform.position) < 1f)
         {
             PlayerVisual.Instance.TriggerDamage();

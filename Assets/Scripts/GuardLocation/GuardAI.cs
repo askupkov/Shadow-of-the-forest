@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,8 @@ public class GuardAI : MonoBehaviour
     [SerializeField] GameObject Left;
     [SerializeField] GameObject Back;
     [SerializeField] GameObject Front;
+    [SerializeField] private Renderer targetRenderer;
+    [SerializeField] AudioClip[] sounds;
 
     private bool gameover;
     private bool isWaiting = true;
@@ -27,7 +30,8 @@ public class GuardAI : MonoBehaviour
     private Rigidbody2D rb;
     private int isWalking;
     private bool playerInRange;
-
+    public AudioSource audioSource;
+    private bool audioplay = true;
 
     private enum State
     {
@@ -49,6 +53,12 @@ public class GuardAI : MonoBehaviour
         navMeshAgent.SetDestination(currentDestination);
     }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
+    }
+
     private void Update()
     {
         if (!gameover)
@@ -56,6 +66,14 @@ public class GuardAI : MonoBehaviour
             StateHandler();
         }
         HandleMovement();
+        if (targetRenderer.isVisible)
+        {
+            audioSource.UnPause();
+        }
+        else
+        {
+            audioSource.Pause();
+        }
     }
 
     private void TriggerDamage()
@@ -153,7 +171,7 @@ public class GuardAI : MonoBehaviour
             // Начинаем атаку
             gameover = true;
             animator.SetTrigger("Attack");
-
+            audioSource.PlayOneShot(sounds[1]);
             NoiseManager.Instance.GameOver();
         }
     }
@@ -225,10 +243,24 @@ public class GuardAI : MonoBehaviour
         {
             isWalking = 0;
         }
-
+        if(isWalking != 0)
+        {
+            StartCoroutine(footstepManage());
+        }
         UpdateAnimations();
     }
 
+    private IEnumerator footstepManage()
+    {
+        if (audioplay)
+        {
+            audioplay = false;
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.Play();
+            yield return new WaitForSeconds(0.6f);
+            audioplay = true;
+        }
+    }
     private void UpdateAnimations()
     {
         animator.SetInteger("IsWalking", isWalking);

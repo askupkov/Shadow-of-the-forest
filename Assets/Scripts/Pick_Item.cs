@@ -16,11 +16,12 @@ public class Pick_Item : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Collider = GetComponent<BoxCollider2D>();
     }
     private void Start()
     {
-        Collider = GetComponent<BoxCollider2D>();
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1 && DestroyItem)
         {
             Destroy(gameObject);
@@ -28,7 +29,7 @@ public class Pick_Item : MonoBehaviour
     }
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !Pause.Instance.pauseOpen)
         {
             StartCoroutine(pick_item());
         }
@@ -36,7 +37,7 @@ public class Pick_Item : MonoBehaviour
 
     private IEnumerator pick_item()
     {
-        //audioSource.Play();
+        audioSource.Play();
         Collider.enabled = false;
         GameInput.Instance.OnDisable();
         Item selectedItem = Inventory.Instance.data.items[itemID];

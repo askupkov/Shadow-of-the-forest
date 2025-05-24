@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && dialogPanelOpen == true)
+        if (Input.GetKeyDown(KeyCode.E) && dialogPanelOpen == true && !Pause.Instance.pauseOpen)
         {
             SkipTextClick();
         }

@@ -25,6 +25,13 @@ public class GuardLocation : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(gameObject.name, 0) != 1)
         {
+            foreach (var guard in GuardAI.guards)
+            {
+                if (guard.audioSource != null)
+                {
+                    guard.audioSource.mute = true;
+                }
+            }
             GameInput.Instance.OnDisable();
             CameraController.changeFollowTargetEvent(Guards);
             animator.SetTrigger("start");
@@ -37,6 +44,13 @@ public class GuardLocation : MonoBehaviour
                 yield return null;
             }
             GameInput.Instance.OnEnabled();
+            foreach (var guard in GuardAI.guards)
+            {
+                if (guard.audioSource != null)
+                {
+                    guard.audioSource.mute = false;
+                }
+            }
         }
         PlayerPrefs.SetInt(gameObject.name, 1);
         Player.Instance.stealth = true;

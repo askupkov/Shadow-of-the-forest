@@ -11,14 +11,16 @@ public class Book : MonoBehaviour
 
     [SerializeField] Animator animator;
     [SerializeField] TextAsset inkJSON;
+    [SerializeField] AudioClip[] sounds;
 
     public GameObject BookUI; // UI-панель с книгой
     public TextMeshProUGUI[] pageTexts; // Массив текстовых полей для страниц
     [SerializeField] Image pageImages; // Массив изображений для страниц
     [SerializeField] Sprite[] pageSprites;
     [SerializeField] GameObject button;
-    public bool BookOpen;
+    public bool BookOpen = false;
 
+    private AudioSource audioSource;
     private int countPage = 3; // Количество страниц
     private int currentPage = 0; // Текущая страница
     private Story currentStory;
@@ -31,18 +33,12 @@ public class Book : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         currentStory = new Story(inkJSON.text);
         CacheStoryLines();
         UpdatePageText();
         BookUI.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && BookOpen)
-        {
-            OnDisableBook();
-        }
     }
 
     private void CacheStoryLines()
@@ -64,11 +60,16 @@ public class Book : MonoBehaviour
 
         if (currentPage < countPage)
         {
+            audioSource.PlayOneShot(sounds[1]);
             isAnimating = true;
             animator.SetTrigger("Next_page");
             currentPage++;
             StartCoroutine(AnimatePage(() => FadeInText()));
             ClearPageText();
+        }
+        else
+        {
+            audioSource.PlayOneShot(sounds[3]);
         }
     }
 
@@ -78,11 +79,16 @@ public class Book : MonoBehaviour
 
         if (currentPage > 0)
         {
+            audioSource.PlayOneShot(sounds[1]);
             isAnimating = true;
             animator.SetTrigger("Previous_page");
             currentPage--;
             StartCoroutine(AnimatePage(() => FadeInText()));
             ClearPageText();
+        }
+        else
+        {
+            audioSource.PlayOneShot(sounds[3]);
         }
     }
 
@@ -144,6 +150,7 @@ public class Book : MonoBehaviour
     {
         BookOpen = true;
         BookUI.SetActive(true);
+        audioSource.PlayOneShot(sounds[0]);
         StartCoroutine(InputDisabled());
     }
 
@@ -155,6 +162,7 @@ public class Book : MonoBehaviour
 
     public void OnDisableBook()
     {
+        audioSource.PlayOneShot(sounds[2]);
         GameInput.Instance.OnEnabled();
         BookOpen = false;
         currentPage = 0;

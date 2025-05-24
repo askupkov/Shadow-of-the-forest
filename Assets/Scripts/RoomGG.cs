@@ -22,7 +22,8 @@ public class RoomGG : MonoBehaviour
     {
         GameInput.Instance.OnDisable();
         animator.SetTrigger("Bed");
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.2f);
+        Player.Instance.audioSource.Play();
         PlayerPrefs.SetInt(gameObject.name, 1);
         GameInput.Instance.OnEnabled();
         bedCollider.enabled = true;

@@ -7,6 +7,7 @@ public class Bush : MonoBehaviour
     private bool playerInRange = false;
     private Animator Animator;
     private BoxCollider2D Collider;
+    private AudioSource audioSource;
     private string PlayerPrefsKey => $"{gameObject.name}";
 
     private void Awake()
@@ -16,6 +17,9 @@ public class Bush : MonoBehaviour
     }
     private void Start()
     {
+        Collider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         bool hasBerries = PlayerPrefs.GetInt(PlayerPrefsKey, 0) == 1;
         Animator.SetBool("With_berries", true);
 
@@ -38,6 +42,7 @@ public class Bush : MonoBehaviour
     {
         if (Animator.GetBool("With_berries"))
         {
+            audioSource.Play();
             Animator.SetBool("With_berries", false);
 
             ItemController.Instance.addPickedItems(gameObject.name);

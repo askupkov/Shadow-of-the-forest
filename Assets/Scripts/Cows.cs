@@ -4,17 +4,21 @@ using UnityEngine;
 public class Cows : MonoBehaviour
 {
     public static Cows Instance { get; private set; }
-    Animator animator;
     public bool playerInRange;
-    [SerializeField] Pick_Item Pick_Item;
     [SerializeField] TextAsset inkJSON;
     PolygonCollider2D Collider;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         Instance = this;
         Collider = GetComponent<PolygonCollider2D>();
-        animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
     }
 
     private void Update()
@@ -38,6 +42,17 @@ public class Cows : MonoBehaviour
             yield return null;
         }
         Collider.enabled = true;
+    }
+
+    public void bucket()
+    {
+        if (playerInRange)
+        {
+            Inventory.Instance.ConsumeItem(8);
+            Inventory.Instance.AddItem(9);
+            PlayerPrefs.SetInt("cows", 1);
+            audioSource.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
