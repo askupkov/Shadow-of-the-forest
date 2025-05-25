@@ -27,18 +27,18 @@ public class PitInside : MonoBehaviour
     {
         Instance = this;
         Collider = GetComponent<BoxCollider2D>();
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        rb = player.GetComponent<Rigidbody2D>();
         StartCoroutine(StartDown());
         visit = true;
     }
 
     private IEnumerator StartDown()
     {
-        GameInput.Instance.panelOpen = true;
+        yield return new WaitForSeconds(0.1f);
         Player.Instance.audioSource.mute = true;
         animator.SetBool("DownRope", true);
         Player.Instance.StartToMove(destination);
@@ -50,7 +50,6 @@ public class PitInside : MonoBehaviour
         polygonCollider.enabled = true;
         animator.SetBool("DownRope", false);
         Player.Instance.audioSource.mute = false;
-        GameInput.Instance.panelOpen = false;
     }
     private IEnumerator StartUp()
     {
@@ -67,6 +66,7 @@ public class PitInside : MonoBehaviour
             {
                 yield return null;
             }
+            GameInput.Instance.panelOpen = true;
             GameInput.Instance.OnDisable();
             Renderer renderer = GetComponent<Renderer>();
             if (renderer != null)
@@ -146,7 +146,7 @@ public class PitInside : MonoBehaviour
         j++;
         animator.SetTrigger("UpRope");
         scrollSpeed = 0.1f;
-        if (j == 4)
+        if (j == 5)
         {
             CameraController.Instance.FollowNull();
             rb.gravityScale = -20f;
@@ -164,7 +164,7 @@ public class PitInside : MonoBehaviour
         }
         else
         {
-            GaugeGame.Instance.speed += 300f;
+            GaugeGame.Instance.speed += 250f;
             GaugeGame.Instance.victoryPanel.SetActive(true);
             yield return new WaitForSeconds(2f);
             GaugeGame.Instance.victoryPanel.SetActive(false);

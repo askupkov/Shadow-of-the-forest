@@ -579,8 +579,9 @@ MonoBehaviour:
   Front: {fileID: 6980512283401361758}
   targetRenderer: {fileID: 927216763282875384}
   sounds:
-  - {fileID: 8300000, guid: f089684d29b680247a85ac60825a742e, type: 3}
-  - {fileID: 8300000, guid: 91a4b06031e4db64bbb726247e8ac565, type: 3}
+  - {fileID: 8300000, guid: cb0b925e142a6674b87f0da42bbfd7c1, type: 3}
+  - {fileID: 8300000, guid: 3e3c8a3270c41bf49871ce0632e195a8, type: 3}
+  audioSource: {fileID: 0}
 --- !u!195 &4957489984956819647
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f089684d29b680247a85ac60825a742e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cb0b925e142a6674b87f0da42bbfd7c1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -8939,8 +8939,8 @@ MonoBehaviour:
   destination: {fileID: 1325799440}
   destination2: {fileID: 1357267940}
   sounds:
-  - {fileID: 8300000, guid: c7fb32853eb38b94e97d75ebf8944373, type: 3}
-  - {fileID: 8300000, guid: 061a2ce9a9a9115438ef9a00409dc9df, type: 3}
+  - {fileID: 8300000, guid: 093a1370ffbc4874ab73f2d964c17d81, type: 3}
+  - {fileID: 8300000, guid: abd9fe0bd8e78344c9811f08778f1abb, type: 3}
   final_scene: {fileID: 826895407}
 --- !u!82 &1961694475
 AudioSource:

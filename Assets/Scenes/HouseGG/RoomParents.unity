@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491f5d264ac150e4e9b4eb8cb4a4f790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shift: 0
+  panelOpen: 0
 --- !u!4 &1332535798
 Transform:
   m_ObjectHideFlags: 0
@@ -2440,6 +2440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 923816193045718352, guid: b90df7ec6cc9e2a4087aa85b204e9394, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b743c767001cc2c4e8afff99fe20b0d7, type: 3}
     - target: {fileID: 2805056801627731647, guid: b90df7ec6cc9e2a4087aa85b204e9394, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.36

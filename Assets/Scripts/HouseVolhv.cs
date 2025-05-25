@@ -100,6 +100,11 @@ public class HouseVolhv : MonoBehaviour
         GameInput.Instance.OnDisable();
         animator.SetTrigger("Head");
         yield return new WaitForSeconds(1.3f);
+        DialogueManager.Instance.StartDialog(inkJSON, "volhv4");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
+        }
         GameInput.Instance.OnEnabled();
     }
 
@@ -132,14 +137,6 @@ public class HouseVolhv : MonoBehaviour
 
     private void LoadState()
     {
-        //if (PlayerPrefs.HasKey("Volhv_ColliderEnabled"))
-        //{
-        //    Collider.enabled = PlayerPrefs.GetInt("Volhv_ColliderEnabled") == 1;
-        //}
-        //if (PlayerPrefs.HasKey("Volhv_Collider2Enabled"))
-        //{
-        //    Collider2.enabled = PlayerPrefs.GetInt("Volhv_Collider2Enabled") == 1;
-        //}
         if (PlayerPrefs.GetInt("Volhv_ColliderEnabled", 0) == 1)
         {
             Collider.enabled = false;

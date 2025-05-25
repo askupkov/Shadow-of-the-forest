@@ -1317,6 +1317,9 @@ MonoBehaviour:
   animator2: {fileID: 1570000044}
   Collider: {fileID: 177042883}
   inkJSON: {fileID: 4900000, guid: 8280df4c58a510a42a0c13282432af13, type: 3}
+  sounds:
+  - {fileID: 8300000, guid: 0fb6ec71582264e458e41cbb3494fdef, type: 3}
+  - {fileID: 8300000, guid: abc743e19123e3440ba34eb0e8d53947, type: 3}
 --- !u!61 &177042883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10640,7 +10643,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0c1ef9de2d68a0f43babfc9124feb1fe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: abc743e19123e3440ba34eb0e8d53947, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

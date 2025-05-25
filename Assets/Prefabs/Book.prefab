@@ -607,9 +607,9 @@ MonoBehaviour:
   animator: {fileID: 6529923168189389298}
   inkJSON: {fileID: 4900000, guid: d9c002b3eb698c647a21a150d74a5b68, type: 3}
   sounds:
-  - {fileID: 8300000, guid: 785815fd26648d042a0069760e5ccc42, type: 3}
-  - {fileID: 8300000, guid: e14f1173406550043a1d0d0b4b460ef1, type: 3}
-  - {fileID: 8300000, guid: e85bd6e10076ae649a2fd2c65927646e, type: 3}
+  - {fileID: 8300000, guid: 9da33dbe61499394ea5d3d2c0455ab6e, type: 3}
+  - {fileID: 8300000, guid: 029eb9e249679f449a0d05c1b60b00ea, type: 3}
+  - {fileID: 8300000, guid: 9f345facc21648c4a8d56df8ef130ccc, type: 3}
   - {fileID: 8300000, guid: fa50faa86940e68408901285094fbd79, type: 3}
   BookUI: {fileID: 400491113446935795}
   pageTexts:

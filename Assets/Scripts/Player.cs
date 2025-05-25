@@ -8,52 +8,49 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float movingSpeed = 10f;
     [SerializeField] private float runSpeed = 20f;
-    [SerializeField] AudioClip[] sounds;
+    public float speed;
+    private Rigidbody2D rb;
+    private Vector2 inputVector;
+    public VectorValue pos;
+
+    private NavMeshAgent navMeshAgent;
+    public bool isMovingToDestination = false;
+    private Transform targetDestination;
 
     public GameObject shadow;
     public GameObject newshadow;
-    public VectorValue pos;
-    public bool isMovingToDestination = false;
-    private Transform targetDestination;
-    public bool lighting;
-    public bool damage;
-    private Vector2 inputVector;
+    private int isWalking = 0;
+    private int isRunning = 0;
     private bool checkAnimation = true;
-    public bool stealth = false;
     private int lastHorizontalDirection = 1;
 
-    private NavMeshAgent navMeshAgent;
-    public AudioSource audioSource;
+    public bool lighting;
+
+    public bool stealth = false;
 
     private float walkStepInterval = 0.8f;
     private float runStepInterval = 0.4f;
-
     private bool canPlayFootstep = true;
-    private Coroutine footstepCoroutine = null;
+    private Coroutine footstepCoroutine;
     private bool isRunningState = false;
 
+    public AudioSource audioSource;
+    [SerializeField] AudioClip[] sounds;
+    private void Awake()
+    {
+        Instance = this;
+        rb = GetComponent<Rigidbody2D>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
-    public float speed;
-
-    private Rigidbody2D rb;
-
-
-    private int isWalking = 0;
-    private int isRunning = 0;
+        navMeshAgent.enabled = false;
+    }
 
     private void Start()
     {
         transform.position = pos.initialValue;
         audioSource = GetComponent<AudioSource>();
         AudioSetting.Instance.RegisterSfx(audioSource);
-        if(SurfaceZone.Instance.surface == "grass")
-        {
-            audioSource.clip = sounds[0];
-        }
-        else
-        {
-            audioSource.clip = sounds[1];
-        }
+        SetFootstepClip();
     }
 
     private void Update()
@@ -65,16 +62,33 @@ public class Player : MonoBehaviour
                 Candle();
             }
         }
-
     }
 
-    private void Awake()
+    private void FixedUpdate()
     {
-        Instance = this;
-        rb = GetComponent<Rigidbody2D>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        if (!stealth && checkAnimation)
+        {
+            HandleMovent();
+        }
+        else if (stealth)
+        {
+            HandleMoventStealth();
+        }
+    }
 
-        navMeshAgent.enabled = false;
+    private void SetFootstepClip()
+    {
+        if (SurfaceZone.Instance != null)
+        {
+            if (SurfaceZone.Instance.surface == "grass")
+            {
+                audioSource.clip = sounds[0];
+            }
+            else
+            {
+                audioSource.clip = sounds[1];
+            }
+        }
     }
 
     public void Noice()
@@ -90,19 +104,6 @@ public class Player : MonoBehaviour
         else
         {
             NoiseManager.Instance.DecreaseNoise(0.8f * Time.deltaTime);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (checkAnimation)
-        {
-            HandleMovent();
-        }
-        if (stealth)
-        {
-            HandleMoventStealth();
-            checkAnimation = false;
         }
     }
 
@@ -155,6 +156,18 @@ public class Player : MonoBehaviour
             canPlayFootstep = true;
         }
 
+        UpdateShadow();
+        UpdateDirection();
+
+
+        if (inputVector != Vector2.zero)
+        {
+            PlayFootsteps();
+        }
+    }
+
+    private void UpdateShadow()
+    {
         if (speed == runSpeed && inputVector.x != 0)
         {
             shadow.SetActive(false);
@@ -165,7 +178,10 @@ public class Player : MonoBehaviour
             shadow.SetActive(true);
             newshadow.SetActive(false);
         }
+    }
 
+    private void UpdateDirection()
+    {
         if (inputVector.x < 0)
         {
             isWalking = 3;
@@ -187,30 +203,7 @@ public class Player : MonoBehaviour
             isWalking = 0;
         }
 
-        if (inputVector.x < 0 && speed == runSpeed)
-        {
-            isRunning = 3;
-        }
-        else if (inputVector.x > 0 && speed == runSpeed)
-        {
-            isRunning = 1;
-        }
-        else if (inputVector.y > 0 && speed == runSpeed)
-        {
-            isRunning = 4;
-        }
-        else if (inputVector.y < 0 && speed == runSpeed)
-        {
-            isRunning = 2;
-        }
-        else
-        {
-            isRunning = 0;
-        }
-        if (inputVector != Vector2.zero)
-        {
-            PlayFootsteps();
-        }
+        isRunning = (speed == runSpeed && inputVector != Vector2.zero) ? isWalking : 0;
     }
 
     private void PlayFootsteps()
@@ -271,6 +264,7 @@ public class Player : MonoBehaviour
     private IEnumerator MoveToDestination(Transform destination)
     {
         GameInput.Instance.OnDisable();
+        GameInput.Instance.panelOpen = true;
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
         isMovingToDestination = true;
@@ -289,19 +283,11 @@ public class Player : MonoBehaviour
         }
 
         isMovingToDestination = false;
+        GameInput.Instance.panelOpen = false;
         GameInput.Instance.OnEnabled();
     }
 
-    public bool IsLighting()
-    {
-        return lighting;
-    }
-    public int IsWalking()
-    {
-        return isWalking;
-    }
-    public int IsRunning()
-    {
-        return isRunning;
-    }
+    public bool IsLighting() => lighting;
+    public int IsWalking() => isWalking;
+    public int IsRunning() => isRunning;
 }

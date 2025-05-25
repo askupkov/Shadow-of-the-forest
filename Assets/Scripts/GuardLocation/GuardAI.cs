@@ -143,6 +143,7 @@ public class GuardAI : MonoBehaviour
 
     private void Attacking()
     {
+        GameInput.Instance.panelOpen = true;
         Vector2 playerPosition = Player.Instance.transform.position;
 
         float directionX = Mathf.Sign(playerPosition.x - transform.position.x);

@@ -679,6 +679,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2307565995086055580, guid: 61abb6d8fa5004244ab146c920f62645, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307565995086055580, guid: 61abb6d8fa5004244ab146c920f62645, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307565995086055580, guid: 61abb6d8fa5004244ab146c920f62645, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307565995086055580, guid: 61abb6d8fa5004244ab146c920f62645, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.81
       objectReference: {fileID: 0}
@@ -1141,7 +1153,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56b6803678f61644db927991461ea4f0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 24f1ac67a61941548bd78334cc9d7e47, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1343,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491f5d264ac150e4e9b4eb8cb4a4f790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shift: 0
+  panelOpen: 0
 --- !u!4 &568807929
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,11 +2427,11 @@ PrefabInstance:
     - target: {fileID: 3920201852058324425, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: sounds.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: d92ca8d9b2e5e9c45a46a3d23eb81881, type: 3}
+      objectReference: {fileID: 8300000, guid: 4264a14407149ee45a9c0d4a21606444, type: 3}
     - target: {fileID: 3920201852058324425, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: sounds.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: d66d69156330cd544b09bb65d0579a99, type: 3}
+      objectReference: {fileID: 8300000, guid: b98b95090052591408f38f312c933ceb, type: 3}
     - target: {fileID: 8385787606633804218, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: m_Name
       value: Door 2
@@ -2847,7 +2859,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ee7748e59cf1b3b4687a843b171c0be8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 385c5d629bc2b6942a2b0750c8a1f4be, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3411,11 +3423,11 @@ PrefabInstance:
     - target: {fileID: 3920201852058324425, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: sounds.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: d92ca8d9b2e5e9c45a46a3d23eb81881, type: 3}
+      objectReference: {fileID: 8300000, guid: 4264a14407149ee45a9c0d4a21606444, type: 3}
     - target: {fileID: 3920201852058324425, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: sounds.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: d66d69156330cd544b09bb65d0579a99, type: 3}
+      objectReference: {fileID: 8300000, guid: b98b95090052591408f38f312c933ceb, type: 3}
     - target: {fileID: 8385787606633804218, guid: 48887854faa4a0d409f0d464d6e926bf, type: 3}
       propertyPath: m_Name
       value: Door

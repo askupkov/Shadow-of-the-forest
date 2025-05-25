@@ -6,6 +6,7 @@ public class PlayerVisual : MonoBehaviour
 {
     public static PlayerVisual Instance { get; private set; }
     private Animator animator;
+    private AudioSource audioSource;
 
     private const string IS_WALKING = "IsWalking";
     private const string IS_RUNNING = "IsRunning";
@@ -18,6 +19,12 @@ public class PlayerVisual : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
+    }
+
     private void Update()
     {
         animator.SetInteger(IS_WALKING, Player.Instance.IsWalking());
@@ -28,6 +35,7 @@ public class PlayerVisual : MonoBehaviour
     public void TriggerDamage()
     {
         animator.SetTrigger(DAMAGE);
+        audioSource.Play();
     }
 
     public void TriggerDie()

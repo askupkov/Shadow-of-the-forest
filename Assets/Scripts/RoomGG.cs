@@ -25,7 +25,13 @@ public class RoomGG : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         Player.Instance.audioSource.Play();
         PlayerPrefs.SetInt(gameObject.name, 1);
-        GameInput.Instance.OnEnabled();
         bedCollider.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        Management.Instance.OpenManagement();
+        while (Management.Instance.ManagePanelOpen)
+        {
+            yield return null;
+        }
+        GameInput.Instance.OnEnabled();
     }
 }

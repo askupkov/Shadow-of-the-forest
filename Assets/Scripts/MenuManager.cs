@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using static SceneController;
 
 public class Menu : MonoBehaviour
 {
@@ -56,6 +54,12 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
+        StartCoroutine(Exit());
+    }
+
+    private IEnumerator Exit()
+    {
+        yield return new WaitForSeconds(0.1f);
         Application.Quit();
     }
 }

@@ -139,12 +139,17 @@ public class RitualСircle : MonoBehaviour
     
     private IEnumerator final()
     {
+        yield return new WaitForSeconds(0.1f);
         Destroy(items);
         GameManager.Instance.OnDestroy();
         GameInput.Instance.OnDisable();
-        final_scene.SetActive(true);
         CameraController.changeFollowTargetEvent(final_scene.transform);
-        yield return new WaitForSeconds(5f);
+        final_scene.SetActive(true);
+        DialogueManager.Instance.StartDialog(inkJSON, "leshiy4");
+        while (DialogueManager.Instance.dialogPanelOpen)
+        {
+            yield return null;
+        }
         SceneController.Instance.StartLoadScene(0);
     }
 

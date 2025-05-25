@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5617179577336466225}
   - component: {fileID: 7500633307237422788}
   - component: {fileID: 5807698363285143109}
-  - component: {fileID: 5092203215201792639}
   m_Layer: 0
   m_Name: bush_noise
   m_TagString: Untagged
@@ -147,19 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f71cc05b537b8b49972badf69a3e3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5092203215201792639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829379124918182784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 1.4620934, y: 0.70095277, z: 4}
-  m_Center: {x: 0.004902512, y: 0.4315759, z: 0}
-  m_Area: 1
-  m_AffectedAgents: ffffffff

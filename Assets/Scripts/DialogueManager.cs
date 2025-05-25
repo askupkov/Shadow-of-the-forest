@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialog(TextAsset inkJSON, string startingPoint)
     {
-        if (Inventory.Instance.InventoryOpen == false)
+        if (Inventory.Instance.InventoryOpen == false && !Management.Instance.ManagePanelOpen)
         {
             currentStory = new Story(inkJSON.text);
             currentStory.ChoosePathString(startingPoint);

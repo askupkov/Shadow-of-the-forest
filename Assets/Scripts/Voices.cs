@@ -8,6 +8,7 @@ public class Voices : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] TextAsset inkJSON;
     [SerializeField] GameObject Shadow;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -18,11 +19,17 @@ public class Voices : MonoBehaviour
             Collider.enabled = false;
         }
     }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            audioSource.Play();
             PlayerPrefs.SetInt("Voices", 1);
             StartCoroutine(startVoices());
             Collider.enabled = false;
@@ -53,6 +60,7 @@ public class Voices : MonoBehaviour
         {
             yield return null;
         }
+        audioSource.Stop();
         GameInput.Instance.OnDisable();
         animator.SetTrigger("Voices3");
         yield return new WaitForSeconds(1f);

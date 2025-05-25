@@ -178,11 +178,6 @@ public class Leshiy : MonoBehaviour
             yield return new WaitForSeconds(3f);
         }
         yield return new WaitForSeconds(2f);
-        DialogueManager.Instance.StartDialog(inkJSON, "leshiy4");
-        while (DialogueManager.Instance.dialogPanelOpen)
-        {
-            yield return null;
-        }
         LoadScene();
     }
 

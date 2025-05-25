@@ -8,9 +8,12 @@ public class Windmill : MonoBehaviour
     private Animator animator;
     [SerializeField] Transform FollowCamera;
     [SerializeField] PolygonCollider2D Collider;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        AudioSetting.Instance.RegisterSfx(audioSource);
         animator = FollowCamera.GetComponent<Animator>();
         if (PlayerPrefs.GetInt(gameObject.name, 0) == 1)
         {
@@ -36,5 +39,10 @@ public class Windmill : MonoBehaviour
         CameraController.changeFollowTargetEvent(GameObject.Find("Player").transform);
         GameInput.Instance.OnEnabled();
         PlayerPrefs.SetInt(gameObject.name, 1);
+    }
+
+    private void sound()
+    {
+        audioSource.Play();
     }
 }

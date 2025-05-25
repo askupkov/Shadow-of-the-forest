@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Pause : MonoBehaviour
@@ -38,13 +39,23 @@ public class Pause : MonoBehaviour
 
     public void openSetting()
     {
-        pausePanel.SetActive(!pausePanel.activeSelf);
+        pausePanel.SetActive(false);
         pauseOpen = false;
         AudioSetting.Instance.openAudioSetting();
     }
 
+    public void openManagement()
+    {
+        Management.Instance.OpenManagement();
+    }
+
     public void exitGame()
     {
+        StartCoroutine(Exit());
+    }
+    private IEnumerator Exit()
+    {
+        yield return new WaitForSeconds(0.1f);
         Application.Quit();
     }
 }

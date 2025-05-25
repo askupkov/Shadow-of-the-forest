@@ -25,6 +25,11 @@ public class GameInput : MonoBehaviour
             {
                 Inventory.Instance.CloseInventory();
             }
+            else if (Management.Instance.ManagePanelOpen)
+            {
+                Management.Instance.ManagementPanel.SetActive(false);
+                Management.Instance.ManagePanelOpen = false;
+            }
             else if (AudioSetting.Instance.settingOpen)
             {
                 AudioSetting.Instance.closeAudioSetting();

@@ -152,6 +152,7 @@ public class Book : MonoBehaviour
         BookUI.SetActive(true);
         audioSource.PlayOneShot(sounds[0]);
         StartCoroutine(InputDisabled());
+        PlayerPrefs.SetInt("Victim", 1);
     }
 
     private IEnumerator InputDisabled()
@@ -181,7 +182,6 @@ public class Book : MonoBehaviour
             case 2:
                 break;
             case 3:
-                GameInput.Instance.OnEnabled();
                 if (Ritual—ircle.Instance != null)
                 {
                     if (Ritual—ircle.Instance.playerInRange)
@@ -191,6 +191,13 @@ public class Book : MonoBehaviour
                 }
                 break;
         }
+        StartCoroutine(readCoroutine());
+    }
+
+    private IEnumerator readCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GameInput.Instance.OnEnabled();
         BookOpen = false;
         currentPage = 0;
         BookUI.SetActive(false);

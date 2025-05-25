@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Man : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Man : MonoBehaviour
     public BoxCollider2D Collider;
     public TextAsset inkJSON;
     private AudioSource audioSource;
+    [SerializeField] AudioClip[] sounds;
 
     private bool playerInRange = false;
 
@@ -47,6 +49,7 @@ public class Man : MonoBehaviour
             yield return null;
         }
         GameInput.Instance.OnDisable();
+        GameInput.Instance.panelOpen = true;
         animator.SetBool("IsWalking", true);
         while (Vector2.Distance(transform.position, destination1.position) > 0.1f)
         {
@@ -79,9 +82,10 @@ public class Man : MonoBehaviour
             yield return null;
         }
         GameInput.Instance.OnDisable();
+        GameInput.Instance.panelOpen = true;
         animator2.SetBool("ComeIn", true);
         yield return new WaitForSeconds(1.8f);
-        audioSource.Play();
+        audioSource.PlayOneShot(sounds[1]);
         PlayerPrefs.SetInt("Man", 1);
         DialogueManager.Instance.StartDialog(inkJSON, "man2");
         while (DialogueManager.Instance.dialogPanelOpen)
@@ -89,7 +93,11 @@ public class Man : MonoBehaviour
             yield return null;
         }
         GameInput.Instance.panelOpen = false;
+    }
 
+    private void footsteps()
+    {
+        audioSource.PlayOneShot(sounds[0]);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
